@@ -11,8 +11,10 @@
 
 #include <iostream>
 #include <Eigen/Dense>
+#include <pcl/registration/correspondence_estimation.h>
 
 typedef Matrix<float,3,dynamic> DMat;
+typedef pcl::PointXYZ PointT;
 
 struct SolverSettings {
     int metric; //P2P CVX, P2P Analytic, P2Plane CVX
@@ -31,8 +33,8 @@ private:
     PoseEstimate pose;
     Matrix3f c_R, i_R; //current, initial rotation
     Vector3f c_T, i_T; //translation
-    kdtree tree;
-    DMat model;
-    DMat observation;
+    PointCloud<PointT> model;
+    PointCloud<PointT> observation;
+    pcl::CorespondenceEstimation<PointT, PointT> est;
 };
 #endif /* defined(____ICP__) */
