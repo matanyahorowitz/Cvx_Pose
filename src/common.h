@@ -19,6 +19,8 @@ struct SolverSettings {
     float tolerance;
     int parallelSolvers;
     //Todo: Pass a function for evaluating correspondence metric (for keypoints).
+    int options; //For analytic solution: 0 - ADMM, 1 - dual decomposition
+                 //For Cvx solution:
 };
 
 #endif

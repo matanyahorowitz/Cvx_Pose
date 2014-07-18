@@ -46,3 +46,8 @@ void PoseEstimate::getPose( Eigen::Matrix3f &rot, Eigen::Vector3f &trans )
     rot = this->R;
     trans = this->T;
 }
+
+void PoseEstimate::setCores( int num )
+{
+    this->cores = num;
+}

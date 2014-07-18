@@ -11,4 +11,10 @@
 
 #include <iostream>
 
+class SolvePoseCVX : public PoseEstimate
+{
+    void estimatePose();
+    void setModel(PointCloud<PointT>::Ptr model);
+};
+
 #endif /* defined(____SolvePoseCVX__) */
