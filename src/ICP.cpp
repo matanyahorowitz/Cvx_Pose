@@ -29,11 +29,13 @@ void ICP::setModel( PointCloud<PointT>::Ptr m )
     this->model = *m;
     //Model is target, because I believe it's the one the pcl::Correspondences creates a KDTree for, so we don't want to update it on every ICP iteration.
     est.setInputTarget( this->model );
+    pose.setModel( m );
 }
 
 void ICP::setObservation( PointCloud<PointT>::Ptr o )
 {
     this->observation = *o;
+    pose.setObservation( o );
 }
 
 void ICP::estPose()
@@ -41,14 +43,15 @@ void ICP::estPose()
     c_R = i_R;
     c_T = i_T;
     
-    //First do a coarse alignment.
+    //Todo: First do a coarse alignment.
     
     //Second, do a fine alignment.
-}
-
-void ICP::align()
-{
     
+    float error = settings.tolerance*100;
+    while( error > settings.tolerance )
+    {
+        singleIteration();
+    }
 }
 
 
@@ -58,16 +61,12 @@ void ICP::singleIteration()
     Eigen::Matrix4f transform = Eigen::Matrix4f::Identity();
     transform<3,3>(0,0) = c_R;
     transform<3,1>(0,4) = c_T;
-    PointCloud<PointT> aligned;
+    PointCloud<PointT> aligned, permuted;
     pcl::transformPointCloud( observation, aligned, transform );
     
     est.setInputSource( data );
     pcl::Correspondences cor;
     est.determineReciprocalCorrespondences(cor);
-    
-    //Convert point cloud to Eigen::Matrix type.
-    
-    DMat data = aligned::getMatrixXfMap( 3, 4, 0 );
     
     //Permute the data matrix in line with the correspondence
     
@@ -77,7 +76,10 @@ void ICP::singleIteration()
         P(it->index_query, cor->index_match) = 1;
     }
     
-    DMat fdata = data*P;
+    //Permute the solver's model. For now, also permute the ICP model
+    //Todo: This permutation may be backwards
+    pose.permuteData( P );
     
-    //Pass data and model along to the estimator
+    pcl::transformPointCloud( observation, permuted, P );//Redo so we can get rid of this extra operation
+    observation = permuted;
 }

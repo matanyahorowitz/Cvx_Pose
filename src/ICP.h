@@ -10,18 +10,8 @@
 #define ____ICP__
 
 #include <iostream>
-#include <Eigen/Dense>
 #include <pcl/registration/correspondence_estimation.h>
-
-typedef Matrix<float,3,dynamic> DMat;
-typedef pcl::PointXYZ PointT;
-
-struct SolverSettings {
-    int metric; //P2P CVX, P2P Analytic, P2Plane CVX
-    bool outlierRejection;
-    int parallelSolvers;
-    //Todo: Pass a function for evaluating correspondence metric (for keypoints).
-};
+#include "common.h"
 
 class ICP {
 public:
