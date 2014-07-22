@@ -10,12 +10,14 @@
 
 ICP::ICP()
 {
-    i_R = Matrix4f::Identity();
+    i_R = Eigen::Matrix3f::Identity();
     i_T << 0,0,0;
+    pose = new SolvePoseAnalytic();
 }
 
 ICP::~ICP()
 {
+    delete pose;
 }
 
 void ICP::setSolver(SolverSettings s)
@@ -23,19 +25,21 @@ void ICP::setSolver(SolverSettings s)
     this->settings = s;
 }
 
-void ICP::setModel( PointCloud<PointT>::Ptr m )
+void ICP::setModel( pcl::PointCloud<PointT>::Ptr m )
 {
     this->num_pts = m->size();
     this->model = *m;
+    pcl::PointCloud<PointT>::Ptr mod_ptr(&(this->model));
+    
     //Model is target, because I believe it's the one the pcl::Correspondences creates a KDTree for, so we don't want to update it on every ICP iteration.
-    est.setInputTarget( this->model );
-    pose.setModel( m );
+    this->est.setInputTarget( mod_ptr );
+    pose->setModel( m );
 }
 
-void ICP::setObservation( PointCloud<PointT>::Ptr o )
+void ICP::setObservation( pcl::PointCloud<PointT>::Ptr o )
 {
     this->observation = *o;
-    pose.setObservation( o );
+    this->pose->setObservation( o );
 }
 
 void ICP::estPose()
@@ -54,17 +58,25 @@ void ICP::estPose()
     }
 }
 
+void ICP::getPose( Eigen::Matrix3f &rot, Eigen::Vector3f &trans )
+{
+    rot = this->c_R;
+    trans = this->c_T;
+}
 
 void ICP::singleIteration()
 {
     //First, transform according to current pose estimate
     Eigen::Matrix4f transform = Eigen::Matrix4f::Identity();
-    transform<3,3>(0,0) = c_R;
-    transform<3,1>(0,4) = c_T;
-    PointCloud<PointT> aligned, permuted;
+    pcl::PointCloud<PointT> aligned, permuted;
+    
+    transform.block<3,3>(0,0) = c_R;
+    transform.block<3,1>(0,3) = c_T;
+    
     pcl::transformPointCloud( observation, aligned, transform );
     
-    est.setInputSource( data );
+    pcl::PointCloud<PointT>::Ptr al_ptr(&aligned);
+    this->est.setInputCloud( al_ptr );
     pcl::Correspondences cor;
     est.determineReciprocalCorrespondences(cor);
     
@@ -73,12 +85,12 @@ void ICP::singleIteration()
     Eigen::SparseMatrix<float> P(num_pts, num_pts);
     for( std::vector<pcl::Correspondence>::iterator it = cor.begin(); it != cor.end(); ++it)
     {
-        P(it->index_query, cor->index_match) = 1;
+        P.insert(it->index_query, it->index_match) = 1;
     }
     
     //Permute the solver's model. For now, also permute the ICP model
     //Todo: This permutation may be backwards
-    pose.permuteData( P );
+    pose->permuteData( P );
     
     pcl::transformPointCloud( observation, permuted, P );//Redo so we can get rid of this extra operation
     observation = permuted;

@@ -10,11 +10,17 @@
 #define ____SolvePoseCVX__
 
 #include <iostream>
+#include "PoseEstimate.h"
+#include "common.h"
 
 class SolvePoseCVX : public PoseEstimate
 {
+public:
+    SolvePoseCVX();
+    ~SolvePoseCVX();
     void estimatePose();
-    void setModel(PointCloud<PointT>::Ptr model);
+    void setModel(pcl::PointCloud<PointT>::Ptr model);
+private:
 };
 
 #endif /* defined(____SolvePoseCVX__) */

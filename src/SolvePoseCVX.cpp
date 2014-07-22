@@ -7,3 +7,23 @@
 //
 
 #include "SolvePoseCVX.h"
+
+SolvePoseCVX::SolvePoseCVX() : PoseEstimate()
+{
+    
+}
+
+SolvePoseCVX::~SolvePoseCVX()
+{
+    PoseEstimate::~PoseEstimate();
+}
+
+void SolvePoseCVX::estimatePose()
+{
+    
+}
+
+void setModel(pcl::PointCloud<PointT>::Ptr model)
+{
+ //   PoseEstimate::setModel( model );
+}

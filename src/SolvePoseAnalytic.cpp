@@ -8,10 +8,8 @@
 
 #include "SolvePoseAnalytic.h"
 
-SolvePoseAnalytic::SolvePoseAnalytic()
+SolvePoseAnalytic::SolvePoseAnalytic() : PoseEstimate()
 {
-    PoseEstimate::PoseEstimate();
-    
     A[1][1] <<   1, 0, 0, 0,
                  0,-1, 0, 0,
                  0, 0,-1, 0,
@@ -63,28 +61,28 @@ void SolvePoseAnalytic::estimatePose()
     {
         this->singleSolver();
     } else {
-        this->multiSolver();
+        this->multiSolvers();
     }
 }
 
-private void SolvePoseAnalytic::singleSolver()
+void SolvePoseAnalytic::singleSolver()
 {
     Eigen::Matrix3f data = obs*model.transpose();
     Eigen::Matrix4f data_adj;
     this->adjoint(data,data_adj);
-    EigenSolver<Matrix4f> eig(data_adj);
+    Eigen::EigenSolver<Eigen::Matrix4f> eig(data_adj);
     
-    Eigen::Vector4f eigVals = eig.eigenvalues();
+    Eigen::Vector4f eigVals = eig.eigenvalues().real();
     Eigen::Vector4f::Index maxEigLoc;
     eigVals.maxCoeff(&maxEigLoc);
     
-    Eigen::Vector4f maxVec = eig.eigenvectors().block<4,1>(1,maxEigLoc);
+    Eigen::Vector4f maxVec = eig.eigenvectors().real().block<4,1>(1,maxEigLoc);
     
     Eigen::Matrix4f z = maxVec*maxVec.transpose();
     this->z2so(z,R);
 }
 
-private void z2so( Eigen::Matrix4f z, Eigen::Matrix4f r )
+void SolvePoseAnalytic::z2so( Eigen::Matrix4f & z, Eigen::Matrix3f & r )
 {
     for (int i=0; i<3; i++) {
         for (int j=0; j<3; j++) {
@@ -93,26 +91,26 @@ private void z2so( Eigen::Matrix4f z, Eigen::Matrix4f r )
     }
 }
 
-private void SolvePoseAnalytic::multiSolvers()
+void SolvePoseAnalytic::multiSolvers()
 {
     
 }
 
-private void SolvePoseAnalytic::ADMMIter() {
+void SolvePoseAnalytic::ADMMIter() {
     
 }
 
-private void SolvePoseAnalytic::DualIter() {
+void SolvePoseAnalytic::DualIter() {
     
 }
 
-private void SolvePoseAnalytic::adjoint( Eigen::Matrix3f D, Eigen::Matrix4f & Dadj )
+void SolvePoseAnalytic::adjoint( Eigen::Matrix3f & D, Eigen::Matrix4f & Dadj )
 {
     Dadj.setZero();
     
     for( int i=0; i<3; i++ ) {
         for( int j=0; j<3; j++ ) {
-            Dadj += D(i,j)*A[i,j];
+            Dadj += A[i][j] * D(i,j);
         }
     }
 }

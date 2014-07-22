@@ -9,19 +9,26 @@
 #ifndef ____SolvePoseAnalytic__
 #define ____SolvePoseAnalytic__
 
+#include "common.h"
+#include "PoseEstimate.h"
 #include <iostream>
+
 class SolvePoseAnalytic : public PoseEstimate
 {
 public:
+    SolvePoseAnalytic();
+    ~SolvePoseAnalytic();
     void estimatePose();
     void setDecomposition( int method ); //0 ADMM, 1 dual decomposition
 private:
     void singleSolver();
-    void multiSolver();
-    Eigen::Matrix3f A[3][3];
+    void multiSolvers();
+    Eigen::Matrix4f A[3][3];
     int decomp_method;
     void ADMMIter();
     void DualIter();
+    void adjoint( Eigen::Matrix3f & D, Eigen::Matrix4f & Dadj );
+    void z2so( Eigen::Matrix4f & z, Eigen::Matrix3f & r );
 };
 
 #endif /* defined(____SolvePoseAnalytic__) */

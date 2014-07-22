@@ -1,0 +1,2 @@
+/usr/bin/ar cr libICP.a  CMakeFiles/ICP.dir/ICP.cpp.o CMakeFiles/ICP.dir/PoseEstimate.cpp.o CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o
+/usr/bin/ranlib libICP.a

@@ -9,8 +9,15 @@
 #ifndef _common_h
 #define _common_h
 #include <Eigen/Dense>
+#include <Eigen/Core>
+#include <Eigen/SparseCore>
 
-typedef Matrix<float,3,dynamic> DMat;
+#include "pcl/kdtree/impl/kdtree_flann.hpp" 
+
+#include <pcl/point_cloud.h>
+#include <pcl/point_types.h>
+
+typedef Eigen::Matrix<float,3,Eigen::Dynamic> DMat;
 typedef pcl::PointXYZ PointT;
 
 struct SolverSettings {

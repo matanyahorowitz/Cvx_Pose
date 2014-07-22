@@ -6,8 +6,13 @@
 //
 //
 
+#include "../src/common.h"
+#include "../src/ICP.h"
+
 #include <iostream>
-#include "ICP.h"
+#include <fstream>
+#include <sstream>
+
 
 int main() {
     ICP icp;
@@ -21,11 +26,50 @@ int main() {
     icp.setSolver( settings );
     
     //Import model and observation...
+    //from http://www.cplusplus.com/forum/beginner/26993/
+    
+    std::ifstream fin;
+    std::string input;
+    fin.open("data/bunny/bunny_vertices.txt");
+    
+    float x,y,z,ia,ib;
+    bool error = false;
+    pcl::PointCloud<PointT>::Ptr model_cloud( new pcl::PointCloud<PointT> );
+    
+    while( true ) {
+        std::getline(fin, input);
+        if( !fin ) break; //end of line?
+        
+        std::istringstream buffer(input);
+        buffer >> x >> y >> z >> ia >> ib;
+        
+        pcl::PointXYZ pt;
+        pt.x = x;
+        pt.y = y;
+        pt.z = z;
+        
+        model_cloud->push_back(pt);
+        
+        if (!buffer || !buffer.eof())
+        {
+            error=true;
+            break;
+        }
+    }
+    
+    if( error )
+        std::cout << "Error reading in bunny vertices.\n";
     
     //Corrupt the observation...
+    Eigen::Affine3f corruption = Eigen::Affine3f::Identity();
+    corruption.translation() << .01, .02, .03;
+    corruption.rotate(Eigen::AngleAxisf(.2,Eigen::Vector3f::UnitZ()));
     
-    icp.setObservation( obs );
-    icp.setModel( mod );
+    pcl::PointCloud<PointT>::Ptr obs_cloud(new pcl::PointCloud<PointT>);
+    pcl::transformPointCloud(*model_cloud,*obs_cloud,corruption);
+    
+    icp.setObservation( obs_cloud );
+    icp.setModel( model_cloud );
     
     icp.estPose();
     
@@ -35,4 +79,7 @@ int main() {
     
     std::cout << rot;
     std::cout << trans;
+                      
+    std::cout << "True solution:\n";
+    std::cout << corruption.matrix();
 }
