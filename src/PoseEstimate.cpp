@@ -32,11 +32,29 @@ void PoseEstimate::setModel( pcl::PointCloud<PointT>::Ptr model )
     this->num_pts = model->size();
     //Convert point cloud to Eigen::Matrix type
     this->model = model->getMatrixXfMap( 3, 4, 0 );
+    calculateCentroid( this->model, model_center );
+    
+    //Translate the data we have
+    Eigen::MatrixXf obs_trans(3,num_pts), model_trans(3,num_pts);
+    for( int i=0; i<num_pts; i++ )
+    {
+        model_trans.col(i) = model_center;
+    }
+    this->model = this->model - model_trans;
 }
 
 void PoseEstimate::setObservation( pcl::PointCloud<PointT>::Ptr obs )
 {
     this->obs = obs->getMatrixXfMap( 3, 4, 0 );
+    calculateCentroid( this->obs, obs_center );
+    
+    //Translate the data we have
+    Eigen::MatrixXf obs_trans(3,num_pts);
+    for( int i=0; i<num_pts; i++ )
+    {
+        obs_trans.col(i) = obs_center;
+    }
+    this->obs = this->obs - obs_trans;
 }
 
 void PoseEstimate::calculateCentroid( DMat & data, Eigen::Vector3f & center )
@@ -59,6 +77,18 @@ void PoseEstimate::getPose( Eigen::Matrix3f &rot, Eigen::Vector3f &trans )
 {
     rot = this->R;
     trans = this->T;
+}
+
+float PoseEstimate::calculateResidual()
+{
+    Eigen::MatrixXf move_center(3,num_pts), model_center(3,num_pts);
+    for( int i=0; i<num_pts; i++ )
+    {
+        move_center.col(i) = this->T;
+    }
+    
+    Eigen::MatrixXf residual = (this->R * this->model)  - this->obs;
+    return residual.squaredNorm();
 }
 
 void PoseEstimate::setCores( int num )

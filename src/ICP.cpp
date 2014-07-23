@@ -61,9 +61,18 @@ void ICP::estPose()
     
     //Second, do a fine alignment.
     
-    float error = settings.tolerance*100;
-    //while( error > settings.tolerance )
+    float error = pose->calculateResidual();
+    std::cout << "Iteration 0 residual: " << error << "\n";
+    int count = 0;
+    while( error > settings.tolerance ) {
         singleIteration();
+        error = pose->calculateResidual();
+        count++;
+        std::cout << "Iteration " << count << " residual: " << error << "\n";
+        
+        if( count > 20 )
+            break;
+    }
 }
 
 void ICP::getPose( Eigen::Matrix3f &rot, Eigen::Vector3f &trans )

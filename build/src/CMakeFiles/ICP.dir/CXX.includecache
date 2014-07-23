@@ -6,23 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/Users/Matanya/Documents/Cvx_Pose/src/PoseEstimate.h
-common.h
-/Users/Matanya/Documents/Cvx_Pose/src/common.h
-iostream
--
-
-/Users/Matanya/Documents/Cvx_Pose/src/SolvePoseAnalytic.cpp
-SolvePoseAnalytic.h
-/Users/Matanya/Documents/Cvx_Pose/src/SolvePoseAnalytic.h
-iostream
--
-
-/Users/Matanya/Documents/Cvx_Pose/src/SolvePoseAnalytic.h
-common.h
-/Users/Matanya/Documents/Cvx_Pose/src/common.h
+/Users/Matanya/Documents/Cvx_Pose/src/PoseEstimate.cpp
 PoseEstimate.h
 /Users/Matanya/Documents/Cvx_Pose/src/PoseEstimate.h
+
+/Users/Matanya/Documents/Cvx_Pose/src/PoseEstimate.h
+common.h
+/Users/Matanya/Documents/Cvx_Pose/src/common.h
 iostream
 -
 

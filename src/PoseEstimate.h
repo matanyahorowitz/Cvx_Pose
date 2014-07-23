@@ -25,6 +25,7 @@ public:
     void setCores( int num );
     void dbg( std::string );
     void calculateCentroid( DMat & data, Eigen::Vector3f & center );
+    float calculateResidual();
 protected:
     DMat model, obs;
     Eigen::Matrix3f R, i_R;
@@ -32,6 +33,7 @@ protected:
     int cores;
     bool debug;
     int num_pts;
+    Eigen::Vector3f model_center, obs_center;
 private:
     
 };

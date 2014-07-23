@@ -95,8 +95,8 @@ int main() {
     pcl::transformPointCloud(*model_cloud,*obs_cloud,corruption);
     
     std::cout << "Setting model and observation in ICP\n";
-    icp.setObservation( obs_cloud );
     icp.setModel( model_cloud );
+    icp.setObservation( obs_cloud );
     
     std::cout << "Performing estimation\n";
     icp.estPose();

@@ -60,34 +60,10 @@ SolvePoseAnalytic::~SolvePoseAnalytic()
 void SolvePoseAnalytic::estimatePose()
 {
     dbg("estimate pose");
+    
     //First, move over by the centroid
-    Eigen::Vector3f model_center, obs_center;
-    dbg("calculating model centroid");
-    calculateCentroid( model, model_center );
-    dbg("calculating observation centroid");
-    calculateCentroid( obs, obs_center );
-    dbg("calculating translation");
     T = obs_center - model_center;
-    std::cout << "Translation calculated\n";
-    std::cout << "obs_center:\n" << obs_center << "\n";
-    std::cout << "model_center:\n" << model_center << "\n";
-    std::cout << "translation:\n" << T << "\n";
-    
-    std::cout << "Number of points " << num_pts << "\n";
-    
-    //Translate the data we have
-    Eigen::MatrixXf obs_trans(3,num_pts), model_trans(3,num_pts);
-    for( int i=0; i<num_pts; i++ )
-    {
-        obs_trans.col(i) = obs_center;
-        model_trans.col(i) = model_center;
-    }
-    
-    obs = obs - obs_trans;
-    model = model - model_trans;
-    
-    std::cout << "First several columns of obs: \n" << obs.block<3,4>(0,0) << "\n";
-    std::cout << "First several columns of model: \n" << model.block<3,4>(0,0) << "\n";
+
     //The problem is now an estimation over SO(3)
     
     if( this->cores == 1 )
