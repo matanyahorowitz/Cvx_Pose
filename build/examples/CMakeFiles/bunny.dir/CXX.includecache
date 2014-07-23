@@ -55,6 +55,8 @@ Eigen/Core
 -
 Eigen/SparseCore
 -
+Eigen/Sparse
+-
 pcl/kdtree/impl/kdtree_flann.hpp
 /Users/Matanya/Documents/Cvx_Pose/src/pcl/kdtree/impl/kdtree_flann.hpp
 pcl/point_cloud.h
@@ -7238,6 +7240,30 @@ src/Householder/BlockHouseholder.h
 src/Core/util/ReenableStupidWarnings.h
 /opt/local/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
 
+/opt/local/include/eigen3/Eigen/IterativeLinearSolvers
+SparseCore
+/opt/local/include/eigen3/Eigen/SparseCore
+OrderingMethods
+/opt/local/include/eigen3/Eigen/OrderingMethods
+src/Core/util/DisableStupidWarnings.h
+/opt/local/include/eigen3/Eigen/src/Core/util/DisableStupidWarnings.h
+src/misc/Solve.h
+/opt/local/include/eigen3/Eigen/src/misc/Solve.h
+src/misc/SparseSolve.h
+/opt/local/include/eigen3/Eigen/src/misc/SparseSolve.h
+src/IterativeLinearSolvers/IterativeSolverBase.h
+/opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IterativeSolverBase.h
+src/IterativeLinearSolvers/BasicPreconditioners.h
+/opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/BasicPreconditioners.h
+src/IterativeLinearSolvers/ConjugateGradient.h
+/opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/ConjugateGradient.h
+src/IterativeLinearSolvers/BiCGSTAB.h
+/opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/BiCGSTAB.h
+src/IterativeLinearSolvers/IncompleteLUT.h
+/opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IncompleteLUT.h
+src/Core/util/ReenableStupidWarnings.h
+/opt/local/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
+
 /opt/local/include/eigen3/Eigen/Jacobi
 Core
 /opt/local/include/eigen3/Eigen/Core
@@ -7273,6 +7299,16 @@ src/LU/arch/Inverse_SSE.h
 /opt/local/include/eigen3/Eigen/src/LU/arch/Inverse_SSE.h
 src/Eigen2Support/LU.h
 /opt/local/include/eigen3/Eigen/src/Eigen2Support/LU.h
+src/Core/util/ReenableStupidWarnings.h
+/opt/local/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
+
+/opt/local/include/eigen3/Eigen/OrderingMethods
+SparseCore
+/opt/local/include/eigen3/Eigen/SparseCore
+src/Core/util/DisableStupidWarnings.h
+/opt/local/include/eigen3/Eigen/src/Core/util/DisableStupidWarnings.h
+src/OrderingMethods/Amd.h
+/opt/local/include/eigen3/Eigen/src/OrderingMethods/Amd.h
 src/Core/util/ReenableStupidWarnings.h
 /opt/local/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
 
@@ -7325,6 +7361,30 @@ src/SVD/UpperBidiagonalization.h
 /opt/local/include/eigen3/Eigen/src/SVD/UpperBidiagonalization.h
 src/Eigen2Support/SVD.h
 /opt/local/include/eigen3/Eigen/src/Eigen2Support/SVD.h
+src/Core/util/ReenableStupidWarnings.h
+/opt/local/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
+
+/opt/local/include/eigen3/Eigen/Sparse
+SparseCore
+/opt/local/include/eigen3/Eigen/SparseCore
+OrderingMethods
+/opt/local/include/eigen3/Eigen/OrderingMethods
+SparseCholesky
+/opt/local/include/eigen3/Eigen/SparseCholesky
+IterativeLinearSolvers
+/opt/local/include/eigen3/Eigen/IterativeLinearSolvers
+
+/opt/local/include/eigen3/Eigen/SparseCholesky
+SparseCore
+/opt/local/include/eigen3/Eigen/SparseCore
+src/Core/util/DisableStupidWarnings.h
+/opt/local/include/eigen3/Eigen/src/Core/util/DisableStupidWarnings.h
+src/misc/Solve.h
+/opt/local/include/eigen3/Eigen/src/misc/Solve.h
+src/misc/SparseSolve.h
+/opt/local/include/eigen3/Eigen/src/misc/SparseSolve.h
+src/SparseCholesky/SimplicialCholesky.h
+/opt/local/include/eigen3/Eigen/src/SparseCholesky/SimplicialCholesky.h
 src/Core/util/ReenableStupidWarnings.h
 /opt/local/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
 
@@ -7638,6 +7698,8 @@ iostream
 
 /opt/local/include/eigen3/Eigen/src/Core/util/Meta.h
 
+/opt/local/include/eigen3/Eigen/src/Core/util/NonMPL2.h
+
 /opt/local/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
 
 /opt/local/include/eigen3/Eigen/src/Core/util/StaticAssert.h
@@ -7826,6 +7888,16 @@ Eigen/src/Core/util/MKL_support.h
 
 /opt/local/include/eigen3/Eigen/src/Householder/HouseholderSequence.h
 
+/opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/BasicPreconditioners.h
+
+/opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/BiCGSTAB.h
+
+/opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/ConjugateGradient.h
+
+/opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IncompleteLUT.h
+
+/opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IterativeSolverBase.h
+
 /opt/local/include/eigen3/Eigen/src/Jacobi/Jacobi.h
 
 /opt/local/include/eigen3/Eigen/src/LU/Determinant.h
@@ -7841,6 +7913,10 @@ Eigen/src/Core/util/MKL_support.h
 /opt/local/include/eigen3/Eigen/src/LU/Eigen/src/Core/util/MKL_support.h
 
 /opt/local/include/eigen3/Eigen/src/LU/arch/Inverse_SSE.h
+
+/opt/local/include/eigen3/Eigen/src/OrderingMethods/Amd.h
+../Core/util/NonMPL2.h
+/opt/local/include/eigen3/Eigen/src/Core/util/NonMPL2.h
 
 /opt/local/include/eigen3/Eigen/src/QR/ColPivHouseholderQR.h
 
@@ -7863,6 +7939,10 @@ Eigen/src/Core/util/MKL_support.h
 /opt/local/include/eigen3/Eigen/src/SVD/Eigen/src/Core/util/MKL_support.h
 
 /opt/local/include/eigen3/Eigen/src/SVD/UpperBidiagonalization.h
+
+/opt/local/include/eigen3/Eigen/src/SparseCholesky/SimplicialCholesky.h
+../Core/util/NonMPL2.h
+/opt/local/include/eigen3/Eigen/src/Core/util/NonMPL2.h
 
 /opt/local/include/eigen3/Eigen/src/SparseCore/AmbiVector.h
 
@@ -7935,6 +8015,8 @@ Eigen/src/StlSupport/details.h
 /opt/local/include/eigen3/Eigen/src/misc/Kernel.h
 
 /opt/local/include/eigen3/Eigen/src/misc/Solve.h
+
+/opt/local/include/eigen3/Eigen/src/misc/SparseSolve.h
 
 /opt/local/include/eigen3/Eigen/src/plugins/ArrayCwiseBinaryOps.h
 

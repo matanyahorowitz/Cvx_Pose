@@ -632,10 +632,14 @@ examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/Eigen
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/Eigenvalues
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/Geometry
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/Householder
+examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/IterativeLinearSolvers
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/Jacobi
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/LU
+examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/OrderingMethods
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/QR
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/SVD
+examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/Sparse
+examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/SparseCholesky
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/SparseCore
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/StdVector
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/Cholesky/LDLT.h
@@ -737,6 +741,7 @@ examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/C
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/Macros.h
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/Memory.h
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/Meta.h
+examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/NonMPL2.h
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/StaticAssert.h
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/XprHelper.h
@@ -799,6 +804,11 @@ examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/G
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/Householder/BlockHouseholder.h
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/Householder/Householder.h
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/Householder/HouseholderSequence.h
+examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/BasicPreconditioners.h
+examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/BiCGSTAB.h
+examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/ConjugateGradient.h
+examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IncompleteLUT.h
+examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IterativeSolverBase.h
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/Jacobi/Jacobi.h
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/LU/Determinant.h
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/LU/FullPivLU.h
@@ -806,6 +816,7 @@ examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/L
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/LU/PartialPivLU.h
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/LU/PartialPivLU_MKL.h
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/LU/arch/Inverse_SSE.h
+examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/OrderingMethods/Amd.h
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/QR/ColPivHouseholderQR.h
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/QR/ColPivHouseholderQR_MKL.h
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/QR/FullPivHouseholderQR.h
@@ -814,6 +825,7 @@ examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/Q
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/SVD/JacobiSVD.h
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/SVD/JacobiSVD_MKL.h
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/SVD/UpperBidiagonalization.h
+examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/SparseCholesky/SimplicialCholesky.h
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/SparseCore/AmbiVector.h
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/SparseCore/CompressedStorage.h
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/SparseCore/ConservativeSparseSparseProduct.h
@@ -845,6 +857,7 @@ examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/S
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/misc/Image.h
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/misc/Kernel.h
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/misc/Solve.h
+examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/misc/SparseSolve.h
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/plugins/ArrayCwiseBinaryOps.h
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/plugins/ArrayCwiseUnaryOps.h
 examples/CMakeFiles/bunny.dir/bunny.cpp.o: /opt/local/include/eigen3/Eigen/src/plugins/BlockMethods.h

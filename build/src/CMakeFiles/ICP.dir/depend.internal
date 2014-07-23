@@ -633,10 +633,14 @@ src/CMakeFiles/ICP.dir/ICP.cpp.o
  /opt/local/include/eigen3/Eigen/Eigenvalues
  /opt/local/include/eigen3/Eigen/Geometry
  /opt/local/include/eigen3/Eigen/Householder
+ /opt/local/include/eigen3/Eigen/IterativeLinearSolvers
  /opt/local/include/eigen3/Eigen/Jacobi
  /opt/local/include/eigen3/Eigen/LU
+ /opt/local/include/eigen3/Eigen/OrderingMethods
  /opt/local/include/eigen3/Eigen/QR
  /opt/local/include/eigen3/Eigen/SVD
+ /opt/local/include/eigen3/Eigen/Sparse
+ /opt/local/include/eigen3/Eigen/SparseCholesky
  /opt/local/include/eigen3/Eigen/SparseCore
  /opt/local/include/eigen3/Eigen/StdVector
  /opt/local/include/eigen3/Eigen/src/Cholesky/LDLT.h
@@ -738,6 +742,7 @@ src/CMakeFiles/ICP.dir/ICP.cpp.o
  /opt/local/include/eigen3/Eigen/src/Core/util/Macros.h
  /opt/local/include/eigen3/Eigen/src/Core/util/Memory.h
  /opt/local/include/eigen3/Eigen/src/Core/util/Meta.h
+ /opt/local/include/eigen3/Eigen/src/Core/util/NonMPL2.h
  /opt/local/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
  /opt/local/include/eigen3/Eigen/src/Core/util/StaticAssert.h
  /opt/local/include/eigen3/Eigen/src/Core/util/XprHelper.h
@@ -800,6 +805,11 @@ src/CMakeFiles/ICP.dir/ICP.cpp.o
  /opt/local/include/eigen3/Eigen/src/Householder/BlockHouseholder.h
  /opt/local/include/eigen3/Eigen/src/Householder/Householder.h
  /opt/local/include/eigen3/Eigen/src/Householder/HouseholderSequence.h
+ /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/BasicPreconditioners.h
+ /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/BiCGSTAB.h
+ /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/ConjugateGradient.h
+ /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IncompleteLUT.h
+ /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IterativeSolverBase.h
  /opt/local/include/eigen3/Eigen/src/Jacobi/Jacobi.h
  /opt/local/include/eigen3/Eigen/src/LU/Determinant.h
  /opt/local/include/eigen3/Eigen/src/LU/FullPivLU.h
@@ -807,6 +817,7 @@ src/CMakeFiles/ICP.dir/ICP.cpp.o
  /opt/local/include/eigen3/Eigen/src/LU/PartialPivLU.h
  /opt/local/include/eigen3/Eigen/src/LU/PartialPivLU_MKL.h
  /opt/local/include/eigen3/Eigen/src/LU/arch/Inverse_SSE.h
+ /opt/local/include/eigen3/Eigen/src/OrderingMethods/Amd.h
  /opt/local/include/eigen3/Eigen/src/QR/ColPivHouseholderQR.h
  /opt/local/include/eigen3/Eigen/src/QR/ColPivHouseholderQR_MKL.h
  /opt/local/include/eigen3/Eigen/src/QR/FullPivHouseholderQR.h
@@ -815,6 +826,7 @@ src/CMakeFiles/ICP.dir/ICP.cpp.o
  /opt/local/include/eigen3/Eigen/src/SVD/JacobiSVD.h
  /opt/local/include/eigen3/Eigen/src/SVD/JacobiSVD_MKL.h
  /opt/local/include/eigen3/Eigen/src/SVD/UpperBidiagonalization.h
+ /opt/local/include/eigen3/Eigen/src/SparseCholesky/SimplicialCholesky.h
  /opt/local/include/eigen3/Eigen/src/SparseCore/AmbiVector.h
  /opt/local/include/eigen3/Eigen/src/SparseCore/CompressedStorage.h
  /opt/local/include/eigen3/Eigen/src/SparseCore/ConservativeSparseSparseProduct.h
@@ -846,6 +858,7 @@ src/CMakeFiles/ICP.dir/ICP.cpp.o
  /opt/local/include/eigen3/Eigen/src/misc/Image.h
  /opt/local/include/eigen3/Eigen/src/misc/Kernel.h
  /opt/local/include/eigen3/Eigen/src/misc/Solve.h
+ /opt/local/include/eigen3/Eigen/src/misc/SparseSolve.h
  /opt/local/include/eigen3/Eigen/src/plugins/ArrayCwiseBinaryOps.h
  /opt/local/include/eigen3/Eigen/src/plugins/ArrayCwiseUnaryOps.h
  /opt/local/include/eigen3/Eigen/src/plugins/BlockMethods.h
@@ -1581,10 +1594,14 @@ src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o
  /opt/local/include/eigen3/Eigen/Eigenvalues
  /opt/local/include/eigen3/Eigen/Geometry
  /opt/local/include/eigen3/Eigen/Householder
+ /opt/local/include/eigen3/Eigen/IterativeLinearSolvers
  /opt/local/include/eigen3/Eigen/Jacobi
  /opt/local/include/eigen3/Eigen/LU
+ /opt/local/include/eigen3/Eigen/OrderingMethods
  /opt/local/include/eigen3/Eigen/QR
  /opt/local/include/eigen3/Eigen/SVD
+ /opt/local/include/eigen3/Eigen/Sparse
+ /opt/local/include/eigen3/Eigen/SparseCholesky
  /opt/local/include/eigen3/Eigen/SparseCore
  /opt/local/include/eigen3/Eigen/StdVector
  /opt/local/include/eigen3/Eigen/src/Cholesky/LDLT.h
@@ -1686,6 +1703,7 @@ src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o
  /opt/local/include/eigen3/Eigen/src/Core/util/Macros.h
  /opt/local/include/eigen3/Eigen/src/Core/util/Memory.h
  /opt/local/include/eigen3/Eigen/src/Core/util/Meta.h
+ /opt/local/include/eigen3/Eigen/src/Core/util/NonMPL2.h
  /opt/local/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
  /opt/local/include/eigen3/Eigen/src/Core/util/StaticAssert.h
  /opt/local/include/eigen3/Eigen/src/Core/util/XprHelper.h
@@ -1748,6 +1766,11 @@ src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o
  /opt/local/include/eigen3/Eigen/src/Householder/BlockHouseholder.h
  /opt/local/include/eigen3/Eigen/src/Householder/Householder.h
  /opt/local/include/eigen3/Eigen/src/Householder/HouseholderSequence.h
+ /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/BasicPreconditioners.h
+ /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/BiCGSTAB.h
+ /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/ConjugateGradient.h
+ /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IncompleteLUT.h
+ /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IterativeSolverBase.h
  /opt/local/include/eigen3/Eigen/src/Jacobi/Jacobi.h
  /opt/local/include/eigen3/Eigen/src/LU/Determinant.h
  /opt/local/include/eigen3/Eigen/src/LU/FullPivLU.h
@@ -1755,6 +1778,7 @@ src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o
  /opt/local/include/eigen3/Eigen/src/LU/PartialPivLU.h
  /opt/local/include/eigen3/Eigen/src/LU/PartialPivLU_MKL.h
  /opt/local/include/eigen3/Eigen/src/LU/arch/Inverse_SSE.h
+ /opt/local/include/eigen3/Eigen/src/OrderingMethods/Amd.h
  /opt/local/include/eigen3/Eigen/src/QR/ColPivHouseholderQR.h
  /opt/local/include/eigen3/Eigen/src/QR/ColPivHouseholderQR_MKL.h
  /opt/local/include/eigen3/Eigen/src/QR/FullPivHouseholderQR.h
@@ -1763,6 +1787,7 @@ src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o
  /opt/local/include/eigen3/Eigen/src/SVD/JacobiSVD.h
  /opt/local/include/eigen3/Eigen/src/SVD/JacobiSVD_MKL.h
  /opt/local/include/eigen3/Eigen/src/SVD/UpperBidiagonalization.h
+ /opt/local/include/eigen3/Eigen/src/SparseCholesky/SimplicialCholesky.h
  /opt/local/include/eigen3/Eigen/src/SparseCore/AmbiVector.h
  /opt/local/include/eigen3/Eigen/src/SparseCore/CompressedStorage.h
  /opt/local/include/eigen3/Eigen/src/SparseCore/ConservativeSparseSparseProduct.h
@@ -1794,6 +1819,7 @@ src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o
  /opt/local/include/eigen3/Eigen/src/misc/Image.h
  /opt/local/include/eigen3/Eigen/src/misc/Kernel.h
  /opt/local/include/eigen3/Eigen/src/misc/Solve.h
+ /opt/local/include/eigen3/Eigen/src/misc/SparseSolve.h
  /opt/local/include/eigen3/Eigen/src/plugins/ArrayCwiseBinaryOps.h
  /opt/local/include/eigen3/Eigen/src/plugins/ArrayCwiseUnaryOps.h
  /opt/local/include/eigen3/Eigen/src/plugins/BlockMethods.h
@@ -2521,10 +2547,14 @@ src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o
  /opt/local/include/eigen3/Eigen/Eigenvalues
  /opt/local/include/eigen3/Eigen/Geometry
  /opt/local/include/eigen3/Eigen/Householder
+ /opt/local/include/eigen3/Eigen/IterativeLinearSolvers
  /opt/local/include/eigen3/Eigen/Jacobi
  /opt/local/include/eigen3/Eigen/LU
+ /opt/local/include/eigen3/Eigen/OrderingMethods
  /opt/local/include/eigen3/Eigen/QR
  /opt/local/include/eigen3/Eigen/SVD
+ /opt/local/include/eigen3/Eigen/Sparse
+ /opt/local/include/eigen3/Eigen/SparseCholesky
  /opt/local/include/eigen3/Eigen/SparseCore
  /opt/local/include/eigen3/Eigen/StdVector
  /opt/local/include/eigen3/Eigen/src/Cholesky/LDLT.h
@@ -2626,6 +2656,7 @@ src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o
  /opt/local/include/eigen3/Eigen/src/Core/util/Macros.h
  /opt/local/include/eigen3/Eigen/src/Core/util/Memory.h
  /opt/local/include/eigen3/Eigen/src/Core/util/Meta.h
+ /opt/local/include/eigen3/Eigen/src/Core/util/NonMPL2.h
  /opt/local/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
  /opt/local/include/eigen3/Eigen/src/Core/util/StaticAssert.h
  /opt/local/include/eigen3/Eigen/src/Core/util/XprHelper.h
@@ -2688,6 +2719,11 @@ src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o
  /opt/local/include/eigen3/Eigen/src/Householder/BlockHouseholder.h
  /opt/local/include/eigen3/Eigen/src/Householder/Householder.h
  /opt/local/include/eigen3/Eigen/src/Householder/HouseholderSequence.h
+ /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/BasicPreconditioners.h
+ /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/BiCGSTAB.h
+ /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/ConjugateGradient.h
+ /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IncompleteLUT.h
+ /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IterativeSolverBase.h
  /opt/local/include/eigen3/Eigen/src/Jacobi/Jacobi.h
  /opt/local/include/eigen3/Eigen/src/LU/Determinant.h
  /opt/local/include/eigen3/Eigen/src/LU/FullPivLU.h
@@ -2695,6 +2731,7 @@ src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o
  /opt/local/include/eigen3/Eigen/src/LU/PartialPivLU.h
  /opt/local/include/eigen3/Eigen/src/LU/PartialPivLU_MKL.h
  /opt/local/include/eigen3/Eigen/src/LU/arch/Inverse_SSE.h
+ /opt/local/include/eigen3/Eigen/src/OrderingMethods/Amd.h
  /opt/local/include/eigen3/Eigen/src/QR/ColPivHouseholderQR.h
  /opt/local/include/eigen3/Eigen/src/QR/ColPivHouseholderQR_MKL.h
  /opt/local/include/eigen3/Eigen/src/QR/FullPivHouseholderQR.h
@@ -2703,6 +2740,7 @@ src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o
  /opt/local/include/eigen3/Eigen/src/SVD/JacobiSVD.h
  /opt/local/include/eigen3/Eigen/src/SVD/JacobiSVD_MKL.h
  /opt/local/include/eigen3/Eigen/src/SVD/UpperBidiagonalization.h
+ /opt/local/include/eigen3/Eigen/src/SparseCholesky/SimplicialCholesky.h
  /opt/local/include/eigen3/Eigen/src/SparseCore/AmbiVector.h
  /opt/local/include/eigen3/Eigen/src/SparseCore/CompressedStorage.h
  /opt/local/include/eigen3/Eigen/src/SparseCore/ConservativeSparseSparseProduct.h
@@ -2734,6 +2772,7 @@ src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o
  /opt/local/include/eigen3/Eigen/src/misc/Image.h
  /opt/local/include/eigen3/Eigen/src/misc/Kernel.h
  /opt/local/include/eigen3/Eigen/src/misc/Solve.h
+ /opt/local/include/eigen3/Eigen/src/misc/SparseSolve.h
  /opt/local/include/eigen3/Eigen/src/plugins/ArrayCwiseBinaryOps.h
  /opt/local/include/eigen3/Eigen/src/plugins/ArrayCwiseUnaryOps.h
  /opt/local/include/eigen3/Eigen/src/plugins/BlockMethods.h
@@ -3461,10 +3500,14 @@ src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o
  /opt/local/include/eigen3/Eigen/Eigenvalues
  /opt/local/include/eigen3/Eigen/Geometry
  /opt/local/include/eigen3/Eigen/Householder
+ /opt/local/include/eigen3/Eigen/IterativeLinearSolvers
  /opt/local/include/eigen3/Eigen/Jacobi
  /opt/local/include/eigen3/Eigen/LU
+ /opt/local/include/eigen3/Eigen/OrderingMethods
  /opt/local/include/eigen3/Eigen/QR
  /opt/local/include/eigen3/Eigen/SVD
+ /opt/local/include/eigen3/Eigen/Sparse
+ /opt/local/include/eigen3/Eigen/SparseCholesky
  /opt/local/include/eigen3/Eigen/SparseCore
  /opt/local/include/eigen3/Eigen/StdVector
  /opt/local/include/eigen3/Eigen/src/Cholesky/LDLT.h
@@ -3566,6 +3609,7 @@ src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o
  /opt/local/include/eigen3/Eigen/src/Core/util/Macros.h
  /opt/local/include/eigen3/Eigen/src/Core/util/Memory.h
  /opt/local/include/eigen3/Eigen/src/Core/util/Meta.h
+ /opt/local/include/eigen3/Eigen/src/Core/util/NonMPL2.h
  /opt/local/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
  /opt/local/include/eigen3/Eigen/src/Core/util/StaticAssert.h
  /opt/local/include/eigen3/Eigen/src/Core/util/XprHelper.h
@@ -3628,6 +3672,11 @@ src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o
  /opt/local/include/eigen3/Eigen/src/Householder/BlockHouseholder.h
  /opt/local/include/eigen3/Eigen/src/Householder/Householder.h
  /opt/local/include/eigen3/Eigen/src/Householder/HouseholderSequence.h
+ /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/BasicPreconditioners.h
+ /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/BiCGSTAB.h
+ /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/ConjugateGradient.h
+ /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IncompleteLUT.h
+ /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IterativeSolverBase.h
  /opt/local/include/eigen3/Eigen/src/Jacobi/Jacobi.h
  /opt/local/include/eigen3/Eigen/src/LU/Determinant.h
  /opt/local/include/eigen3/Eigen/src/LU/FullPivLU.h
@@ -3635,6 +3684,7 @@ src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o
  /opt/local/include/eigen3/Eigen/src/LU/PartialPivLU.h
  /opt/local/include/eigen3/Eigen/src/LU/PartialPivLU_MKL.h
  /opt/local/include/eigen3/Eigen/src/LU/arch/Inverse_SSE.h
+ /opt/local/include/eigen3/Eigen/src/OrderingMethods/Amd.h
  /opt/local/include/eigen3/Eigen/src/QR/ColPivHouseholderQR.h
  /opt/local/include/eigen3/Eigen/src/QR/ColPivHouseholderQR_MKL.h
  /opt/local/include/eigen3/Eigen/src/QR/FullPivHouseholderQR.h
@@ -3643,6 +3693,7 @@ src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o
  /opt/local/include/eigen3/Eigen/src/SVD/JacobiSVD.h
  /opt/local/include/eigen3/Eigen/src/SVD/JacobiSVD_MKL.h
  /opt/local/include/eigen3/Eigen/src/SVD/UpperBidiagonalization.h
+ /opt/local/include/eigen3/Eigen/src/SparseCholesky/SimplicialCholesky.h
  /opt/local/include/eigen3/Eigen/src/SparseCore/AmbiVector.h
  /opt/local/include/eigen3/Eigen/src/SparseCore/CompressedStorage.h
  /opt/local/include/eigen3/Eigen/src/SparseCore/ConservativeSparseSparseProduct.h
@@ -3674,6 +3725,7 @@ src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o
  /opt/local/include/eigen3/Eigen/src/misc/Image.h
  /opt/local/include/eigen3/Eigen/src/misc/Kernel.h
  /opt/local/include/eigen3/Eigen/src/misc/Solve.h
+ /opt/local/include/eigen3/Eigen/src/misc/SparseSolve.h
  /opt/local/include/eigen3/Eigen/src/plugins/ArrayCwiseBinaryOps.h
  /opt/local/include/eigen3/Eigen/src/plugins/ArrayCwiseUnaryOps.h
  /opt/local/include/eigen3/Eigen/src/plugins/BlockMethods.h

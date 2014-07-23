@@ -11,6 +11,7 @@
 #include <Eigen/Dense>
 #include <Eigen/Core>
 #include <Eigen/SparseCore>
+#include <Eigen/Sparse>
 
 #include "pcl/kdtree/impl/kdtree_flann.hpp" 
 

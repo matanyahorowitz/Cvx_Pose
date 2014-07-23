@@ -632,10 +632,14 @@ src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/Eigen2Support
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/Eigenvalues
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/Geometry
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/Householder
+src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/IterativeLinearSolvers
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/Jacobi
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/LU
+src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/OrderingMethods
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/QR
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/SVD
+src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/Sparse
+src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/SparseCholesky
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/SparseCore
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/StdVector
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/Cholesky/LDLT.h
@@ -737,6 +741,7 @@ src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/Macros.h
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/Memory.h
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/Meta.h
+src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/NonMPL2.h
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/StaticAssert.h
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/XprHelper.h
@@ -799,6 +804,11 @@ src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/Geometry/a
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/Householder/BlockHouseholder.h
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/Householder/Householder.h
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/Householder/HouseholderSequence.h
+src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/BasicPreconditioners.h
+src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/BiCGSTAB.h
+src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/ConjugateGradient.h
+src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IncompleteLUT.h
+src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IterativeSolverBase.h
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/Jacobi/Jacobi.h
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/LU/Determinant.h
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/LU/FullPivLU.h
@@ -806,6 +816,7 @@ src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/LU/Inverse
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/LU/PartialPivLU.h
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/LU/PartialPivLU_MKL.h
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/LU/arch/Inverse_SSE.h
+src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/OrderingMethods/Amd.h
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/QR/ColPivHouseholderQR.h
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/QR/ColPivHouseholderQR_MKL.h
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/QR/FullPivHouseholderQR.h
@@ -814,6 +825,7 @@ src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/QR/Househo
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/SVD/JacobiSVD.h
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/SVD/JacobiSVD_MKL.h
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/SVD/UpperBidiagonalization.h
+src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/SparseCholesky/SimplicialCholesky.h
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/SparseCore/AmbiVector.h
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/SparseCore/CompressedStorage.h
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/SparseCore/ConservativeSparseSparseProduct.h
@@ -845,6 +857,7 @@ src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/StlSupport
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/misc/Image.h
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/misc/Kernel.h
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/misc/Solve.h
+src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/misc/SparseSolve.h
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/plugins/ArrayCwiseBinaryOps.h
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/plugins/ArrayCwiseUnaryOps.h
 src/CMakeFiles/ICP.dir/ICP.cpp.o: /opt/local/include/eigen3/Eigen/src/plugins/BlockMethods.h
@@ -1580,10 +1593,14 @@ src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/Eigen
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/Eigenvalues
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/Geometry
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/Householder
+src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/IterativeLinearSolvers
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/Jacobi
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/LU
+src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/OrderingMethods
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/QR
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/SVD
+src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/Sparse
+src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/SparseCholesky
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/SparseCore
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/StdVector
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/Cholesky/LDLT.h
@@ -1685,6 +1702,7 @@ src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/C
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/Macros.h
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/Memory.h
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/Meta.h
+src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/NonMPL2.h
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/StaticAssert.h
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/XprHelper.h
@@ -1747,6 +1765,11 @@ src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/G
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/Householder/BlockHouseholder.h
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/Householder/Householder.h
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/Householder/HouseholderSequence.h
+src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/BasicPreconditioners.h
+src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/BiCGSTAB.h
+src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/ConjugateGradient.h
+src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IncompleteLUT.h
+src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IterativeSolverBase.h
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/Jacobi/Jacobi.h
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/LU/Determinant.h
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/LU/FullPivLU.h
@@ -1754,6 +1777,7 @@ src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/L
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/LU/PartialPivLU.h
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/LU/PartialPivLU_MKL.h
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/LU/arch/Inverse_SSE.h
+src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/OrderingMethods/Amd.h
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/QR/ColPivHouseholderQR.h
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/QR/ColPivHouseholderQR_MKL.h
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/QR/FullPivHouseholderQR.h
@@ -1762,6 +1786,7 @@ src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/Q
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/SVD/JacobiSVD.h
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/SVD/JacobiSVD_MKL.h
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/SVD/UpperBidiagonalization.h
+src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/SparseCholesky/SimplicialCholesky.h
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/SparseCore/AmbiVector.h
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/SparseCore/CompressedStorage.h
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/SparseCore/ConservativeSparseSparseProduct.h
@@ -1793,6 +1818,7 @@ src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/S
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/misc/Image.h
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/misc/Kernel.h
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/misc/Solve.h
+src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/misc/SparseSolve.h
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/plugins/ArrayCwiseBinaryOps.h
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/plugins/ArrayCwiseUnaryOps.h
 src/CMakeFiles/ICP.dir/PoseEstimate.cpp.o: /opt/local/include/eigen3/Eigen/src/plugins/BlockMethods.h
@@ -2520,10 +2546,14 @@ src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/Eigenvalues
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/Geometry
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/Householder
+src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/IterativeLinearSolvers
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/Jacobi
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/LU
+src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/OrderingMethods
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/QR
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/SVD
+src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/Sparse
+src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/SparseCholesky
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/SparseCore
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/StdVector
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/Cholesky/LDLT.h
@@ -2625,6 +2655,7 @@ src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/Macros.h
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/Memory.h
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/Meta.h
+src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/NonMPL2.h
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/StaticAssert.h
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/XprHelper.h
@@ -2687,6 +2718,11 @@ src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/Householder/BlockHouseholder.h
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/Householder/Householder.h
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/Householder/HouseholderSequence.h
+src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/BasicPreconditioners.h
+src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/BiCGSTAB.h
+src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/ConjugateGradient.h
+src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IncompleteLUT.h
+src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IterativeSolverBase.h
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/Jacobi/Jacobi.h
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/LU/Determinant.h
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/LU/FullPivLU.h
@@ -2694,6 +2730,7 @@ src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/LU/PartialPivLU.h
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/LU/PartialPivLU_MKL.h
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/LU/arch/Inverse_SSE.h
+src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/OrderingMethods/Amd.h
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/QR/ColPivHouseholderQR.h
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/QR/ColPivHouseholderQR_MKL.h
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/QR/FullPivHouseholderQR.h
@@ -2702,6 +2739,7 @@ src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/SVD/JacobiSVD.h
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/SVD/JacobiSVD_MKL.h
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/SVD/UpperBidiagonalization.h
+src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/SparseCholesky/SimplicialCholesky.h
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/SparseCore/AmbiVector.h
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/SparseCore/CompressedStorage.h
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/SparseCore/ConservativeSparseSparseProduct.h
@@ -2733,6 +2771,7 @@ src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/misc/Image.h
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/misc/Kernel.h
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/misc/Solve.h
+src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/misc/SparseSolve.h
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/plugins/ArrayCwiseBinaryOps.h
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/plugins/ArrayCwiseUnaryOps.h
 src/CMakeFiles/ICP.dir/SolvePoseAnalytic.cpp.o: /opt/local/include/eigen3/Eigen/src/plugins/BlockMethods.h
@@ -3460,10 +3499,14 @@ src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/Eigen
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/Eigenvalues
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/Geometry
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/Householder
+src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/IterativeLinearSolvers
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/Jacobi
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/LU
+src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/OrderingMethods
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/QR
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/SVD
+src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/Sparse
+src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/SparseCholesky
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/SparseCore
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/StdVector
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/Cholesky/LDLT.h
@@ -3565,6 +3608,7 @@ src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/C
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/Macros.h
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/Memory.h
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/Meta.h
+src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/NonMPL2.h
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/StaticAssert.h
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/Core/util/XprHelper.h
@@ -3627,6 +3671,11 @@ src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/G
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/Householder/BlockHouseholder.h
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/Householder/Householder.h
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/Householder/HouseholderSequence.h
+src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/BasicPreconditioners.h
+src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/BiCGSTAB.h
+src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/ConjugateGradient.h
+src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IncompleteLUT.h
+src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IterativeSolverBase.h
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/Jacobi/Jacobi.h
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/LU/Determinant.h
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/LU/FullPivLU.h
@@ -3634,6 +3683,7 @@ src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/L
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/LU/PartialPivLU.h
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/LU/PartialPivLU_MKL.h
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/LU/arch/Inverse_SSE.h
+src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/OrderingMethods/Amd.h
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/QR/ColPivHouseholderQR.h
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/QR/ColPivHouseholderQR_MKL.h
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/QR/FullPivHouseholderQR.h
@@ -3642,6 +3692,7 @@ src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/Q
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/SVD/JacobiSVD.h
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/SVD/JacobiSVD_MKL.h
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/SVD/UpperBidiagonalization.h
+src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/SparseCholesky/SimplicialCholesky.h
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/SparseCore/AmbiVector.h
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/SparseCore/CompressedStorage.h
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/SparseCore/ConservativeSparseSparseProduct.h
@@ -3673,6 +3724,7 @@ src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/S
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/misc/Image.h
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/misc/Kernel.h
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/misc/Solve.h
+src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/misc/SparseSolve.h
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/plugins/ArrayCwiseBinaryOps.h
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/plugins/ArrayCwiseUnaryOps.h
 src/CMakeFiles/ICP.dir/SolvePoseCVX.cpp.o: /opt/local/include/eigen3/Eigen/src/plugins/BlockMethods.h

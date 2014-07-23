@@ -30,6 +30,9 @@ public:
     void estPose();
     void singleIteration();
     void getPose( Eigen::Matrix3f &rot, Eigen::Vector3f &trans );
+protected:
+    void dbg( std::string );
+    Eigen::SparseMatrix<float> permutation;
 private:
     SolverSettings settings;
     PoseEstimate * pose;
@@ -39,5 +42,7 @@ private:
     pcl::PointCloud<PointT> observation;
     pcl::registration::CorrespondenceEstimation<PointT, PointT> est;
     int num_pts;
+    bool debug;
+    
 };
 #endif /* defined(____ICP__) */

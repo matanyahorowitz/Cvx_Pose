@@ -12,6 +12,8 @@ PoseEstimate::PoseEstimate()
 {
     this->i_R = Eigen::Matrix3f::Identity();
     this->i_T << 0,0,0;
+    debug = true;
+    num_pts = 0;
 }
 
 PoseEstimate::~PoseEstimate()
@@ -19,8 +21,15 @@ PoseEstimate::~PoseEstimate()
     
 }
 
+void PoseEstimate::dbg( std::string msg )
+{
+    if( debug )
+        std::cout << msg << "\n";
+}
+
 void PoseEstimate::setModel( pcl::PointCloud<PointT>::Ptr model )
 {
+    this->num_pts = model->size();
     //Convert point cloud to Eigen::Matrix type
     this->model = model->getMatrixXfMap( 3, 4, 0 );
 }
@@ -30,12 +39,17 @@ void PoseEstimate::setObservation( pcl::PointCloud<PointT>::Ptr obs )
     this->obs = obs->getMatrixXfMap( 3, 4, 0 );
 }
 
-void PoseEstimate::permuteData( Eigen::SparseMatrix<float> P )
+void PoseEstimate::calculateCentroid( DMat & data, Eigen::Vector3f & center )
+{
+    center = data.rowwise().mean();
+}
+
+void PoseEstimate::permuteData( Eigen::SparseMatrix<float> & P )
 {
     this->obs = this->obs*P;
 }
 
-void PoseEstimate::setInitialPose(Eigen::Matrix3f rot, Eigen::Vector3f trans)
+void PoseEstimate::setInitialPose(Eigen::Matrix3f & rot, Eigen::Vector3f & trans)
 {
     this->i_R = rot;
     this->i_T = trans;
