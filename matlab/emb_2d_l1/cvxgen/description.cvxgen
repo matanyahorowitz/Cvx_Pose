@@ -1,0 +1,32 @@
+# Produced by CVXGEN, 2013-10-23 17:15:03 -0400.
+# CVXGEN is Copyright (C) 2006-2012 Jacob Mattingley, jem@cvxgen.com.
+# The code in this file is Copyright (C) 2006-2012 Jacob Mattingley.
+# CVXGEN, or solvers produced by CVXGEN, cannot be used for commercial
+# applications without prior written permission from Jacob Mattingley.
+
+# Filename: description.cvxgen.
+# Description: A description of the CVXGEN problem.
+
+dimensions
+  N = 50
+end
+
+parameters
+  lambda nonnegative
+  penalty nonnegative
+  data[i] (2), i=1..N
+  model[i] (2), i=1..N
+end
+
+variables
+  R[i](2), i=1..2
+  T[i], i=1..2
+  Z[i](2), i=1..N
+end
+
+minimize
+  sum[i=1..N]( quad( data[i][1] - (R[1]'*model[i] + T[1]) - Z[i][1] ) + lambda*norm_1(Z[i][1]) + quad( data[i][2] - (R[2]'*model[i] + T[2]) - Z[i][2] ) + lambda*norm_1(Z[i][2])  ) + penalty*( square(R[1][1]) + square(R[1][2]) )
+subject to
+  R[1][1] == R[2][2]
+  R[1][2] == -R[2][1]
+end

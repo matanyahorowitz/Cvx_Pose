@@ -1,0 +1,29 @@
+# Produced by CVXGEN, 2013-10-23 17:05:38 -0400.
+# CVXGEN is Copyright (C) 2006-2012 Jacob Mattingley, jem@cvxgen.com.
+# The code in this file is Copyright (C) 2006-2012 Jacob Mattingley.
+# CVXGEN, or solvers produced by CVXGEN, cannot be used for commercial
+# applications without prior written permission from Jacob Mattingley.
+
+# Filename: description.cvxgen.
+# Description: A description of the CVXGEN problem.
+
+dimensions
+  N = 100
+end
+
+parameters
+  penalty nonnegative #This needs to be massive
+  data[i] (2), i=1..N
+  model[i] (2), i=1..N
+end
+
+variables
+  R[i](2), i=1..2
+end
+
+minimize
+  -sum[i=1..N](data[i][1]*(R[1]'*model[i])' + data[i][1]*(R[1]'*model[i])') + penalty*( square(R[1][1]) + square(R[1][2]) )
+subject to
+  R[1][1] == R[2][2]
+  R[1][2] == -R[2][1]
+end
