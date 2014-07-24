@@ -1,2 +1,0 @@
-/Users/Matanya/Documents/Cvx_Pose/build/src/CMakeFiles/ICP.dir
-/Users/Matanya/Documents/Cvx_Pose/build/examples/CMakeFiles/bunny.dir

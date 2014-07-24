@@ -54,7 +54,7 @@ SolvePoseAnalytic::SolvePoseAnalytic() : PoseEstimate()
 
 SolvePoseAnalytic::~SolvePoseAnalytic()
 {
-    PoseEstimate::~PoseEstimate();
+    //PoseEstimate::~PoseEstimate();
 }
 
 void SolvePoseAnalytic::estimatePose()

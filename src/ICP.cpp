@@ -106,16 +106,17 @@ void ICP::singleIteration()
     
     pcl::PointCloud<PointT>::Ptr al_ptr(&aligned);
     dbg("a");
-    this->est.setInputCloud( al_ptr );
+    this->est.setInputSource( al_ptr );
     dbg("b");
     pcl::Correspondences cor;
     dbg("c");
-    est.determineReciprocalCorrespondences(cor);
-    
+    //est.determineReciprocalCorrespondences(cor);
+    est.determineCorrespondences(cor);
+
     //Permute the data matrix in line with the correspondence
     dbg("Setting up permutation matrix");
     Eigen::SparseMatrix<float> P(num_pts, num_pts);
-    for( std::vector<pcl::Correspondence>::iterator it = cor.begin(); it != cor.end(); ++it)
+    for( pcl::Correspondences::iterator it = cor.begin(); it != cor.end(); ++it)
     {
         P.insert(it->index_query, it->index_match) = 1;
     }

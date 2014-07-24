@@ -15,7 +15,7 @@ SolvePoseCVX::SolvePoseCVX() : PoseEstimate()
 
 SolvePoseCVX::~SolvePoseCVX()
 {
-    PoseEstimate::~PoseEstimate();
+    //PoseEstimate::~PoseEstimate();
 }
 
 void SolvePoseCVX::estimatePose()
