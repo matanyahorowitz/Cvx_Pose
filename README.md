@@ -8,6 +8,10 @@ Based on the work by **Matanya Horowitz**, **Nikolai Matni**.
 
 Academic papers:
 - Convex Relaxations of SE (2) and SE (3) for Visual Pose Estimation. http://arxiv.org/abs/1401.3700 
+- A Convex Approach to Consensus on SO(n) (Under review)
+- Convex Iterative Closest Point (cICP) (In preparation for CVPR 2015)
+- Analytic Solutions to Parallelized Pose Estimation with Outlier Rejection (In preparation for CVPR 2015)
+- Convex Model Predictive Control for Vehicular Systems (In preparation)
 
 The CVX_CV package currently contains solutions based on the convex relaxation of SO(n) for n=2,3 for the following problems:
 - ICP
