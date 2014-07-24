@@ -28,6 +28,7 @@ public:
     float calculateResidual();
 protected:
     DMat model, obs;
+    Eigen::Matrix4f A[3][3];
     Eigen::Matrix3f R, i_R;
     Eigen::Vector3f T, i_T;
     int cores;

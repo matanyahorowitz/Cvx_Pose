@@ -23,7 +23,6 @@ public:
 private:
     void singleSolver();
     void multiSolvers();
-    Eigen::Matrix4f A[3][3];
     int decomp_method;
     void ADMMIter();
     void DualIter();

@@ -25,7 +25,11 @@ Dependencies:
 - PCL 1.7 + 
 - Eigen 3.2 +
 - OpenCV 2.4 + - for running some examples based on visual features
-- Mosek or CSDPA - for running convex estimation, include point-to-plane ICP
+- Mosek or SDPA - for running convex estimation, include point-to-plane ICP
+
+Notes
+============
+- The SDPA page says the Ubuntu installation of BLAS is unoptimized (http://sdpa.sourceforge.net/download.html#sdpa-ubuntu). To get better performance this may need to be looked into. The note is from 2011 so it may no longer apply. It looks like this can be dealt with by the instrutions at this link (http://www.stat.cmu.edu/~nmv/2013/07/09/for-faster-r-use-openblas-instead-better-than-atlas-trivial-to-switch-to-on-ubuntu/) and we can get a 60% reduction in solve time. This will be a todo.
 
 Installation
 ============
@@ -44,7 +48,8 @@ Linux (Ubuntu):
 	sudo apt-get install libpcl-all
 4. Install git:
 	sudo apt-get install git
-
+5. Install SDPA
+	sudo apt-get install sdpa libsdpa-dev
 Mac: 
 -----
 
