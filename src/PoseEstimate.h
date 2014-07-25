@@ -35,6 +35,7 @@ protected:
     bool debug;
     int num_pts;
     Eigen::Vector3f model_center, obs_center;
+    SolverSettings settings;
 private:
     
 };

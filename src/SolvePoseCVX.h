@@ -29,6 +29,9 @@ private:
    int decomp_method;
    void initSDPAConsMatrix( int k, int l );
    SDPA sdpa;
+   void setupQuadraticObjective();
+   void setupRConstraint();
+   void setupLinearObjective();
 };
 
 #endif /* defined(____SolvePoseCVX__) */
