@@ -24,10 +24,11 @@ private:
     void singleSolver();
     void multiSolvers();
     int decomp_method;
-    void ADMMIter();
+    void ADMMIter(Eigen::Matrix4f & dadj, Eigen::Matrix4f & Zn, Eigen::Matrix4f & Y, Eigen::Matrix4f & Z0 ,float ainv);
     void DualIter();
     void adjoint( Eigen::Matrix3f & D, Eigen::Matrix4f & Dadj );
     void z2so( Eigen::Matrix4f & z, Eigen::Matrix3f & r );
+    void projFreeSpectra(Eigen::Vector4f & v);
 };
 
 #endif /* defined(____SolvePoseAnalytic__) */

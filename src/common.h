@@ -25,6 +25,7 @@ struct SolverSettings {
     int metric; //P2P Analytic, P2P CVX, P2Plane CVX
     bool outlierRejection;
     float tolerance;
+    int cores;
     int parallelSolvers;
     //Todo: Pass a function for evaluating correspondence metric (for keypoints).
     int options; //For analytic solution: 0 - ADMM, 1 - dual decomposition
