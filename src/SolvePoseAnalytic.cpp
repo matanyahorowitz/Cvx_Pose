@@ -86,6 +86,9 @@ void SolvePoseAnalytic::multiSolvers()
    Eigen::VectorXf split;
    split.setLinSpaced( settings.cores, 0, num_pts );
    
+   omp_set_num_threads(settings.cores);
+
+   #pragma omp parallel for
    for( int i=0; i < settings.cores; i++ )
    {
       DMat sobs = obs.block(3, split(i+1) - split(i),0,split(i));
@@ -97,11 +100,13 @@ void SolvePoseAnalytic::multiSolvers()
       Y[i].setZero(); Z[i].setZero();
       Yn[i].setZero(); Zn[i].setZero();
    }
+
    Z0.setZero(); Z0n.setZero();
 
    for( int i=0; i < max_iter; i++ )
    {
       //Update Zn
+      #pragma omp parallel for
       for( int k=0; k<settings.cores; k++ )
       {
          ADMMIter( sdata[i], Zn[k], Y[k], Z0, alphainv );

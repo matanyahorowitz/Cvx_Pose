@@ -12,6 +12,7 @@
 #include "common.h"
 #include "PoseEstimate.h"
 #include <iostream>
+#include <omp.h>
 
 class SolvePoseAnalytic : public PoseEstimate
 {
