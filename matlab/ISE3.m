@@ -2,6 +2,9 @@ function [TR, TT, ER, TI] = ISE3(obs,model,lambda)
 % Matanya Horowitz, Nikolai Matni
 % 10/22/2013
 %
+% Borrows heavily from the ICP Matlab package. We thank those authors at:
+% http://www.mathworks.com/matlabcentral/fileexchange/27804-iterative-closest-point
+%
 % 3D Estimation software. Takes a collection of 3D points obs and finds the
 % pose in SE(3) that best aligns the model points to the obs. This method
 % iteratively performs correspondence and then estimation.

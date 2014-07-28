@@ -7,6 +7,9 @@
 % synchronize their orientation. We want to find the average, in the sense
 % of (1).
 
+addpath( '../parallel' );
+addpath( '../' );
+
 %% Initialization of SO(n) data
 n = 3;
 

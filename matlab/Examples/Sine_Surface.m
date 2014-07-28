@@ -1,8 +1,10 @@
 % Matanya Horowitz, Nikolai Matni 10/22/2013
 % ICP example on a sinusoidal, corrupted surface
 
-addpath('./icp/');
-addpath('./../');
+addpath('../icp/');
+
+addpath( '../parallel' );
+addpath( '../' );
 
 %% Setup problem
 m = 10; % width of grid

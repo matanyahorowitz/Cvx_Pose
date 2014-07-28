@@ -2,16 +2,8 @@
 
 %Do pose estimation using Orbitope Optimization on the Stanford Bunny
 
+addpath( '../' );
 %% Read in the bunny file
-% Read data of vertices connecting each face or triangle
-fid = fopen('./bunny/bunny_faces.txt','r');
-face_matrix = fscanf(fid,'%*f %f %f %f',[3,inf]);
-face_matrix = face_matrix';
-fclose(fid);
-
-% The face data is indexed starting with 0, increment every vertex numbering by 1
-[r,c] = size(face_matrix);
-face_matrix = face_matrix + ones(r,c);
 
 % Read coordinates of the vertices
 fid = fopen('./bunny/bunny_vertices.txt','r');
