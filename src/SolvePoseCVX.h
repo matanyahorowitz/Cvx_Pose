@@ -6,7 +6,7 @@
 #include "PoseEstimate.h"
 #include "common.h"
 #include <sdpa_call.h>
-
+#include <pcl/features/normal_3d.h>
 /** Pose estimation using the convex hull of SO(3) via a semidefinite program. The semidefinite formulation allows us to include the point to plane metric as well as outlier rejection using a LASSO penalty. Currently, the publicly available SDPA package is used as our semidefinite solver.
 
 \author Matanya Horowitz
@@ -33,6 +33,9 @@ private:
    
    /** SDPA interface for numerically solving the convex problem */
    SDPA sdpa;
+
+   /** Cloud of normals if point to plane is used. */
+   DMat model_normals; 
 };
 
 #endif /* defined(____SolvePoseCVX__) */

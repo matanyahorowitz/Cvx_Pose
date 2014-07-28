@@ -19,18 +19,61 @@ SolvePoseCVX::~SolvePoseCVX()
     //PoseEstimate::~PoseEstimate();
 }
 
+void SolvePoseCVX::setModel( pcl::PointCloud<PointT>::Ptr model ) {
+   PoseEstimate::setModel( model )
+   
+   if( settings.metric == 2 )
+   {
+      pcl::NormalEstimationOMP<PointT, pcl::Normal> ne;
+      ne.setInputCloud( model );
+      pcl::search::KDTree<PointT>::Ptr tree (new pcl::search::KdTree<PointT> () );
+      ne.setSearchMethod( tree );
+
+      pcl::PointCloud<pcl::Normal>::Pt cloud_normals(new pcl::PointCloud<pcl::Normal>);
+
+      //set vertex neighborhood size
+      ne.setRadiusSearch(0.03); //3cm
+      n3.compute(*cloud_normals);
+
+      model_normals = cloud_normals->getMatrixXfMap( 3, 4, 0 );
+   }
+}
+
 /** Initialize the convex solver and parameters. The presence of outlier rejection requires different initialization (there are many more optimization variables).
 */
 void SolvePoseCVX::initializeSolver()
 {
-
    SDPA::printSDPAVersion(stdout);
    sdpa.setParameterType(SDPA::PARAMETER_DEFAULT);
    sdpa.printParameters(stdout);
    
    //This is in the SDPA "standard (not dual-standard)" form
 
-   if( settings.outlierRejection )
+   if( settings.metric == 2 )
+   {
+      if( settings.outlierRejection )
+      {
+         sdpa.inputConstraintNumber( 2*num_pts + 13 );
+         sdpa.inputBlockNumber( 3 );
+         sdpa.inputBlockSize( 1, 4 );
+         sdpa.inputBlockType( 1, SDPA::SDP );
+         sdpa.inputBlockType( 2, SDPA::SDP );
+         sdpa.inputBlockType( 3, SDPA::LP );
+      } 
+      else 
+      {
+         sdpa.inputConstraintNumber( 13 );
+         sdpa.inputBlockNumber( 2 );
+         sdpa.inputBlockSize( 1, 4 );
+         sdpa.inputBlockSize( 2, num_pts + 1 );
+         sdpa.inputBlockType( 1, SDPA::SDP );
+         sdpa.inputBlockType( 2, SDPA::SDP );
+      }
+      setupRConstraint();
+      setupPointToPlane();
+
+   }
+   else if( settings.outlierRejection )
    {
       sdpa.inputConstraintNumber(num_pts*6 + 13);
       sdpa.inputBlockNumber(3);
@@ -39,7 +82,7 @@ void SolvePoseCVX::initializeSolver()
       sdpa.inputBlockSize(3,-6*num_pts);
       sdpa.inputBlockType(1,SDPA::SDP);
       sdpa.inputBlockType(2,SDPA::SDP);
-      sdpa.inputBlockType(3,SDPA::SDP);
+      sdpa.inputBlockType(3,SDPA::LP);
       sdpa.initializeUpperTriangleSpace();
       setupRConstraint();
       setupQuadraticObjective();
@@ -56,13 +99,82 @@ void SolvePoseCVX::initializeSolver()
    }
 }
 
+void SolvePoseCVX::setupPointToPlane()
+{
+   int R[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
+
+   for( int i=1; i<num_pts+1; i++ )
+   {
+      //Identity on second block along diagonal
+      sdpa.inputElement( 0, 2, i, i, 1 );
+
+      //Observation offset
+      sdpa.inputElement( 0, 2, i, num_pts+1, y_n );
+      sdpa.inputElement( 0, 2, num_pts+1, i, y_n );
+      
+      //Rotation of model
+      for( int j=0; j<3; j++ )
+      {
+         for( int k=0; k<3; k++ )
+         {
+            sdpa.inputElement( R[j][k], 2, i, num_pts+1, n(j) * model(k,i) );
+            sdpa.inputElement( R[j][k], 2, num_pts+1, i, n(j) * model(k,i) );
+         }
+      }
+
+      //Translation of model
+      int T[3] = {10, 11, 12};
+      sdpa.inputElement( T[0], 2, i, num_pts+1, n(0) );
+      sdpa.inputElement( T[1], 2, i, num_pts+1, n(1) );
+      sdpa.inputElement( T[2], 2, i, num_pts+1, n(2) );
+
+      sdpa.inputElement( T[0], 2, num_pts+1, i, n(0) );
+      sdpa.inputElement( T[1], 2, num_pts+1, i, n(1) );
+      sdpa.inputElement( T[2], 2, num_pts+1, i, n(2) );
+
+      //Outlier relaxation
+      if( settings.outlierRejection )
+      {
+         int zp = 13 + i;
+         int zn = 13 + num_pts + i;
+
+         sdpa.inputElement( zp, 2, i, num_pts+1, 1 );
+         sdpa.inputElement( zn, 2, i, num_pts+1, -1 );
+
+         sdpa.inputElement( zp, 2, num_pts+1, i, 1 );
+         sdpa.inputElement( zn, 2, num_pts+1, i, -1 );
+
+         //Penalize outliers in objective
+         sdpa.inputCVec( zp, 1 );
+         sdpa.inputCVec( zn, 1 );
+
+         //Outlier slack variable constraints (absolute value)
+         //Third block
+         sdpa.inputElement( zp, 3, i, i, 1 );
+         sdpa.inputElement( zn, 3, i+num_pts, i+num_pts, 1 );
+      }
+   }
+
+   //Setup objective slack factor
+   int g = 13;
+   sdpa.inputElement( g, 2, num_pts+1, num_pts+1, 1 );
+
+
+   //Set objective weighting vs the L1 penalty (which has weight one)
+   float objWeight = 1.0f*num_pts;
+
+   sdpa.inputCVec(13, objWeight); //gamma
+   
+}
+
+
 /** Sets up the optimization with a quadratic objective. This is necessary when there is an L1 penalty or the point to plane metric is used. Note that the quadratic objective does not guarantee the solution will be an element of SO(3). */
 void SolvePoseCVX::setupQuadraticObjective()
 {
    int R[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
    
    //First block setup by setupRConstraint()   
-   
+
    for( int i=0; i<num_pts; i++ )
    {
       int xi = i*3;
@@ -77,45 +189,45 @@ void SolvePoseCVX::setupQuadraticObjective()
       sdpa.inputElement( 0, 2, zi, zi, 1 );
 
       //Observation offset on second block in F_0
-      sdpa.inputElement( 0, 2, xi, num_pts+1, obs(0,i) );
-      sdpa.inputElement( 0, 2, yi, num_pts+1, obs(1,i) );
-      sdpa.inputElement( 0, 2, zi, num_pts+1, obs(2,i) );
+      sdpa.inputElement( 0, 2, xi, 3*num_pts+1, obs(0,i) );
+      sdpa.inputElement( 0, 2, yi, 3*num_pts+1, obs(1,i) );
+      sdpa.inputElement( 0, 2, zi, 3*num_pts+1, obs(2,i) );
 
-      sdpa.inputElement( 0, 2, num_pts+1, xi, obs(0,i) );
-      sdpa.inputElement( 0, 2, num_pts+1, yi, obs(1,i) );
-      sdpa.inputElement( 0, 2, num_pts+1, zi, obs(2,i) );
+      sdpa.inputElement( 0, 2, 3*num_pts+1, xi, obs(0,i) );
+      sdpa.inputElement( 0, 2, 3*num_pts+1, yi, obs(1,i) );
+      sdpa.inputElement( 0, 2, 3*num_pts+1, zi, obs(2,i) );
 
       //Rotation of model on second block
       for( int j=0; j<3; j++ ) {
          for( int k=0; k<3; k++ ) {
-            sdpa.inputElement( R[j][k], 2, i*3 + k, num_pts+1, -model(k,i) );
-            sdpa.inputElement( R[j][k], 2, num_pts+1, i*3 + k, -model(k,i) );
+            sdpa.inputElement( R[j][k], 2, i*3 + k, 3*num_pts+1, -model(k,i) );
+            sdpa.inputElement( R[j][k], 2, 3*num_pts+1, i*3 + k, -model(k,i) );
          }
       }
 
       //Translation of model on second block
       int T1 = 10, T2 = 11, T3 = 12;
-      sdpa.inputElement( T1, 2, xi, num_pts+1, 1 );
-      sdpa.inputElement( T2, 2, yi, num_pts+1, 1 );
-      sdpa.inputElement( T3, 2, zi, num_pts+1, 1 );
-      sdpa.inputElement( T1, 2, num_pts+1, xi, 1 );
-      sdpa.inputElement( T2, 2, num_pts+1, yi, 1 );
-      sdpa.inputElement( T3, 2, num_pts+1, zi, 1 );
+      sdpa.inputElement( T1, 2, xi, 3*num_pts+1, 1 );
+      sdpa.inputElement( T2, 2, yi, 3*num_pts+1, 1 );
+      sdpa.inputElement( T3, 2, zi, 3*num_pts+1, 1 );
+      sdpa.inputElement( T1, 2, 3*num_pts+1, xi, 1 );
+      sdpa.inputElement( T2, 2, 3*num_pts+1, yi, 1 );
+      sdpa.inputElement( T3, 2, 3*num_pts+1, zi, 1 );
 
       //Objective slack variable gamma
       int g = 13;
-      sdpa.inputElement( g, 2, num_pts+1, num_pts+1, 1 );
+      sdpa.inputElement( g, 2, 3*num_pts+1, 3*num_pts+1, 1 );
 
       //Outlier component
       int zp = 14 + 3*i, zm = 14 + num_pts*3 + 3*i;
       
       for( int j=0; j<3; j++ )
       {
-         sdpa.inputElement( zp+j, 2, i*3 + j, num_pts+1, -1 );
-         sdpa.inputElement( zm+j, 2, i*3 + j, num_pts+1, 1 );
+         sdpa.inputElement( zp+j, 2, i*3 + j, 3*num_pts+1, -1 );
+         sdpa.inputElement( zm+j, 2, i*3 + j, 3*num_pts+1, 1 );
          
-         sdpa.inputElement( zp+j, 2, num_pts+1, i*3 + j, -1 );
-         sdpa.inputElement( zm+j, 2, num_pts+1, i*3 + j, 1 );
+         sdpa.inputElement( zp+j, 2, 3*num_pts+1, i*3 + j, -1 );
+         sdpa.inputElement( zm+j, 2, 3*num_pts+1, i*3 + j, 1 );
       }
 
       int zcp = -1 + 4 + 3*num_pts + 1;
@@ -139,7 +251,7 @@ void SolvePoseCVX::setupQuadraticObjective()
    //Set objective weighting vs the L1 penalty (which has weight one)
    float objWeight = 1.0f*num_pts;
 
-   sdpa.inputCVec(13, 1); //gamma
+   sdpa.inputCVec(13, objWeight); //gamma
 }
 
 /** Sets up the CO(SO(3)) constraint.
