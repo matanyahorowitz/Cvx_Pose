@@ -1,0 +1,151 @@
+\hypertarget{classSolvePoseAnalytic}{\section{\-Solve\-Pose\-Analytic \-Class \-Reference}
+\label{classSolvePoseAnalytic}\index{\-Solve\-Pose\-Analytic@{\-Solve\-Pose\-Analytic}}
+}
+
+
+{\ttfamily \#include $<$\-Solve\-Pose\-Analytic.\-h$>$}
+
+\-Inheritance diagram for \-Solve\-Pose\-Analytic\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classSolvePoseAnalytic}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSolvePoseAnalytic_a46909a99ed0f06e70aa4b9d999c6356b}{\-Solve\-Pose\-Analytic} ()
+\item 
+\hyperlink{classSolvePoseAnalytic_a0bce3ad52a52f23cd14eabd7de12d832}{$\sim$\-Solve\-Pose\-Analytic} ()
+\item 
+void \hyperlink{classSolvePoseAnalytic_a0a3fd0af007d4a945c03f49f820badcf}{estimate\-Pose} ()
+\item 
+void \hyperlink{classSolvePoseAnalytic_aff3d9a1a6c15b4076d8fc560fd18176c}{set\-Decomposition} (int method)
+\end{DoxyCompactItemize}
+\subsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classSolvePoseAnalytic_a1bd5ff12daa4146f5ce418391cb03c7c}{single\-Solver} ()
+\item 
+void \hyperlink{classSolvePoseAnalytic_aea9b5c0833af7633f80b8879b26b4c99}{multi\-Solvers} ()
+\item 
+void \hyperlink{classSolvePoseAnalytic_afdb3d837111ffdfb4fe5821dc6b6165b}{\-A\-D\-M\-M\-Iter} (\-Eigen\-::\-Matrix4f \&dadj, \-Eigen\-::\-Matrix4f \&\-Zn, \-Eigen\-::\-Matrix4f \&\-Y, \-Eigen\-::\-Matrix4f \&\-Z0, float ainv)
+\item 
+void \hyperlink{classSolvePoseAnalytic_a477b3c908bc27e07c80ec117a6cfd8d9}{\-Dual\-Iter} ()
+\item 
+void \hyperlink{classSolvePoseAnalytic_a51160b660f01b388d8e535b00f54336e}{adjoint} (\-Eigen\-::\-Matrix3f \&\-D, \-Eigen\-::\-Matrix4f \&\-Dadj)
+\item 
+void \hyperlink{classSolvePoseAnalytic_a5c756fab3a0a31c6f6c02d0a9a0cf62a}{z2so} (\-Eigen\-::\-Matrix4f \&z, \-Eigen\-::\-Matrix3f \&r)
+\item 
+void \hyperlink{classSolvePoseAnalytic_addd843afaa4ce7e35826f100d46e3699}{proj\-Free\-Spectra} (\-Eigen\-::\-Vector4f \&v)
+\end{DoxyCompactItemize}
+\subsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classSolvePoseAnalytic_ae2c640a9416555bb83e8ffbc39e48a0c}{decomp\-\_\-method}
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classSolvePoseAnalytic_a46909a99ed0f06e70aa4b9d999c6356b}{\index{\-Solve\-Pose\-Analytic@{\-Solve\-Pose\-Analytic}!\-Solve\-Pose\-Analytic@{\-Solve\-Pose\-Analytic}}
+\index{\-Solve\-Pose\-Analytic@{\-Solve\-Pose\-Analytic}!SolvePoseAnalytic@{\-Solve\-Pose\-Analytic}}
+\subsubsection[{\-Solve\-Pose\-Analytic}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Solve\-Pose\-Analytic\-::\-Solve\-Pose\-Analytic} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSolvePoseAnalytic_a46909a99ed0f06e70aa4b9d999c6356b}
+\hypertarget{classSolvePoseAnalytic_a0bce3ad52a52f23cd14eabd7de12d832}{\index{\-Solve\-Pose\-Analytic@{\-Solve\-Pose\-Analytic}!$\sim$\-Solve\-Pose\-Analytic@{$\sim$\-Solve\-Pose\-Analytic}}
+\index{$\sim$\-Solve\-Pose\-Analytic@{$\sim$\-Solve\-Pose\-Analytic}!SolvePoseAnalytic@{\-Solve\-Pose\-Analytic}}
+\subsubsection[{$\sim$\-Solve\-Pose\-Analytic}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Solve\-Pose\-Analytic\-::$\sim$\-Solve\-Pose\-Analytic} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSolvePoseAnalytic_a0bce3ad52a52f23cd14eabd7de12d832}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classSolvePoseAnalytic_a51160b660f01b388d8e535b00f54336e}{\index{\-Solve\-Pose\-Analytic@{\-Solve\-Pose\-Analytic}!adjoint@{adjoint}}
+\index{adjoint@{adjoint}!SolvePoseAnalytic@{\-Solve\-Pose\-Analytic}}
+\subsubsection[{adjoint}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Solve\-Pose\-Analytic\-::adjoint} (
+\begin{DoxyParamCaption}
+\item[{\-Eigen\-::\-Matrix3f \&}]{\-D, }
+\item[{\-Eigen\-::\-Matrix4f \&}]{\-Dadj}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classSolvePoseAnalytic_a51160b660f01b388d8e535b00f54336e}
+\hypertarget{classSolvePoseAnalytic_afdb3d837111ffdfb4fe5821dc6b6165b}{\index{\-Solve\-Pose\-Analytic@{\-Solve\-Pose\-Analytic}!\-A\-D\-M\-M\-Iter@{\-A\-D\-M\-M\-Iter}}
+\index{\-A\-D\-M\-M\-Iter@{\-A\-D\-M\-M\-Iter}!SolvePoseAnalytic@{\-Solve\-Pose\-Analytic}}
+\subsubsection[{\-A\-D\-M\-M\-Iter}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Solve\-Pose\-Analytic\-::\-A\-D\-M\-M\-Iter} (
+\begin{DoxyParamCaption}
+\item[{\-Eigen\-::\-Matrix4f \&}]{dadj, }
+\item[{\-Eigen\-::\-Matrix4f \&}]{\-Zn, }
+\item[{\-Eigen\-::\-Matrix4f \&}]{\-Y, }
+\item[{\-Eigen\-::\-Matrix4f \&}]{\-Z0, }
+\item[{float}]{ainv}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classSolvePoseAnalytic_afdb3d837111ffdfb4fe5821dc6b6165b}
+\hypertarget{classSolvePoseAnalytic_a477b3c908bc27e07c80ec117a6cfd8d9}{\index{\-Solve\-Pose\-Analytic@{\-Solve\-Pose\-Analytic}!\-Dual\-Iter@{\-Dual\-Iter}}
+\index{\-Dual\-Iter@{\-Dual\-Iter}!SolvePoseAnalytic@{\-Solve\-Pose\-Analytic}}
+\subsubsection[{\-Dual\-Iter}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Solve\-Pose\-Analytic\-::\-Dual\-Iter} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classSolvePoseAnalytic_a477b3c908bc27e07c80ec117a6cfd8d9}
+\hypertarget{classSolvePoseAnalytic_a0a3fd0af007d4a945c03f49f820badcf}{\index{\-Solve\-Pose\-Analytic@{\-Solve\-Pose\-Analytic}!estimate\-Pose@{estimate\-Pose}}
+\index{estimate\-Pose@{estimate\-Pose}!SolvePoseAnalytic@{\-Solve\-Pose\-Analytic}}
+\subsubsection[{estimate\-Pose}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Solve\-Pose\-Analytic\-::estimate\-Pose} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classSolvePoseAnalytic_a0a3fd0af007d4a945c03f49f820badcf}
+
+
+\-Implements \hyperlink{classPoseEstimate_a6fdf8eec3cadac69bcf8181c89d82903}{\-Pose\-Estimate}.
+
+\hypertarget{classSolvePoseAnalytic_aea9b5c0833af7633f80b8879b26b4c99}{\index{\-Solve\-Pose\-Analytic@{\-Solve\-Pose\-Analytic}!multi\-Solvers@{multi\-Solvers}}
+\index{multi\-Solvers@{multi\-Solvers}!SolvePoseAnalytic@{\-Solve\-Pose\-Analytic}}
+\subsubsection[{multi\-Solvers}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Solve\-Pose\-Analytic\-::multi\-Solvers} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classSolvePoseAnalytic_aea9b5c0833af7633f80b8879b26b4c99}
+\hypertarget{classSolvePoseAnalytic_addd843afaa4ce7e35826f100d46e3699}{\index{\-Solve\-Pose\-Analytic@{\-Solve\-Pose\-Analytic}!proj\-Free\-Spectra@{proj\-Free\-Spectra}}
+\index{proj\-Free\-Spectra@{proj\-Free\-Spectra}!SolvePoseAnalytic@{\-Solve\-Pose\-Analytic}}
+\subsubsection[{proj\-Free\-Spectra}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Solve\-Pose\-Analytic\-::proj\-Free\-Spectra} (
+\begin{DoxyParamCaption}
+\item[{\-Eigen\-::\-Vector4f \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classSolvePoseAnalytic_addd843afaa4ce7e35826f100d46e3699}
+\hypertarget{classSolvePoseAnalytic_aff3d9a1a6c15b4076d8fc560fd18176c}{\index{\-Solve\-Pose\-Analytic@{\-Solve\-Pose\-Analytic}!set\-Decomposition@{set\-Decomposition}}
+\index{set\-Decomposition@{set\-Decomposition}!SolvePoseAnalytic@{\-Solve\-Pose\-Analytic}}
+\subsubsection[{set\-Decomposition}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Solve\-Pose\-Analytic\-::set\-Decomposition} (
+\begin{DoxyParamCaption}
+\item[{int}]{method}
+\end{DoxyParamCaption}
+)}}\label{classSolvePoseAnalytic_aff3d9a1a6c15b4076d8fc560fd18176c}
+\hypertarget{classSolvePoseAnalytic_a1bd5ff12daa4146f5ce418391cb03c7c}{\index{\-Solve\-Pose\-Analytic@{\-Solve\-Pose\-Analytic}!single\-Solver@{single\-Solver}}
+\index{single\-Solver@{single\-Solver}!SolvePoseAnalytic@{\-Solve\-Pose\-Analytic}}
+\subsubsection[{single\-Solver}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Solve\-Pose\-Analytic\-::single\-Solver} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classSolvePoseAnalytic_a1bd5ff12daa4146f5ce418391cb03c7c}
+\hypertarget{classSolvePoseAnalytic_a5c756fab3a0a31c6f6c02d0a9a0cf62a}{\index{\-Solve\-Pose\-Analytic@{\-Solve\-Pose\-Analytic}!z2so@{z2so}}
+\index{z2so@{z2so}!SolvePoseAnalytic@{\-Solve\-Pose\-Analytic}}
+\subsubsection[{z2so}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Solve\-Pose\-Analytic\-::z2so} (
+\begin{DoxyParamCaption}
+\item[{\-Eigen\-::\-Matrix4f \&}]{z, }
+\item[{\-Eigen\-::\-Matrix3f \&}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classSolvePoseAnalytic_a5c756fab3a0a31c6f6c02d0a9a0cf62a}
+
+
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{classSolvePoseAnalytic_ae2c640a9416555bb83e8ffbc39e48a0c}{\index{\-Solve\-Pose\-Analytic@{\-Solve\-Pose\-Analytic}!decomp\-\_\-method@{decomp\-\_\-method}}
+\index{decomp\-\_\-method@{decomp\-\_\-method}!SolvePoseAnalytic@{\-Solve\-Pose\-Analytic}}
+\subsubsection[{decomp\-\_\-method}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Solve\-Pose\-Analytic\-::decomp\-\_\-method}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classSolvePoseAnalytic_ae2c640a9416555bb83e8ffbc39e48a0c}
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\-Cvx\-\_\-\-Pose/src/\hyperlink{SolvePoseAnalytic_8h}{\-Solve\-Pose\-Analytic.\-h}\item 
+\-Cvx\-\_\-\-Pose/src/\hyperlink{SolvePoseAnalytic_8cpp}{\-Solve\-Pose\-Analytic.\-cpp}\end{DoxyCompactItemize}

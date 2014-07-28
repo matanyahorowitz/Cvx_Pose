@@ -1,0 +1,177 @@
+\hypertarget{classICP}{\section{\-I\-C\-P \-Class \-Reference}
+\label{classICP}\index{\-I\-C\-P@{\-I\-C\-P}}
+}
+
+
+{\ttfamily \#include $<$\-I\-C\-P.\-h$>$}
+
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classICP_a6a6f021c394b70387f0163239a74f94b}{\-I\-C\-P} ()
+\item 
+\hyperlink{classICP_a744eea059d43f0794b50d15ed056746a}{$\sim$\-I\-C\-P} ()
+\item 
+void \hyperlink{classICP_a49b0a9fafd601c49f7cdd55edaa0f7a7}{set\-Solver} (\hyperlink{structSolverSettings}{\-Solver\-Settings} s)
+\item 
+void \hyperlink{classICP_a7e02bf0f96bacf61fb7462c852be3c08}{set\-Model} (pcl\-::\-Point\-Cloud$<$ \hyperlink{common_8h_abd10555a534258e2739a38c928ef5db1}{\-Point\-T} $>$\-::\-Ptr m)
+\item 
+void \hyperlink{classICP_a65d3a5293b19ec80f5f569abccd8b395}{set\-Observation} (pcl\-::\-Point\-Cloud$<$ \hyperlink{common_8h_abd10555a534258e2739a38c928ef5db1}{\-Point\-T} $>$\-::\-Ptr o)
+\item 
+void \hyperlink{classICP_a8168f085dc9bf3916ea9b170f4a8b6f3}{est\-Pose} ()
+\item 
+void \hyperlink{classICP_a1dfd1ad0ea3c83ade91595cc3ecd24f2}{single\-Iteration} ()
+\item 
+void \hyperlink{classICP_af9624105149162bf1c80b2e70cbcf135}{get\-Pose} (\-Eigen\-::\-Matrix3f \&rot, \-Eigen\-::\-Vector3f \&trans)
+\end{DoxyCompactItemize}
+\subsection*{\-Protected \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classICP_a5e20a89dfd2f5f95a61122d268375b72}{dbg} (std\-::string)
+\end{DoxyCompactItemize}
+\subsection*{\-Protected \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\-Eigen\-::\-Sparse\-Matrix$<$ float $>$ \hyperlink{classICP_aade0504cb0e1d5abcb2c2add2be606b1}{permutation}
+\end{DoxyCompactItemize}
+\subsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structSolverSettings}{\-Solver\-Settings} \hyperlink{classICP_a7e3065919f63c9bdc0ff0677b5cf56d0}{settings}
+\item 
+\hyperlink{classPoseEstimate}{\-Pose\-Estimate} $\ast$ \hyperlink{classICP_a09c458b7e1daa98c6cc98177003794ce}{pose}
+\item 
+\-Eigen\-::\-Matrix3f \hyperlink{classICP_aee085ec283f657cb3980c529d48ba65b}{c\-\_\-\-R}
+\item 
+\-Eigen\-::\-Matrix3f \hyperlink{classICP_a07164ef6066cf0c9537881871cd56601}{i\-\_\-\-R}
+\item 
+\-Eigen\-::\-Vector3f \hyperlink{classICP_a55de298290d8e74617fdf19c153d55be}{c\-\_\-\-T}
+\item 
+\-Eigen\-::\-Vector3f \hyperlink{classICP_a63b486fc85453b0f09c6020e1c6227f4}{i\-\_\-\-T}
+\item 
+pcl\-::\-Point\-Cloud$<$ \hyperlink{common_8h_abd10555a534258e2739a38c928ef5db1}{\-Point\-T} $>$ \hyperlink{classICP_ae224713dd84e34bbef52a011046527af}{model}
+\item 
+pcl\-::\-Point\-Cloud$<$ \hyperlink{common_8h_abd10555a534258e2739a38c928ef5db1}{\-Point\-T} $>$ \hyperlink{classICP_a92b2b3089759aad730cb92a0976aea1b}{observation}
+\item 
+pcl\-::registration\-::\-Correspondence\-Estimation\*
+$<$ \hyperlink{common_8h_abd10555a534258e2739a38c928ef5db1}{\-Point\-T}, \hyperlink{common_8h_abd10555a534258e2739a38c928ef5db1}{\-Point\-T} $>$ \hyperlink{classICP_acf6194ebbf168e4a6059945980752849}{est}
+\item 
+int \hyperlink{classICP_a9b8cf5129a0cb5ad3fd05b261d514bb6}{num\-\_\-pts}
+\item 
+bool \hyperlink{classICP_a6e81d1444353ba66d59cd16d2dc74d7c}{debug}
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classICP_a6a6f021c394b70387f0163239a74f94b}{\index{\-I\-C\-P@{\-I\-C\-P}!\-I\-C\-P@{\-I\-C\-P}}
+\index{\-I\-C\-P@{\-I\-C\-P}!ICP@{\-I\-C\-P}}
+\subsubsection[{\-I\-C\-P}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-I\-C\-P\-::\-I\-C\-P} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classICP_a6a6f021c394b70387f0163239a74f94b}
+\hypertarget{classICP_a744eea059d43f0794b50d15ed056746a}{\index{\-I\-C\-P@{\-I\-C\-P}!$\sim$\-I\-C\-P@{$\sim$\-I\-C\-P}}
+\index{$\sim$\-I\-C\-P@{$\sim$\-I\-C\-P}!ICP@{\-I\-C\-P}}
+\subsubsection[{$\sim$\-I\-C\-P}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-I\-C\-P\-::$\sim$\-I\-C\-P} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classICP_a744eea059d43f0794b50d15ed056746a}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classICP_a5e20a89dfd2f5f95a61122d268375b72}{\index{\-I\-C\-P@{\-I\-C\-P}!dbg@{dbg}}
+\index{dbg@{dbg}!ICP@{\-I\-C\-P}}
+\subsubsection[{dbg}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-I\-C\-P\-::dbg} (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{msg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classICP_a5e20a89dfd2f5f95a61122d268375b72}
+\hypertarget{classICP_a8168f085dc9bf3916ea9b170f4a8b6f3}{\index{\-I\-C\-P@{\-I\-C\-P}!est\-Pose@{est\-Pose}}
+\index{est\-Pose@{est\-Pose}!ICP@{\-I\-C\-P}}
+\subsubsection[{est\-Pose}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-I\-C\-P\-::est\-Pose} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classICP_a8168f085dc9bf3916ea9b170f4a8b6f3}
+\hypertarget{classICP_af9624105149162bf1c80b2e70cbcf135}{\index{\-I\-C\-P@{\-I\-C\-P}!get\-Pose@{get\-Pose}}
+\index{get\-Pose@{get\-Pose}!ICP@{\-I\-C\-P}}
+\subsubsection[{get\-Pose}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-I\-C\-P\-::get\-Pose} (
+\begin{DoxyParamCaption}
+\item[{\-Eigen\-::\-Matrix3f \&}]{rot, }
+\item[{\-Eigen\-::\-Vector3f \&}]{trans}
+\end{DoxyParamCaption}
+)}}\label{classICP_af9624105149162bf1c80b2e70cbcf135}
+\hypertarget{classICP_a7e02bf0f96bacf61fb7462c852be3c08}{\index{\-I\-C\-P@{\-I\-C\-P}!set\-Model@{set\-Model}}
+\index{set\-Model@{set\-Model}!ICP@{\-I\-C\-P}}
+\subsubsection[{set\-Model}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-I\-C\-P\-::set\-Model} (
+\begin{DoxyParamCaption}
+\item[{pcl\-::\-Point\-Cloud$<$ {\bf \-Point\-T} $>$\-::\-Ptr}]{m}
+\end{DoxyParamCaption}
+)}}\label{classICP_a7e02bf0f96bacf61fb7462c852be3c08}
+\hypertarget{classICP_a65d3a5293b19ec80f5f569abccd8b395}{\index{\-I\-C\-P@{\-I\-C\-P}!set\-Observation@{set\-Observation}}
+\index{set\-Observation@{set\-Observation}!ICP@{\-I\-C\-P}}
+\subsubsection[{set\-Observation}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-I\-C\-P\-::set\-Observation} (
+\begin{DoxyParamCaption}
+\item[{pcl\-::\-Point\-Cloud$<$ {\bf \-Point\-T} $>$\-::\-Ptr}]{o}
+\end{DoxyParamCaption}
+)}}\label{classICP_a65d3a5293b19ec80f5f569abccd8b395}
+\hypertarget{classICP_a49b0a9fafd601c49f7cdd55edaa0f7a7}{\index{\-I\-C\-P@{\-I\-C\-P}!set\-Solver@{set\-Solver}}
+\index{set\-Solver@{set\-Solver}!ICP@{\-I\-C\-P}}
+\subsubsection[{set\-Solver}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-I\-C\-P\-::set\-Solver} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Solver\-Settings}}]{s}
+\end{DoxyParamCaption}
+)}}\label{classICP_a49b0a9fafd601c49f7cdd55edaa0f7a7}
+\hypertarget{classICP_a1dfd1ad0ea3c83ade91595cc3ecd24f2}{\index{\-I\-C\-P@{\-I\-C\-P}!single\-Iteration@{single\-Iteration}}
+\index{single\-Iteration@{single\-Iteration}!ICP@{\-I\-C\-P}}
+\subsubsection[{single\-Iteration}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-I\-C\-P\-::single\-Iteration} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classICP_a1dfd1ad0ea3c83ade91595cc3ecd24f2}
+
+
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{classICP_aee085ec283f657cb3980c529d48ba65b}{\index{\-I\-C\-P@{\-I\-C\-P}!c\-\_\-\-R@{c\-\_\-\-R}}
+\index{c\-\_\-\-R@{c\-\_\-\-R}!ICP@{\-I\-C\-P}}
+\subsubsection[{c\-\_\-\-R}]{\setlength{\rightskip}{0pt plus 5cm}\-Eigen\-::\-Matrix3f {\bf \-I\-C\-P\-::c\-\_\-\-R}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classICP_aee085ec283f657cb3980c529d48ba65b}
+\hypertarget{classICP_a55de298290d8e74617fdf19c153d55be}{\index{\-I\-C\-P@{\-I\-C\-P}!c\-\_\-\-T@{c\-\_\-\-T}}
+\index{c\-\_\-\-T@{c\-\_\-\-T}!ICP@{\-I\-C\-P}}
+\subsubsection[{c\-\_\-\-T}]{\setlength{\rightskip}{0pt plus 5cm}\-Eigen\-::\-Vector3f {\bf \-I\-C\-P\-::c\-\_\-\-T}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classICP_a55de298290d8e74617fdf19c153d55be}
+\hypertarget{classICP_a6e81d1444353ba66d59cd16d2dc74d7c}{\index{\-I\-C\-P@{\-I\-C\-P}!debug@{debug}}
+\index{debug@{debug}!ICP@{\-I\-C\-P}}
+\subsubsection[{debug}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-I\-C\-P\-::debug}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classICP_a6e81d1444353ba66d59cd16d2dc74d7c}
+\hypertarget{classICP_acf6194ebbf168e4a6059945980752849}{\index{\-I\-C\-P@{\-I\-C\-P}!est@{est}}
+\index{est@{est}!ICP@{\-I\-C\-P}}
+\subsubsection[{est}]{\setlength{\rightskip}{0pt plus 5cm}pcl\-::registration\-::\-Correspondence\-Estimation$<${\bf \-Point\-T}, {\bf \-Point\-T}$>$ {\bf \-I\-C\-P\-::est}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classICP_acf6194ebbf168e4a6059945980752849}
+\hypertarget{classICP_a07164ef6066cf0c9537881871cd56601}{\index{\-I\-C\-P@{\-I\-C\-P}!i\-\_\-\-R@{i\-\_\-\-R}}
+\index{i\-\_\-\-R@{i\-\_\-\-R}!ICP@{\-I\-C\-P}}
+\subsubsection[{i\-\_\-\-R}]{\setlength{\rightskip}{0pt plus 5cm}\-Eigen\-::\-Matrix3f {\bf \-I\-C\-P\-::i\-\_\-\-R}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classICP_a07164ef6066cf0c9537881871cd56601}
+\hypertarget{classICP_a63b486fc85453b0f09c6020e1c6227f4}{\index{\-I\-C\-P@{\-I\-C\-P}!i\-\_\-\-T@{i\-\_\-\-T}}
+\index{i\-\_\-\-T@{i\-\_\-\-T}!ICP@{\-I\-C\-P}}
+\subsubsection[{i\-\_\-\-T}]{\setlength{\rightskip}{0pt plus 5cm}\-Eigen\-::\-Vector3f {\bf \-I\-C\-P\-::i\-\_\-\-T}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classICP_a63b486fc85453b0f09c6020e1c6227f4}
+\hypertarget{classICP_ae224713dd84e34bbef52a011046527af}{\index{\-I\-C\-P@{\-I\-C\-P}!model@{model}}
+\index{model@{model}!ICP@{\-I\-C\-P}}
+\subsubsection[{model}]{\setlength{\rightskip}{0pt plus 5cm}pcl\-::\-Point\-Cloud$<${\bf \-Point\-T}$>$ {\bf \-I\-C\-P\-::model}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classICP_ae224713dd84e34bbef52a011046527af}
+\hypertarget{classICP_a9b8cf5129a0cb5ad3fd05b261d514bb6}{\index{\-I\-C\-P@{\-I\-C\-P}!num\-\_\-pts@{num\-\_\-pts}}
+\index{num\-\_\-pts@{num\-\_\-pts}!ICP@{\-I\-C\-P}}
+\subsubsection[{num\-\_\-pts}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-I\-C\-P\-::num\-\_\-pts}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classICP_a9b8cf5129a0cb5ad3fd05b261d514bb6}
+\hypertarget{classICP_a92b2b3089759aad730cb92a0976aea1b}{\index{\-I\-C\-P@{\-I\-C\-P}!observation@{observation}}
+\index{observation@{observation}!ICP@{\-I\-C\-P}}
+\subsubsection[{observation}]{\setlength{\rightskip}{0pt plus 5cm}pcl\-::\-Point\-Cloud$<${\bf \-Point\-T}$>$ {\bf \-I\-C\-P\-::observation}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classICP_a92b2b3089759aad730cb92a0976aea1b}
+\hypertarget{classICP_aade0504cb0e1d5abcb2c2add2be606b1}{\index{\-I\-C\-P@{\-I\-C\-P}!permutation@{permutation}}
+\index{permutation@{permutation}!ICP@{\-I\-C\-P}}
+\subsubsection[{permutation}]{\setlength{\rightskip}{0pt plus 5cm}\-Eigen\-::\-Sparse\-Matrix$<$float$>$ {\bf \-I\-C\-P\-::permutation}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classICP_aade0504cb0e1d5abcb2c2add2be606b1}
+\hypertarget{classICP_a09c458b7e1daa98c6cc98177003794ce}{\index{\-I\-C\-P@{\-I\-C\-P}!pose@{pose}}
+\index{pose@{pose}!ICP@{\-I\-C\-P}}
+\subsubsection[{pose}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Pose\-Estimate}$\ast$ {\bf \-I\-C\-P\-::pose}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classICP_a09c458b7e1daa98c6cc98177003794ce}
+\hypertarget{classICP_a7e3065919f63c9bdc0ff0677b5cf56d0}{\index{\-I\-C\-P@{\-I\-C\-P}!settings@{settings}}
+\index{settings@{settings}!ICP@{\-I\-C\-P}}
+\subsubsection[{settings}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Solver\-Settings} {\bf \-I\-C\-P\-::settings}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classICP_a7e3065919f63c9bdc0ff0677b5cf56d0}
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\-Cvx\-\_\-\-Pose/src/\hyperlink{ICP_8h}{\-I\-C\-P.\-h}\item 
+\-Cvx\-\_\-\-Pose/src/\hyperlink{ICP_8cpp}{\-I\-C\-P.\-cpp}\end{DoxyCompactItemize}

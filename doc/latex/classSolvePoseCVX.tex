@@ -1,0 +1,151 @@
+\hypertarget{classSolvePoseCVX}{\section{\-Solve\-Pose\-C\-V\-X \-Class \-Reference}
+\label{classSolvePoseCVX}\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}}
+}
+
+
+{\ttfamily \#include $<$\-Solve\-Pose\-C\-V\-X.\-h$>$}
+
+\-Inheritance diagram for \-Solve\-Pose\-C\-V\-X\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classSolvePoseCVX}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSolvePoseCVX_a482baaffc4162260c7e565b1fa623007}{\-Solve\-Pose\-C\-V\-X} ()
+\item 
+\hyperlink{classSolvePoseCVX_a00a0ef0e4c0c55bde6d63c03c496082d}{$\sim$\-Solve\-Pose\-C\-V\-X} ()
+\item 
+void \hyperlink{classSolvePoseCVX_a081c857ff6c1c9e6597d41fb08bb6f16}{estimate\-Pose} ()
+\item 
+void \hyperlink{classSolvePoseCVX_a413870a9249a7f3b2ceb0ba52f68cb5f}{set\-Decomposition} (int method)
+\end{DoxyCompactItemize}
+\subsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classSolvePoseCVX_ac6c5c12f31943c02eac2b4e3afe95cb5}{single\-Solver} ()
+\item 
+void \hyperlink{classSolvePoseCVX_aa15afe19bca14542c1466f4582a8408a}{multi\-Solvers} ()
+\item 
+void \hyperlink{classSolvePoseCVX_af71375a8ebc356e5794249ae0c1243d6}{initialize\-Solver} ()
+\item 
+void \hyperlink{classSolvePoseCVX_aadfc695ad82f44103e7e51c037ddb232}{init\-S\-D\-P\-A\-Cons\-Matrix} (int k, int l)
+\item 
+void \hyperlink{classSolvePoseCVX_ac1b83848a5b98e008dfc9b7a87b0079c}{setup\-Quadratic\-Objective} ()
+\item 
+void \hyperlink{classSolvePoseCVX_a4e1c078bdb3a613349c7136bdb0899b9}{setup\-R\-Constraint} ()
+\item 
+void \hyperlink{classSolvePoseCVX_adba2454a08d9e6115cd075928c1d5518}{setup\-Linear\-Objective} ()
+\end{DoxyCompactItemize}
+\subsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classSolvePoseCVX_a6d4be163f9b06fc013c99bbacceece14}{decomp\-\_\-method}
+\item 
+\-S\-D\-P\-A \hyperlink{classSolvePoseCVX_af0c222b2ce7361ff8a54eee918ea1c65}{sdpa}
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classSolvePoseCVX_a482baaffc4162260c7e565b1fa623007}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}}
+\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!SolvePoseCVX@{\-Solve\-Pose\-C\-V\-X}}
+\subsubsection[{\-Solve\-Pose\-C\-V\-X}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Solve\-Pose\-C\-V\-X\-::\-Solve\-Pose\-C\-V\-X} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSolvePoseCVX_a482baaffc4162260c7e565b1fa623007}
+\hypertarget{classSolvePoseCVX_a00a0ef0e4c0c55bde6d63c03c496082d}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!$\sim$\-Solve\-Pose\-C\-V\-X@{$\sim$\-Solve\-Pose\-C\-V\-X}}
+\index{$\sim$\-Solve\-Pose\-C\-V\-X@{$\sim$\-Solve\-Pose\-C\-V\-X}!SolvePoseCVX@{\-Solve\-Pose\-C\-V\-X}}
+\subsubsection[{$\sim$\-Solve\-Pose\-C\-V\-X}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Solve\-Pose\-C\-V\-X\-::$\sim$\-Solve\-Pose\-C\-V\-X} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSolvePoseCVX_a00a0ef0e4c0c55bde6d63c03c496082d}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classSolvePoseCVX_a081c857ff6c1c9e6597d41fb08bb6f16}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!estimate\-Pose@{estimate\-Pose}}
+\index{estimate\-Pose@{estimate\-Pose}!SolvePoseCVX@{\-Solve\-Pose\-C\-V\-X}}
+\subsubsection[{estimate\-Pose}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Solve\-Pose\-C\-V\-X\-::estimate\-Pose} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classSolvePoseCVX_a081c857ff6c1c9e6597d41fb08bb6f16}
+
+
+\-Implements \hyperlink{classPoseEstimate_a6fdf8eec3cadac69bcf8181c89d82903}{\-Pose\-Estimate}.
+
+\hypertarget{classSolvePoseCVX_af71375a8ebc356e5794249ae0c1243d6}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!initialize\-Solver@{initialize\-Solver}}
+\index{initialize\-Solver@{initialize\-Solver}!SolvePoseCVX@{\-Solve\-Pose\-C\-V\-X}}
+\subsubsection[{initialize\-Solver}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Solve\-Pose\-C\-V\-X\-::initialize\-Solver} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classSolvePoseCVX_af71375a8ebc356e5794249ae0c1243d6}
+\hypertarget{classSolvePoseCVX_aadfc695ad82f44103e7e51c037ddb232}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!init\-S\-D\-P\-A\-Cons\-Matrix@{init\-S\-D\-P\-A\-Cons\-Matrix}}
+\index{init\-S\-D\-P\-A\-Cons\-Matrix@{init\-S\-D\-P\-A\-Cons\-Matrix}!SolvePoseCVX@{\-Solve\-Pose\-C\-V\-X}}
+\subsubsection[{init\-S\-D\-P\-A\-Cons\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Solve\-Pose\-C\-V\-X\-::init\-S\-D\-P\-A\-Cons\-Matrix} (
+\begin{DoxyParamCaption}
+\item[{int}]{k, }
+\item[{int}]{l}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classSolvePoseCVX_aadfc695ad82f44103e7e51c037ddb232}
+\hypertarget{classSolvePoseCVX_aa15afe19bca14542c1466f4582a8408a}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!multi\-Solvers@{multi\-Solvers}}
+\index{multi\-Solvers@{multi\-Solvers}!SolvePoseCVX@{\-Solve\-Pose\-C\-V\-X}}
+\subsubsection[{multi\-Solvers}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Solve\-Pose\-C\-V\-X\-::multi\-Solvers} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classSolvePoseCVX_aa15afe19bca14542c1466f4582a8408a}
+\hypertarget{classSolvePoseCVX_a413870a9249a7f3b2ceb0ba52f68cb5f}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!set\-Decomposition@{set\-Decomposition}}
+\index{set\-Decomposition@{set\-Decomposition}!SolvePoseCVX@{\-Solve\-Pose\-C\-V\-X}}
+\subsubsection[{set\-Decomposition}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Solve\-Pose\-C\-V\-X\-::set\-Decomposition} (
+\begin{DoxyParamCaption}
+\item[{int}]{method}
+\end{DoxyParamCaption}
+)}}\label{classSolvePoseCVX_a413870a9249a7f3b2ceb0ba52f68cb5f}
+\hypertarget{classSolvePoseCVX_adba2454a08d9e6115cd075928c1d5518}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!setup\-Linear\-Objective@{setup\-Linear\-Objective}}
+\index{setup\-Linear\-Objective@{setup\-Linear\-Objective}!SolvePoseCVX@{\-Solve\-Pose\-C\-V\-X}}
+\subsubsection[{setup\-Linear\-Objective}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Solve\-Pose\-C\-V\-X\-::setup\-Linear\-Objective} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classSolvePoseCVX_adba2454a08d9e6115cd075928c1d5518}
+\hypertarget{classSolvePoseCVX_ac1b83848a5b98e008dfc9b7a87b0079c}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!setup\-Quadratic\-Objective@{setup\-Quadratic\-Objective}}
+\index{setup\-Quadratic\-Objective@{setup\-Quadratic\-Objective}!SolvePoseCVX@{\-Solve\-Pose\-C\-V\-X}}
+\subsubsection[{setup\-Quadratic\-Objective}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Solve\-Pose\-C\-V\-X\-::setup\-Quadratic\-Objective} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classSolvePoseCVX_ac1b83848a5b98e008dfc9b7a87b0079c}
+\hypertarget{classSolvePoseCVX_a4e1c078bdb3a613349c7136bdb0899b9}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!setup\-R\-Constraint@{setup\-R\-Constraint}}
+\index{setup\-R\-Constraint@{setup\-R\-Constraint}!SolvePoseCVX@{\-Solve\-Pose\-C\-V\-X}}
+\subsubsection[{setup\-R\-Constraint}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Solve\-Pose\-C\-V\-X\-::setup\-R\-Constraint} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classSolvePoseCVX_a4e1c078bdb3a613349c7136bdb0899b9}
+\hypertarget{classSolvePoseCVX_ac6c5c12f31943c02eac2b4e3afe95cb5}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!single\-Solver@{single\-Solver}}
+\index{single\-Solver@{single\-Solver}!SolvePoseCVX@{\-Solve\-Pose\-C\-V\-X}}
+\subsubsection[{single\-Solver}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Solve\-Pose\-C\-V\-X\-::single\-Solver} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classSolvePoseCVX_ac6c5c12f31943c02eac2b4e3afe95cb5}
+
+
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{classSolvePoseCVX_a6d4be163f9b06fc013c99bbacceece14}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!decomp\-\_\-method@{decomp\-\_\-method}}
+\index{decomp\-\_\-method@{decomp\-\_\-method}!SolvePoseCVX@{\-Solve\-Pose\-C\-V\-X}}
+\subsubsection[{decomp\-\_\-method}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Solve\-Pose\-C\-V\-X\-::decomp\-\_\-method}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classSolvePoseCVX_a6d4be163f9b06fc013c99bbacceece14}
+\hypertarget{classSolvePoseCVX_af0c222b2ce7361ff8a54eee918ea1c65}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!sdpa@{sdpa}}
+\index{sdpa@{sdpa}!SolvePoseCVX@{\-Solve\-Pose\-C\-V\-X}}
+\subsubsection[{sdpa}]{\setlength{\rightskip}{0pt plus 5cm}\-S\-D\-P\-A {\bf \-Solve\-Pose\-C\-V\-X\-::sdpa}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classSolvePoseCVX_af0c222b2ce7361ff8a54eee918ea1c65}
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\-Cvx\-\_\-\-Pose/src/\hyperlink{SolvePoseCVX_8h}{\-Solve\-Pose\-C\-V\-X.\-h}\item 
+\-Cvx\-\_\-\-Pose/src/\hyperlink{SolvePoseCVX_8cpp}{\-Solve\-Pose\-C\-V\-X.\-cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,214 @@
+\hypertarget{classPoseEstimate}{\section{\-Pose\-Estimate \-Class \-Reference}
+\label{classPoseEstimate}\index{\-Pose\-Estimate@{\-Pose\-Estimate}}
+}
+
+
+{\ttfamily \#include $<$\-Pose\-Estimate.\-h$>$}
+
+\-Inheritance diagram for \-Pose\-Estimate\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classPoseEstimate}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPoseEstimate_ac3e3718fe27dccb3be0760d6bcdc18c6}{\-Pose\-Estimate} ()
+\item 
+\hyperlink{classPoseEstimate_ac024bd041a98d233647f106e6878d986}{$\sim$\-Pose\-Estimate} ()
+\item 
+virtual void \hyperlink{classPoseEstimate_a6fdf8eec3cadac69bcf8181c89d82903}{estimate\-Pose} ()=0
+\item 
+virtual void \hyperlink{classPoseEstimate_a4c420a20ba20719f7c19b8bbec79b6d9}{set\-Model} (pcl\-::\-Point\-Cloud$<$ \hyperlink{common_8h_abd10555a534258e2739a38c928ef5db1}{\-Point\-T} $>$\-::\-Ptr \hyperlink{classPoseEstimate_aca9217cfe0d272f172f65adfc31764f1}{model})
+\item 
+void \hyperlink{classPoseEstimate_ae884275e741789db776be52f373f387f}{set\-Observation} (pcl\-::\-Point\-Cloud$<$ \hyperlink{common_8h_abd10555a534258e2739a38c928ef5db1}{\-Point\-T} $>$\-::\-Ptr \hyperlink{classPoseEstimate_a75beb14fe9fd10fc8a80eff84f348c1c}{obs})
+\item 
+void \hyperlink{classPoseEstimate_a9daadf84954e07d295c2286172f01904}{permute\-Data} (\-Eigen\-::\-Sparse\-Matrix$<$ float $>$ \&\-P)
+\item 
+void \hyperlink{classPoseEstimate_af36ed6ccd1839eedff0f51f0bdaa23c7}{set\-Initial\-Pose} (\-Eigen\-::\-Matrix3f \&rot, \-Eigen\-::\-Vector3f \&trans)
+\item 
+void \hyperlink{classPoseEstimate_aa52680b9860a5a33201dfdd888e34c5a}{get\-Pose} (\-Eigen\-::\-Matrix3f \&rot, \-Eigen\-::\-Vector3f \&trans)
+\item 
+void \hyperlink{classPoseEstimate_a82d9fbf262d32338a9275f9cedee3f6c}{set\-Cores} (int num)
+\item 
+void \hyperlink{classPoseEstimate_a97197a2b7b19b8a975984841feaab1dc}{dbg} (std\-::string)
+\item 
+void \hyperlink{classPoseEstimate_a32bcf3736214b6635f9da6ad6be5f0ce}{calculate\-Centroid} (\hyperlink{common_8h_a4ec92c19d079ab17709ca464cfb8e5bd}{\-D\-Mat} \&data, \-Eigen\-::\-Vector3f \&center)
+\item 
+float \hyperlink{classPoseEstimate_ae195b53478db98ca075a6f0359ea422c}{calculate\-Residual} ()
+\end{DoxyCompactItemize}
+\subsection*{\-Protected \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{common_8h_a4ec92c19d079ab17709ca464cfb8e5bd}{\-D\-Mat} \hyperlink{classPoseEstimate_aca9217cfe0d272f172f65adfc31764f1}{model}
+\item 
+\hyperlink{common_8h_a4ec92c19d079ab17709ca464cfb8e5bd}{\-D\-Mat} \hyperlink{classPoseEstimate_a75beb14fe9fd10fc8a80eff84f348c1c}{obs}
+\item 
+\-Eigen\-::\-Matrix4f \hyperlink{classPoseEstimate_ad4827d1aca3b4730d6e8c0cf4e96deca}{\-A} \mbox{[}3\mbox{]}\mbox{[}3\mbox{]}
+\item 
+\-Eigen\-::\-Matrix3f \hyperlink{classPoseEstimate_a45910f753f4c92260252d965af504cc8}{\-R}
+\item 
+\-Eigen\-::\-Matrix3f \hyperlink{classPoseEstimate_ac6b2c23e4121d00a14d4a8245cad86ab}{i\-\_\-\-R}
+\item 
+\-Eigen\-::\-Vector3f \hyperlink{classPoseEstimate_a31a1a39ab75efc08a00ddc8f8f75b60b}{\-T}
+\item 
+\-Eigen\-::\-Vector3f \hyperlink{classPoseEstimate_a0fa85e3f7cd2b447df9985519a28c0d7}{i\-\_\-\-T}
+\item 
+int \hyperlink{classPoseEstimate_a9b1cbebd4de554e6c0b4607a2a462a92}{cores}
+\item 
+bool \hyperlink{classPoseEstimate_a81f2cf4c423887225557200a6da5744e}{debug}
+\item 
+int \hyperlink{classPoseEstimate_a8bad9dfcf6b8ec9e3ba4f62498594524}{num\-\_\-pts}
+\item 
+\-Eigen\-::\-Vector3f \hyperlink{classPoseEstimate_acd4fefbc3f3fd794f51a8a338996b2ae}{model\-\_\-center}
+\item 
+\-Eigen\-::\-Vector3f \hyperlink{classPoseEstimate_a3431f3d795bc7e5ec3108c923cf4eb9f}{obs\-\_\-center}
+\item 
+\hyperlink{structSolverSettings}{\-Solver\-Settings} \hyperlink{classPoseEstimate_ae1d0b8586991b50d575afa6b8bae92da}{settings}
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classPoseEstimate_ac3e3718fe27dccb3be0760d6bcdc18c6}{\index{\-Pose\-Estimate@{\-Pose\-Estimate}!\-Pose\-Estimate@{\-Pose\-Estimate}}
+\index{\-Pose\-Estimate@{\-Pose\-Estimate}!PoseEstimate@{\-Pose\-Estimate}}
+\subsubsection[{\-Pose\-Estimate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Pose\-Estimate\-::\-Pose\-Estimate} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPoseEstimate_ac3e3718fe27dccb3be0760d6bcdc18c6}
+\hypertarget{classPoseEstimate_ac024bd041a98d233647f106e6878d986}{\index{\-Pose\-Estimate@{\-Pose\-Estimate}!$\sim$\-Pose\-Estimate@{$\sim$\-Pose\-Estimate}}
+\index{$\sim$\-Pose\-Estimate@{$\sim$\-Pose\-Estimate}!PoseEstimate@{\-Pose\-Estimate}}
+\subsubsection[{$\sim$\-Pose\-Estimate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Pose\-Estimate\-::$\sim$\-Pose\-Estimate} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPoseEstimate_ac024bd041a98d233647f106e6878d986}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classPoseEstimate_a32bcf3736214b6635f9da6ad6be5f0ce}{\index{\-Pose\-Estimate@{\-Pose\-Estimate}!calculate\-Centroid@{calculate\-Centroid}}
+\index{calculate\-Centroid@{calculate\-Centroid}!PoseEstimate@{\-Pose\-Estimate}}
+\subsubsection[{calculate\-Centroid}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Pose\-Estimate\-::calculate\-Centroid} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-D\-Mat} \&}]{data, }
+\item[{\-Eigen\-::\-Vector3f \&}]{center}
+\end{DoxyParamCaption}
+)}}\label{classPoseEstimate_a32bcf3736214b6635f9da6ad6be5f0ce}
+\hypertarget{classPoseEstimate_ae195b53478db98ca075a6f0359ea422c}{\index{\-Pose\-Estimate@{\-Pose\-Estimate}!calculate\-Residual@{calculate\-Residual}}
+\index{calculate\-Residual@{calculate\-Residual}!PoseEstimate@{\-Pose\-Estimate}}
+\subsubsection[{calculate\-Residual}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Pose\-Estimate\-::calculate\-Residual} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPoseEstimate_ae195b53478db98ca075a6f0359ea422c}
+\hypertarget{classPoseEstimate_a97197a2b7b19b8a975984841feaab1dc}{\index{\-Pose\-Estimate@{\-Pose\-Estimate}!dbg@{dbg}}
+\index{dbg@{dbg}!PoseEstimate@{\-Pose\-Estimate}}
+\subsubsection[{dbg}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Pose\-Estimate\-::dbg} (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{msg}
+\end{DoxyParamCaption}
+)}}\label{classPoseEstimate_a97197a2b7b19b8a975984841feaab1dc}
+\hypertarget{classPoseEstimate_a6fdf8eec3cadac69bcf8181c89d82903}{\index{\-Pose\-Estimate@{\-Pose\-Estimate}!estimate\-Pose@{estimate\-Pose}}
+\index{estimate\-Pose@{estimate\-Pose}!PoseEstimate@{\-Pose\-Estimate}}
+\subsubsection[{estimate\-Pose}]{\setlength{\rightskip}{0pt plus 5cm}virtual void {\bf \-Pose\-Estimate\-::estimate\-Pose} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}\label{classPoseEstimate_a6fdf8eec3cadac69bcf8181c89d82903}
+
+
+\-Implemented in \hyperlink{classSolvePoseAnalytic_a0a3fd0af007d4a945c03f49f820badcf}{\-Solve\-Pose\-Analytic}, and \hyperlink{classSolvePoseCVX_a081c857ff6c1c9e6597d41fb08bb6f16}{\-Solve\-Pose\-C\-V\-X}.
+
+\hypertarget{classPoseEstimate_aa52680b9860a5a33201dfdd888e34c5a}{\index{\-Pose\-Estimate@{\-Pose\-Estimate}!get\-Pose@{get\-Pose}}
+\index{get\-Pose@{get\-Pose}!PoseEstimate@{\-Pose\-Estimate}}
+\subsubsection[{get\-Pose}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Pose\-Estimate\-::get\-Pose} (
+\begin{DoxyParamCaption}
+\item[{\-Eigen\-::\-Matrix3f \&}]{rot, }
+\item[{\-Eigen\-::\-Vector3f \&}]{trans}
+\end{DoxyParamCaption}
+)}}\label{classPoseEstimate_aa52680b9860a5a33201dfdd888e34c5a}
+\hypertarget{classPoseEstimate_a9daadf84954e07d295c2286172f01904}{\index{\-Pose\-Estimate@{\-Pose\-Estimate}!permute\-Data@{permute\-Data}}
+\index{permute\-Data@{permute\-Data}!PoseEstimate@{\-Pose\-Estimate}}
+\subsubsection[{permute\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Pose\-Estimate\-::permute\-Data} (
+\begin{DoxyParamCaption}
+\item[{\-Eigen\-::\-Sparse\-Matrix$<$ float $>$ \&}]{\-P}
+\end{DoxyParamCaption}
+)}}\label{classPoseEstimate_a9daadf84954e07d295c2286172f01904}
+\hypertarget{classPoseEstimate_a82d9fbf262d32338a9275f9cedee3f6c}{\index{\-Pose\-Estimate@{\-Pose\-Estimate}!set\-Cores@{set\-Cores}}
+\index{set\-Cores@{set\-Cores}!PoseEstimate@{\-Pose\-Estimate}}
+\subsubsection[{set\-Cores}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Pose\-Estimate\-::set\-Cores} (
+\begin{DoxyParamCaption}
+\item[{int}]{num}
+\end{DoxyParamCaption}
+)}}\label{classPoseEstimate_a82d9fbf262d32338a9275f9cedee3f6c}
+\hypertarget{classPoseEstimate_af36ed6ccd1839eedff0f51f0bdaa23c7}{\index{\-Pose\-Estimate@{\-Pose\-Estimate}!set\-Initial\-Pose@{set\-Initial\-Pose}}
+\index{set\-Initial\-Pose@{set\-Initial\-Pose}!PoseEstimate@{\-Pose\-Estimate}}
+\subsubsection[{set\-Initial\-Pose}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Pose\-Estimate\-::set\-Initial\-Pose} (
+\begin{DoxyParamCaption}
+\item[{\-Eigen\-::\-Matrix3f \&}]{rot, }
+\item[{\-Eigen\-::\-Vector3f \&}]{trans}
+\end{DoxyParamCaption}
+)}}\label{classPoseEstimate_af36ed6ccd1839eedff0f51f0bdaa23c7}
+\hypertarget{classPoseEstimate_a4c420a20ba20719f7c19b8bbec79b6d9}{\index{\-Pose\-Estimate@{\-Pose\-Estimate}!set\-Model@{set\-Model}}
+\index{set\-Model@{set\-Model}!PoseEstimate@{\-Pose\-Estimate}}
+\subsubsection[{set\-Model}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Pose\-Estimate\-::set\-Model} (
+\begin{DoxyParamCaption}
+\item[{pcl\-::\-Point\-Cloud$<$ {\bf \-Point\-T} $>$\-::\-Ptr}]{model}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classPoseEstimate_a4c420a20ba20719f7c19b8bbec79b6d9}
+\hypertarget{classPoseEstimate_ae884275e741789db776be52f373f387f}{\index{\-Pose\-Estimate@{\-Pose\-Estimate}!set\-Observation@{set\-Observation}}
+\index{set\-Observation@{set\-Observation}!PoseEstimate@{\-Pose\-Estimate}}
+\subsubsection[{set\-Observation}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Pose\-Estimate\-::set\-Observation} (
+\begin{DoxyParamCaption}
+\item[{pcl\-::\-Point\-Cloud$<$ {\bf \-Point\-T} $>$\-::\-Ptr}]{obs}
+\end{DoxyParamCaption}
+)}}\label{classPoseEstimate_ae884275e741789db776be52f373f387f}
+
+
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{classPoseEstimate_ad4827d1aca3b4730d6e8c0cf4e96deca}{\index{\-Pose\-Estimate@{\-Pose\-Estimate}!\-A@{\-A}}
+\index{\-A@{\-A}!PoseEstimate@{\-Pose\-Estimate}}
+\subsubsection[{\-A}]{\setlength{\rightskip}{0pt plus 5cm}\-Eigen\-::\-Matrix4f {\bf \-Pose\-Estimate\-::\-A}\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classPoseEstimate_ad4827d1aca3b4730d6e8c0cf4e96deca}
+\hypertarget{classPoseEstimate_a9b1cbebd4de554e6c0b4607a2a462a92}{\index{\-Pose\-Estimate@{\-Pose\-Estimate}!cores@{cores}}
+\index{cores@{cores}!PoseEstimate@{\-Pose\-Estimate}}
+\subsubsection[{cores}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Pose\-Estimate\-::cores}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classPoseEstimate_a9b1cbebd4de554e6c0b4607a2a462a92}
+\hypertarget{classPoseEstimate_a81f2cf4c423887225557200a6da5744e}{\index{\-Pose\-Estimate@{\-Pose\-Estimate}!debug@{debug}}
+\index{debug@{debug}!PoseEstimate@{\-Pose\-Estimate}}
+\subsubsection[{debug}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Pose\-Estimate\-::debug}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classPoseEstimate_a81f2cf4c423887225557200a6da5744e}
+\hypertarget{classPoseEstimate_ac6b2c23e4121d00a14d4a8245cad86ab}{\index{\-Pose\-Estimate@{\-Pose\-Estimate}!i\-\_\-\-R@{i\-\_\-\-R}}
+\index{i\-\_\-\-R@{i\-\_\-\-R}!PoseEstimate@{\-Pose\-Estimate}}
+\subsubsection[{i\-\_\-\-R}]{\setlength{\rightskip}{0pt plus 5cm}\-Eigen\-::\-Matrix3f {\bf \-Pose\-Estimate\-::i\-\_\-\-R}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classPoseEstimate_ac6b2c23e4121d00a14d4a8245cad86ab}
+\hypertarget{classPoseEstimate_a0fa85e3f7cd2b447df9985519a28c0d7}{\index{\-Pose\-Estimate@{\-Pose\-Estimate}!i\-\_\-\-T@{i\-\_\-\-T}}
+\index{i\-\_\-\-T@{i\-\_\-\-T}!PoseEstimate@{\-Pose\-Estimate}}
+\subsubsection[{i\-\_\-\-T}]{\setlength{\rightskip}{0pt plus 5cm}\-Eigen\-::\-Vector3f {\bf \-Pose\-Estimate\-::i\-\_\-\-T}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classPoseEstimate_a0fa85e3f7cd2b447df9985519a28c0d7}
+\hypertarget{classPoseEstimate_aca9217cfe0d272f172f65adfc31764f1}{\index{\-Pose\-Estimate@{\-Pose\-Estimate}!model@{model}}
+\index{model@{model}!PoseEstimate@{\-Pose\-Estimate}}
+\subsubsection[{model}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-D\-Mat} {\bf \-Pose\-Estimate\-::model}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classPoseEstimate_aca9217cfe0d272f172f65adfc31764f1}
+\hypertarget{classPoseEstimate_acd4fefbc3f3fd794f51a8a338996b2ae}{\index{\-Pose\-Estimate@{\-Pose\-Estimate}!model\-\_\-center@{model\-\_\-center}}
+\index{model\-\_\-center@{model\-\_\-center}!PoseEstimate@{\-Pose\-Estimate}}
+\subsubsection[{model\-\_\-center}]{\setlength{\rightskip}{0pt plus 5cm}\-Eigen\-::\-Vector3f {\bf \-Pose\-Estimate\-::model\-\_\-center}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classPoseEstimate_acd4fefbc3f3fd794f51a8a338996b2ae}
+\hypertarget{classPoseEstimate_a8bad9dfcf6b8ec9e3ba4f62498594524}{\index{\-Pose\-Estimate@{\-Pose\-Estimate}!num\-\_\-pts@{num\-\_\-pts}}
+\index{num\-\_\-pts@{num\-\_\-pts}!PoseEstimate@{\-Pose\-Estimate}}
+\subsubsection[{num\-\_\-pts}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Pose\-Estimate\-::num\-\_\-pts}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classPoseEstimate_a8bad9dfcf6b8ec9e3ba4f62498594524}
+\hypertarget{classPoseEstimate_a75beb14fe9fd10fc8a80eff84f348c1c}{\index{\-Pose\-Estimate@{\-Pose\-Estimate}!obs@{obs}}
+\index{obs@{obs}!PoseEstimate@{\-Pose\-Estimate}}
+\subsubsection[{obs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-D\-Mat} {\bf \-Pose\-Estimate\-::obs}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classPoseEstimate_a75beb14fe9fd10fc8a80eff84f348c1c}
+\hypertarget{classPoseEstimate_a3431f3d795bc7e5ec3108c923cf4eb9f}{\index{\-Pose\-Estimate@{\-Pose\-Estimate}!obs\-\_\-center@{obs\-\_\-center}}
+\index{obs\-\_\-center@{obs\-\_\-center}!PoseEstimate@{\-Pose\-Estimate}}
+\subsubsection[{obs\-\_\-center}]{\setlength{\rightskip}{0pt plus 5cm}\-Eigen\-::\-Vector3f {\bf \-Pose\-Estimate\-::obs\-\_\-center}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classPoseEstimate_a3431f3d795bc7e5ec3108c923cf4eb9f}
+\hypertarget{classPoseEstimate_a45910f753f4c92260252d965af504cc8}{\index{\-Pose\-Estimate@{\-Pose\-Estimate}!\-R@{\-R}}
+\index{\-R@{\-R}!PoseEstimate@{\-Pose\-Estimate}}
+\subsubsection[{\-R}]{\setlength{\rightskip}{0pt plus 5cm}\-Eigen\-::\-Matrix3f {\bf \-Pose\-Estimate\-::\-R}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classPoseEstimate_a45910f753f4c92260252d965af504cc8}
+\hypertarget{classPoseEstimate_ae1d0b8586991b50d575afa6b8bae92da}{\index{\-Pose\-Estimate@{\-Pose\-Estimate}!settings@{settings}}
+\index{settings@{settings}!PoseEstimate@{\-Pose\-Estimate}}
+\subsubsection[{settings}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Solver\-Settings} {\bf \-Pose\-Estimate\-::settings}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classPoseEstimate_ae1d0b8586991b50d575afa6b8bae92da}
+\hypertarget{classPoseEstimate_a31a1a39ab75efc08a00ddc8f8f75b60b}{\index{\-Pose\-Estimate@{\-Pose\-Estimate}!\-T@{\-T}}
+\index{\-T@{\-T}!PoseEstimate@{\-Pose\-Estimate}}
+\subsubsection[{\-T}]{\setlength{\rightskip}{0pt plus 5cm}\-Eigen\-::\-Vector3f {\bf \-Pose\-Estimate\-::\-T}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classPoseEstimate_a31a1a39ab75efc08a00ddc8f8f75b60b}
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\-Cvx\-\_\-\-Pose/src/\hyperlink{PoseEstimate_8h}{\-Pose\-Estimate.\-h}\item 
+\-Cvx\-\_\-\-Pose/src/\hyperlink{PoseEstimate_8cpp}{\-Pose\-Estimate.\-cpp}\end{DoxyCompactItemize}
