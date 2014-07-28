@@ -1,11 +1,3 @@
-//
-//  common.h
-//  
-//
-//  Created by Matanya Horowitz on 7/18/14.
-//
-//
-
 #ifndef _common_h
 #define _common_h
 #include <Eigen/Dense>
@@ -18,9 +10,14 @@
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
 
+/** Common type for point cloud data, a 3xnum_pts matrix. */
 typedef Eigen::Matrix<float,3,Eigen::Dynamic> DMat;
+
+/** Common type for point cloud data, currently depth only with no color. */
 typedef pcl::PointXYZ PointT;
 
+/** The settings used by all solvers. Shared by ICP and PoseEstimate.
+*/
 struct SolverSettings {
     int metric; //P2P Analytic, P2P CVX, P2Plane CVX
     bool outlierRejection;
