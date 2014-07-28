@@ -85,6 +85,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <!-- doxytag: class="PoseEstimate" -->
+<p>Class for performing pose estimation.  
+ <a href="classPoseEstimate.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="PoseEstimate_8h_source.html">PoseEstimate.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for PoseEstimate:</div>
@@ -92,8 +95,8 @@ Inheritance diagram for PoseEstimate:</div>
  <div class="center">
   <img src="classPoseEstimate.png" usemap="#PoseEstimate_map" alt=""/>
   <map id="PoseEstimate_map" name="PoseEstimate_map">
-<area href="classSolvePoseAnalytic.html" alt="SolvePoseAnalytic" shape="rect" coords="0,56,118,80"/>
-<area href="classSolvePoseCVX.html" alt="SolvePoseCVX" shape="rect" coords="128,56,246,80"/>
+<area href="classSolvePoseAnalytic.html" title="Pose estimation using analytic solutions to optimization problems over the convex hull of SO(3)..." alt="SolvePoseAnalytic" shape="rect" coords="0,56,118,80"/>
+<area href="classSolvePoseCVX.html" title="Pose estimation using the convex hull of SO(3) via a semidefinite program." alt="SolvePoseCVX" shape="rect" coords="128,56,246,80"/>
 </map>
  </div></div>
 
@@ -102,34 +105,60 @@ Inheritance diagram for PoseEstimate:</div>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoseEstimate.html#ac3e3718fe27dccb3be0760d6bcdc18c6">PoseEstimate</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="classPoseEstimate.html" title="Class for performing pose estimation.">PoseEstimate</a>.  <a href="#ac3e3718fe27dccb3be0760d6bcdc18c6"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoseEstimate.html#ac024bd041a98d233647f106e6878d986">~PoseEstimate</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor has not been implemented.  <a href="#ac024bd041a98d233647f106e6878d986"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoseEstimate.html#a6fdf8eec3cadac69bcf8181c89d82903">estimatePose</a> ()=0</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoseEstimate.html#a4c420a20ba20719f7c19b8bbec79b6d9">setModel</a> (pcl::PointCloud&lt; <a class="el" href="common_8h.html#abd10555a534258e2739a38c928ef5db1">PointT</a> &gt;::Ptr <a class="el" href="classPoseEstimate.html#aca9217cfe0d272f172f65adfc31764f1">model</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the internal model used for pose estimation.  <a href="#a4c420a20ba20719f7c19b8bbec79b6d9"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoseEstimate.html#ae884275e741789db776be52f373f387f">setObservation</a> (pcl::PointCloud&lt; <a class="el" href="common_8h.html#abd10555a534258e2739a38c928ef5db1">PointT</a> &gt;::Ptr <a class="el" href="classPoseEstimate.html#a75beb14fe9fd10fc8a80eff84f348c1c">obs</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the observation to be matched by the pose estimation.  <a href="#ae884275e741789db776be52f373f387f"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoseEstimate.html#a9daadf84954e07d295c2286172f01904">permuteData</a> (Eigen::SparseMatrix&lt; float &gt; &amp;P)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Permute the observation model using a permutation matrix.  <a href="#a9daadf84954e07d295c2286172f01904"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoseEstimate.html#af36ed6ccd1839eedff0f51f0bdaa23c7">setInitialPose</a> (Eigen::Matrix3f &amp;rot, Eigen::Vector3f &amp;trans)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the initial guess for the pose estimation.  <a href="#af36ed6ccd1839eedff0f51f0bdaa23c7"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoseEstimate.html#aa52680b9860a5a33201dfdd888e34c5a">getPose</a> (Eigen::Matrix3f &amp;rot, Eigen::Vector3f &amp;trans)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrive the estimated pose.  <a href="#aa52680b9860a5a33201dfdd888e34c5a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoseEstimate.html#a82d9fbf262d32338a9275f9cedee3f6c">setCores</a> (int num)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoseEstimate.html#a97197a2b7b19b8a975984841feaab1dc">dbg</a> (std::string)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Display debug message if debug flag is active.  <a href="#a97197a2b7b19b8a975984841feaab1dc"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoseEstimate.html#a32bcf3736214b6635f9da6ad6be5f0ce">calculateCentroid</a> (<a class="el" href="common_8h.html#a4ec92c19d079ab17709ca464cfb8e5bd">DMat</a> &amp;data, Eigen::Vector3f &amp;center)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility to calculate the centroid of point cloud data.  <a href="#a32bcf3736214b6635f9da6ad6be5f0ce"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoseEstimate.html#ae195b53478db98ca075a6f0359ea422c">calculateResidual</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the residual using the current rotation and translation R, T.  <a href="#ae195b53478db98ca075a6f0359ea422c"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="common_8h.html#a4ec92c19d079ab17709ca464cfb8e5bd">DMat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoseEstimate.html#aca9217cfe0d272f172f65adfc31764f1">model</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Model data.  <a href="#aca9217cfe0d272f172f65adfc31764f1"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="common_8h.html#a4ec92c19d079ab17709ca464cfb8e5bd">DMat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoseEstimate.html#a75beb14fe9fd10fc8a80eff84f348c1c">obs</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Observation data.  <a href="#a75beb14fe9fd10fc8a80eff84f348c1c"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">Eigen::Matrix4f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoseEstimate.html#ad4827d1aca3b4730d6e8c0cf4e96deca">A</a> [3][3]</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Convex hull A_{i,j} matrices.  <a href="#ad4827d1aca3b4730d6e8c0cf4e96deca"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">Eigen::Matrix3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoseEstimate.html#a45910f753f4c92260252d965af504cc8">R</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Current estimate of rotation matrix.  <a href="#a45910f753f4c92260252d965af504cc8"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">Eigen::Matrix3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoseEstimate.html#ac6b2c23e4121d00a14d4a8245cad86ab">i_R</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial estimate of rotation matrix.  <a href="#ac6b2c23e4121d00a14d4a8245cad86ab"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">Eigen::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoseEstimate.html#a31a1a39ab75efc08a00ddc8f8f75b60b">T</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Current estimate of translation vector.  <a href="#a31a1a39ab75efc08a00ddc8f8f75b60b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">Eigen::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoseEstimate.html#a0fa85e3f7cd2b447df9985519a28c0d7">i_T</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoseEstimate.html#a9b1cbebd4de554e6c0b4607a2a462a92">cores</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial estimate of translation vector.  <a href="#a0fa85e3f7cd2b447df9985519a28c0d7"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoseEstimate.html#a81f2cf4c423887225557200a6da5744e">debug</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether or not to display debug messages.  <a href="#a81f2cf4c423887225557200a6da5744e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoseEstimate.html#a8bad9dfcf6b8ec9e3ba4f62498594524">num_pts</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of points in observation and model point clouds.  <a href="#a8bad9dfcf6b8ec9e3ba4f62498594524"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">Eigen::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoseEstimate.html#acd4fefbc3f3fd794f51a8a338996b2ae">model_center</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Centroid of model.  <a href="#acd4fefbc3f3fd794f51a8a338996b2ae"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">Eigen::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoseEstimate.html#a3431f3d795bc7e5ec3108c923cf4eb9f">obs_center</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Centroid of observation.  <a href="#a3431f3d795bc7e5ec3108c923cf4eb9f"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSolverSettings.html">SolverSettings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoseEstimate.html#ae1d0b8586991b50d575afa6b8bae92da">settings</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Settings used in solving.  <a href="#ae1d0b8586991b50d575afa6b8bae92da"></a><br/></td></tr>
 </table>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Class for performing pose estimation. </p>
+<p>Abstract class for the different implementations of pose estimation. The class manages the storage and manipulation of the data, such as when the data is permuted, and calculates error measurements. Details of the actual pose estimation are handled by subclasses.</p>
+<dl class="author"><dt><b>Author:</b></dt><dd>Matanya Horowitz </dd></dl>
+<dl class="date"><dt><b>Date:</b></dt><dd>July 28, 2014 </dd></dl>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ac3e3718fe27dccb3be0760d6bcdc18c6"></a><!-- doxytag: member="PoseEstimate::PoseEstimate" ref="ac3e3718fe27dccb3be0760d6bcdc18c6" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -143,6 +172,9 @@ Protected Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Constructor for <a class="el" href="classPoseEstimate.html" title="Class for performing pose estimation.">PoseEstimate</a>. </p>
+<p>Initializes the initial guess of rotation and translation, and also the A_{i,j} matrices. </p>
 
 </div>
 </div>
@@ -159,6 +191,9 @@ Protected Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Destructor has not been implemented. </p>
+<p>There are possible memory leaks. </p>
 
 </div>
 </div>
@@ -188,6 +223,15 @@ Protected Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Utility to calculate the centroid of point cloud data. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>The point cloud whose centroid to calculate. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">center</td><td>The translation vector to overwrite with the result. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="ae195b53478db98ca075a6f0359ea422c"></a><!-- doxytag: member="PoseEstimate::calculateResidual" ref="ae195b53478db98ca075a6f0359ea422c" args="()" -->
@@ -203,6 +247,8 @@ Protected Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Calculate the residual using the current rotation and translation R, T. </p>
 
 </div>
 </div>
@@ -220,6 +266,14 @@ Protected Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Display debug message if debug flag is active. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td>The message to be displayed. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -266,6 +320,15 @@ Protected Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Retrive the estimated pose. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">rot</td><td>Rotation matrix </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">trans</td><td>Translation vector </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a9daadf84954e07d295c2286172f01904"></a><!-- doxytag: member="PoseEstimate::permuteData" ref="a9daadf84954e07d295c2286172f01904" args="(Eigen::SparseMatrix&lt; float &gt; &amp;P)" -->
@@ -282,6 +345,14 @@ Protected Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Permute the observation model using a permutation matrix. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">P</td><td>Permutation matrix </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -327,6 +398,15 @@ Protected Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Set the initial guess for the pose estimation. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">rot</td><td>Rotation matrix </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trans</td><td>Translation vector </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a4c420a20ba20719f7c19b8bbec79b6d9"></a><!-- doxytag: member="PoseEstimate::setModel" ref="a4c420a20ba20719f7c19b8bbec79b6d9" args="(pcl::PointCloud&lt; PointT &gt;::Ptr model)" -->
@@ -343,6 +423,15 @@ Protected Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Set the internal model used for pose estimation. </p>
+<p>Once received, the model is transformed to a Eigen DMat data matrix. The model is also aligned so that its centroid is located at the origin, while its translation is stored in model_trans. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">model</td><td>Point cloud of the model </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -361,6 +450,15 @@ Protected Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Set the observation to be matched by the pose estimation. </p>
+<p>The data is transferred from a point cloud to an Eigen DMat matrix. The observation's centroid is also aligned to the origin, with the translation stored in obs_trans. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">obs</td><td>Point cloud of the observation </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
@@ -375,18 +473,8 @@ Protected Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="a9b1cbebd4de554e6c0b4607a2a462a92"></a><!-- doxytag: member="PoseEstimate::cores" ref="a9b1cbebd4de554e6c0b4607a2a462a92" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="classPoseEstimate.html#a9b1cbebd4de554e6c0b4607a2a462a92">PoseEstimate::cores</a><code> [protected]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>Convex hull A_{i,j} matrices. </p>
+<p>Necessary for the parameterization of the convex hull. See <a href="http://arxiv.org/pdf/1403.4914.pdf">http://arxiv.org/pdf/1403.4914.pdf</a> for details. </p>
 
 </div>
 </div>
@@ -401,6 +489,8 @@ Protected Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Whether or not to display debug messages. </p>
+
 </div>
 </div>
 <a class="anchor" id="ac6b2c23e4121d00a14d4a8245cad86ab"></a><!-- doxytag: member="PoseEstimate::i_R" ref="ac6b2c23e4121d00a14d4a8245cad86ab" args="" -->
@@ -413,6 +503,8 @@ Protected Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Initial estimate of rotation matrix. </p>
 
 </div>
 </div>
@@ -427,6 +519,8 @@ Protected Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Initial estimate of translation vector. </p>
+
 </div>
 </div>
 <a class="anchor" id="aca9217cfe0d272f172f65adfc31764f1"></a><!-- doxytag: member="PoseEstimate::model" ref="aca9217cfe0d272f172f65adfc31764f1" args="" -->
@@ -439,6 +533,8 @@ Protected Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Model data. </p>
 
 </div>
 </div>
@@ -453,6 +549,8 @@ Protected Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Centroid of model. </p>
+
 </div>
 </div>
 <a class="anchor" id="a8bad9dfcf6b8ec9e3ba4f62498594524"></a><!-- doxytag: member="PoseEstimate::num_pts" ref="a8bad9dfcf6b8ec9e3ba4f62498594524" args="" -->
@@ -465,6 +563,8 @@ Protected Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Number of points in observation and model point clouds. </p>
 
 </div>
 </div>
@@ -479,6 +579,8 @@ Protected Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Observation data. </p>
+
 </div>
 </div>
 <a class="anchor" id="a3431f3d795bc7e5ec3108c923cf4eb9f"></a><!-- doxytag: member="PoseEstimate::obs_center" ref="a3431f3d795bc7e5ec3108c923cf4eb9f" args="" -->
@@ -491,6 +593,8 @@ Protected Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Centroid of observation. </p>
 
 </div>
 </div>
@@ -505,6 +609,8 @@ Protected Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Current estimate of rotation matrix. </p>
+
 </div>
 </div>
 <a class="anchor" id="ae1d0b8586991b50d575afa6b8bae92da"></a><!-- doxytag: member="PoseEstimate::settings" ref="ae1d0b8586991b50d575afa6b8bae92da" args="" -->
@@ -518,6 +624,9 @@ Protected Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Settings used in solving. </p>
+<p>Shared with <a class="el" href="classICP.html" title="Iterative Closest Point.">ICP</a>. </p>
+
 </div>
 </div>
 <a class="anchor" id="a31a1a39ab75efc08a00ddc8f8f75b60b"></a><!-- doxytag: member="PoseEstimate::T" ref="a31a1a39ab75efc08a00ddc8f8f75b60b" args="" -->
@@ -530,6 +639,8 @@ Protected Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Current estimate of translation vector. </p>
 
 </div>
 </div>
@@ -555,7 +666,7 @@ Protected Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jul 28 2014 10:18:21 for CVX_Pose by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jul 28 2014 12:03:21 for CVX_Pose by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

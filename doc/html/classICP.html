@@ -87,6 +87,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <!-- doxytag: class="ICP" -->
+<p>Iterative Closest Point.  
+ <a href="classICP.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="ICP_8h_source.html">ICP.h</a>&gt;</code></p>
 
 <p><a href="classICP-members.html">List of all members.</a></p>
@@ -94,35 +97,61 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classICP.html#a6a6f021c394b70387f0163239a74f94b">ICP</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classICP.html" title="Iterative Closest Point.">ICP</a> default constructor.  <a href="#a6a6f021c394b70387f0163239a74f94b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classICP.html#a744eea059d43f0794b50d15ed056746a">~ICP</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classICP.html" title="Iterative Closest Point.">ICP</a> destructor.  <a href="#a744eea059d43f0794b50d15ed056746a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classICP.html#a49b0a9fafd601c49f7cdd55edaa0f7a7">setSolver</a> (<a class="el" href="structSolverSettings.html">SolverSettings</a> s)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the solver settings.  <a href="#a49b0a9fafd601c49f7cdd55edaa0f7a7"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classICP.html#a7e02bf0f96bacf61fb7462c852be3c08">setModel</a> (pcl::PointCloud&lt; <a class="el" href="common_8h.html#abd10555a534258e2739a38c928ef5db1">PointT</a> &gt;::Ptr m)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the model which <a class="el" href="classICP.html" title="Iterative Closest Point.">ICP</a> will use to estimate pose.  <a href="#a7e02bf0f96bacf61fb7462c852be3c08"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classICP.html#a65d3a5293b19ec80f5f569abccd8b395">setObservation</a> (pcl::PointCloud&lt; <a class="el" href="common_8h.html#abd10555a534258e2739a38c928ef5db1">PointT</a> &gt;::Ptr o)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the observation which <a class="el" href="classICP.html" title="Iterative Closest Point.">ICP</a> will try to match with its model.  <a href="#a65d3a5293b19ec80f5f569abccd8b395"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classICP.html#a8168f085dc9bf3916ea9b170f4a8b6f3">estPose</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform the pose estimation iteration until convergence.  <a href="#a8168f085dc9bf3916ea9b170f4a8b6f3"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classICP.html#a1dfd1ad0ea3c83ade91595cc3ecd24f2">singleIteration</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Single iteration of <a class="el" href="classICP.html" title="Iterative Closest Point.">ICP</a>: correspondence then pose estimate.  <a href="#a1dfd1ad0ea3c83ade91595cc3ecd24f2"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classICP.html#af9624105149162bf1c80b2e70cbcf135">getPose</a> (Eigen::Matrix3f &amp;rot, Eigen::Vector3f &amp;trans)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the estimated pose.  <a href="#af9624105149162bf1c80b2e70cbcf135"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classICP.html#a5e20a89dfd2f5f95a61122d268375b72">dbg</a> (std::string)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug output.  <a href="#a5e20a89dfd2f5f95a61122d268375b72"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">Eigen::SparseMatrix&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classICP.html#aade0504cb0e1d5abcb2c2add2be606b1">permutation</a></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSolverSettings.html">SolverSettings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classICP.html#a7e3065919f63c9bdc0ff0677b5cf56d0">settings</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the <a class="el" href="classICP.html" title="Iterative Closest Point.">ICP</a> settings.  <a href="#a7e3065919f63c9bdc0ff0677b5cf56d0"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoseEstimate.html">PoseEstimate</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classICP.html#a09c458b7e1daa98c6cc98177003794ce">pose</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Member for performing pose estimation.  <a href="#a09c458b7e1daa98c6cc98177003794ce"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">Eigen::Matrix3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classICP.html#aee085ec283f657cb3980c529d48ba65b">c_R</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Current rotation estimate.  <a href="#aee085ec283f657cb3980c529d48ba65b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">Eigen::Matrix3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classICP.html#a07164ef6066cf0c9537881871cd56601">i_R</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial rotation estimate supplied by user.  <a href="#a07164ef6066cf0c9537881871cd56601"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">Eigen::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classICP.html#a55de298290d8e74617fdf19c153d55be">c_T</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Current translation estimate.  <a href="#a55de298290d8e74617fdf19c153d55be"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">Eigen::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classICP.html#a63b486fc85453b0f09c6020e1c6227f4">i_T</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial translation estimate supplied by user.  <a href="#a63b486fc85453b0f09c6020e1c6227f4"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">pcl::PointCloud&lt; <a class="el" href="common_8h.html#abd10555a534258e2739a38c928ef5db1">PointT</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classICP.html#ae224713dd84e34bbef52a011046527af">model</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal model of the object whose pose is to be estimated.  <a href="#ae224713dd84e34bbef52a011046527af"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">pcl::PointCloud&lt; <a class="el" href="common_8h.html#abd10555a534258e2739a38c928ef5db1">PointT</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classICP.html#a92b2b3089759aad730cb92a0976aea1b">observation</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal copy of an object observation.  <a href="#a92b2b3089759aad730cb92a0976aea1b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">pcl::registration::CorrespondenceEstimation<br class="typebreak"/>
 &lt; <a class="el" href="common_8h.html#abd10555a534258e2739a38c928ef5db1">PointT</a>, <a class="el" href="common_8h.html#abd10555a534258e2739a38c928ef5db1">PointT</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classICP.html#acf6194ebbf168e4a6059945980752849">est</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">PCL class for estimating correspondence between model and observation points.  <a href="#acf6194ebbf168e4a6059945980752849"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classICP.html#a9b8cf5129a0cb5ad3fd05b261d514bb6">num_pts</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Count of number of points in observation and model (which should be equal, for now).  <a href="#a9b8cf5129a0cb5ad3fd05b261d514bb6"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classICP.html#a6e81d1444353ba66d59cd16d2dc74d7c">debug</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Setting for printing (or not) of debug messages.  <a href="#a6e81d1444353ba66d59cd16d2dc74d7c"></a><br/></td></tr>
 </table>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Iterative Closest Point. </p>
+<p>Class that manages the <a class="el" href="classICP.html" title="Iterative Closest Point.">ICP</a> algorithm. It relies on a PCL class for performing correspondence, and a <a class="el" href="classPoseEstimate.html" title="Class for performing pose estimation.">PoseEstimate</a> instance for calculating the pose. <a class="el" href="classICP.html" title="Iterative Closest Point.">ICP</a> iterates betweeen these two functions to find a pose and correspondence between a model and an observation of that model.</p>
+<dl class="author"><dt><b>Author:</b></dt><dd>Matanya Horowitz </dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>1.0 </dd></dl>
+<dl class="date"><dt><b>Date:</b></dt><dd>July 28, 2014 </dd></dl>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a6a6f021c394b70387f0163239a74f94b"></a><!-- doxytag: member="ICP::ICP" ref="a6a6f021c394b70387f0163239a74f94b" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -136,6 +165,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p><a class="el" href="classICP.html" title="Iterative Closest Point.">ICP</a> default constructor. </p>
+<p>Initializes pose and translation estimate to identity and the origin </p>
 
 </div>
 </div>
@@ -152,6 +184,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p><a class="el" href="classICP.html" title="Iterative Closest Point.">ICP</a> destructor. </p>
+<p>[Todo] Currently, this is unimplemented and may be leaking memory. </p>
 
 </div>
 </div>
@@ -171,6 +206,15 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Debug output. </p>
+<p>Very rough for now, simply prints or not depending on the debug flag. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td>The debug message </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a8168f085dc9bf3916ea9b170f4a8b6f3"></a><!-- doxytag: member="ICP::estPose" ref="a8168f085dc9bf3916ea9b170f4a8b6f3" args="()" -->
@@ -186,6 +230,10 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Perform the pose estimation iteration until convergence. </p>
+<p>[Todo] In the future, a coarse alignment will first be performed with a down sampled model, or using depth features.</p>
+<p>[Todo] In the future, there will be an option to begin with multiple pose initial conditions </p>
 
 </div>
 </div>
@@ -214,6 +262,15 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Retrieve the estimated pose. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">rot</td><td>The rotation matrix </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">trans</td><td>The translation vector </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a7e02bf0f96bacf61fb7462c852be3c08"></a><!-- doxytag: member="ICP::setModel" ref="a7e02bf0f96bacf61fb7462c852be3c08" args="(pcl::PointCloud&lt; PointT &gt;::Ptr m)" -->
@@ -230,6 +287,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Set the model which <a class="el" href="classICP.html" title="Iterative Closest Point.">ICP</a> will use to estimate pose. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>PCL pointer to the model. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -248,6 +313,8 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Set the observation which <a class="el" href="classICP.html" title="Iterative Closest Point.">ICP</a> will try to match with its model. </p>
+
 </div>
 </div>
 <a class="anchor" id="a49b0a9fafd601c49f7cdd55edaa0f7a7"></a><!-- doxytag: member="ICP::setSolver" ref="a49b0a9fafd601c49f7cdd55edaa0f7a7" args="(SolverSettings s)" -->
@@ -265,6 +332,14 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Set the solver settings. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>Complete specification of problem settings. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a1dfd1ad0ea3c83ade91595cc3ecd24f2"></a><!-- doxytag: member="ICP::singleIteration" ref="a1dfd1ad0ea3c83ade91595cc3ecd24f2" args="()" -->
@@ -281,6 +356,8 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Single iteration of <a class="el" href="classICP.html" title="Iterative Closest Point.">ICP</a>: correspondence then pose estimate. </p>
+
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
@@ -295,6 +372,8 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Current rotation estimate. </p>
+
 </div>
 </div>
 <a class="anchor" id="a55de298290d8e74617fdf19c153d55be"></a><!-- doxytag: member="ICP::c_T" ref="a55de298290d8e74617fdf19c153d55be" args="" -->
@@ -307,6 +386,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Current translation estimate. </p>
 
 </div>
 </div>
@@ -321,6 +402,8 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Setting for printing (or not) of debug messages. </p>
+
 </div>
 </div>
 <a class="anchor" id="acf6194ebbf168e4a6059945980752849"></a><!-- doxytag: member="ICP::est" ref="acf6194ebbf168e4a6059945980752849" args="" -->
@@ -333,6 +416,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>PCL class for estimating correspondence between model and observation points. </p>
 
 </div>
 </div>
@@ -347,6 +432,8 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Initial rotation estimate supplied by user. </p>
+
 </div>
 </div>
 <a class="anchor" id="a63b486fc85453b0f09c6020e1c6227f4"></a><!-- doxytag: member="ICP::i_T" ref="a63b486fc85453b0f09c6020e1c6227f4" args="" -->
@@ -359,6 +446,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Initial translation estimate supplied by user. </p>
 
 </div>
 </div>
@@ -373,6 +462,8 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Internal model of the object whose pose is to be estimated. </p>
+
 </div>
 </div>
 <a class="anchor" id="a9b8cf5129a0cb5ad3fd05b261d514bb6"></a><!-- doxytag: member="ICP::num_pts" ref="a9b8cf5129a0cb5ad3fd05b261d514bb6" args="" -->
@@ -386,6 +477,8 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Count of number of points in observation and model (which should be equal, for now). </p>
+
 </div>
 </div>
 <a class="anchor" id="a92b2b3089759aad730cb92a0976aea1b"></a><!-- doxytag: member="ICP::observation" ref="a92b2b3089759aad730cb92a0976aea1b" args="" -->
@@ -398,6 +491,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Internal copy of an object observation. </p>
 
 </div>
 </div>
@@ -425,6 +520,8 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Member for performing pose estimation. </p>
+
 </div>
 </div>
 <a class="anchor" id="a7e3065919f63c9bdc0ff0677b5cf56d0"></a><!-- doxytag: member="ICP::settings" ref="a7e3065919f63c9bdc0ff0677b5cf56d0" args="" -->
@@ -437,6 +534,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Stores the <a class="el" href="classICP.html" title="Iterative Closest Point.">ICP</a> settings. </p>
+<p>Shared with <a class="el" href="classPoseEstimate.html" title="Class for performing pose estimation.">PoseEstimate</a>. </p>
 
 </div>
 </div>
@@ -462,7 +562,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jul 28 2014 10:18:21 for CVX_Pose by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jul 28 2014 12:03:20 for CVX_Pose by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

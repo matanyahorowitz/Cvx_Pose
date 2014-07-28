@@ -79,43 +79,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Cvx_Pose/src/SolvePoseCVX.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="SolvePoseCVX_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">//</span>
-<a name="l00002"></a>00002 <span class="comment">//  SolvePoseCVX.h</span>
-<a name="l00003"></a>00003 <span class="comment">//  </span>
-<a name="l00004"></a>00004 <span class="comment">//</span>
-<a name="l00005"></a>00005 <span class="comment">//  Created by Matanya Horowitz on 7/17/14.</span>
-<a name="l00006"></a>00006 <span class="comment">//</span>
-<a name="l00007"></a>00007 <span class="comment">//</span>
-<a name="l00008"></a>00008 
-<a name="l00009"></a>00009 <span class="preprocessor">#ifndef ____SolvePoseCVX__</span>
-<a name="l00010"></a>00010 <span class="preprocessor"></span><span class="preprocessor">#define ____SolvePoseCVX__</span>
-<a name="l00011"></a>00011 <span class="preprocessor"></span>
-<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;iostream&gt;</span>
-<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="PoseEstimate_8h.html">PoseEstimate.h</a>&quot;</span>
-<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;<a class="code" href="common_8h.html">common.h</a>&quot;</span>
-<a name="l00015"></a>00015 <span class="preprocessor">#include &lt;sdpa_call.h&gt;</span>
-<a name="l00016"></a>00016 
-<a name="l00017"></a><a class="code" href="classSolvePoseCVX.html">00017</a> <span class="keyword">class </span><a class="code" href="classSolvePoseCVX.html">SolvePoseCVX</a> : <span class="keyword">public</span> <a class="code" href="classPoseEstimate.html">PoseEstimate</a>
-<a name="l00018"></a>00018 {
-<a name="l00019"></a>00019 <span class="keyword">public</span>:
-<a name="l00020"></a>00020     <a class="code" href="classSolvePoseCVX.html#a482baaffc4162260c7e565b1fa623007">SolvePoseCVX</a>();
-<a name="l00021"></a>00021     <a class="code" href="classSolvePoseCVX.html#a00a0ef0e4c0c55bde6d63c03c496082d">~SolvePoseCVX</a>();
-<a name="l00022"></a>00022     <span class="keywordtype">void</span> <a class="code" href="classSolvePoseCVX.html#a081c857ff6c1c9e6597d41fb08bb6f16">estimatePose</a>();
-<a name="l00023"></a>00023     <span class="keywordtype">void</span> <a class="code" href="classSolvePoseCVX.html#a413870a9249a7f3b2ceb0ba52f68cb5f">setDecomposition</a>( <span class="keywordtype">int</span> method ); <span class="comment">//0 ADMM</span>
-<a name="l00024"></a>00024     <span class="comment">//void setModel(pcl::PointCloud&lt;PointT&gt;::Ptr model);</span>
-<a name="l00025"></a>00025 <span class="keyword">private</span>:
-<a name="l00026"></a>00026    <span class="keywordtype">void</span> <a class="code" href="classSolvePoseCVX.html#ac6c5c12f31943c02eac2b4e3afe95cb5">singleSolver</a>();
-<a name="l00027"></a>00027    <span class="keywordtype">void</span> <a class="code" href="classSolvePoseCVX.html#aa15afe19bca14542c1466f4582a8408a">multiSolvers</a>();
-<a name="l00028"></a>00028    <span class="keywordtype">void</span> <a class="code" href="classSolvePoseCVX.html#af71375a8ebc356e5794249ae0c1243d6">initializeSolver</a>();
-<a name="l00029"></a><a class="code" href="classSolvePoseCVX.html#a6d4be163f9b06fc013c99bbacceece14">00029</a>    <span class="keywordtype">int</span> <a class="code" href="classSolvePoseCVX.html#a6d4be163f9b06fc013c99bbacceece14">decomp_method</a>;
-<a name="l00030"></a>00030    <span class="keywordtype">void</span> <a class="code" href="classSolvePoseCVX.html#aadfc695ad82f44103e7e51c037ddb232">initSDPAConsMatrix</a>( <span class="keywordtype">int</span> k, <span class="keywordtype">int</span> l );
-<a name="l00031"></a><a class="code" href="classSolvePoseCVX.html#af0c222b2ce7361ff8a54eee918ea1c65">00031</a>    SDPA <a class="code" href="classSolvePoseCVX.html#af0c222b2ce7361ff8a54eee918ea1c65">sdpa</a>;
-<a name="l00032"></a>00032    <span class="keywordtype">void</span> <a class="code" href="classSolvePoseCVX.html#ac1b83848a5b98e008dfc9b7a87b0079c">setupQuadraticObjective</a>();
-<a name="l00033"></a>00033    <span class="keywordtype">void</span> <a class="code" href="classSolvePoseCVX.html#a4e1c078bdb3a613349c7136bdb0899b9">setupRConstraint</a>();
-<a name="l00034"></a>00034    <span class="keywordtype">void</span> <a class="code" href="classSolvePoseCVX.html#adba2454a08d9e6115cd075928c1d5518">setupLinearObjective</a>();
-<a name="l00035"></a>00035 };
-<a name="l00036"></a>00036 
-<a name="l00037"></a>00037 <span class="preprocessor">#endif </span><span class="comment">/* defined(____SolvePoseCVX__) */</span>
+<a href="SolvePoseCVX_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00002"></a>00002 <span class="preprocessor">#ifndef ____SolvePoseCVX__</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span><span class="preprocessor">#define ____SolvePoseCVX__</span>
+<a name="l00004"></a>00004 <span class="preprocessor"></span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &quot;<a class="code" href="PoseEstimate_8h.html">PoseEstimate.h</a>&quot;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &quot;<a class="code" href="common_8h.html">common.h</a>&quot;</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include &lt;sdpa_call.h&gt;</span>
+<a name="l00009"></a>00009 
+<a name="l00016"></a><a class="code" href="classSolvePoseCVX.html">00016</a> <span class="keyword">class </span><a class="code" href="classSolvePoseCVX.html" title="Pose estimation using the convex hull of SO(3) via a semidefinite program.">SolvePoseCVX</a> : <span class="keyword">public</span> <a class="code" href="classPoseEstimate.html" title="Class for performing pose estimation.">PoseEstimate</a>
+<a name="l00017"></a>00017 {
+<a name="l00018"></a>00018 <span class="keyword">public</span>:
+<a name="l00019"></a>00019     <a class="code" href="classSolvePoseCVX.html#a482baaffc4162260c7e565b1fa623007" title="Constructor, which sets default solution parameters.">SolvePoseCVX</a>();
+<a name="l00020"></a>00020     <a class="code" href="classSolvePoseCVX.html#a00a0ef0e4c0c55bde6d63c03c496082d" title="Destructor, which isn&#39;t currently implemented.">~SolvePoseCVX</a>();
+<a name="l00021"></a>00021     <span class="keywordtype">void</span> <a class="code" href="classSolvePoseCVX.html#a081c857ff6c1c9e6597d41fb08bb6f16" title="Performs the pose estimation using an SDP.">estimatePose</a>();
+<a name="l00022"></a>00022     <span class="keywordtype">void</span> <a class="code" href="classSolvePoseCVX.html#a413870a9249a7f3b2ceb0ba52f68cb5f" title="Set the decomposition.">setDecomposition</a>( <span class="keywordtype">int</span> method ); <span class="comment">//0 ADMM</span>
+<a name="l00023"></a>00023     <span class="comment">//void setModel(pcl::PointCloud&lt;PointT&gt;::Ptr model);</span>
+<a name="l00024"></a>00024 <span class="keyword">private</span>:
+<a name="l00025"></a>00025    <span class="keywordtype">void</span> <a class="code" href="classSolvePoseCVX.html#ac6c5c12f31943c02eac2b4e3afe95cb5" title="Solve the SDP with only a single computation element.">singleSolver</a>();
+<a name="l00026"></a>00026    <span class="keywordtype">void</span> <a class="code" href="classSolvePoseCVX.html#aa15afe19bca14542c1466f4582a8408a" title="Unimplemented [Todo] parallelization of the SDP using ADMM and OpenMP.">multiSolvers</a>();
+<a name="l00027"></a>00027    <span class="keywordtype">void</span> <a class="code" href="classSolvePoseCVX.html#af71375a8ebc356e5794249ae0c1243d6" title="Initialize the convex solver and parameters.">initializeSolver</a>();
+<a name="l00028"></a><a class="code" href="classSolvePoseCVX.html#a6d4be163f9b06fc013c99bbacceece14">00028</a>    <span class="keywordtype">int</span> <a class="code" href="classSolvePoseCVX.html#a6d4be163f9b06fc013c99bbacceece14">decomp_method</a>;
+<a name="l00029"></a>00029    <span class="keywordtype">void</span> <a class="code" href="classSolvePoseCVX.html#aadfc695ad82f44103e7e51c037ddb232" title="Utility function to encode the A_{i,j} constraints.">initSDPAConsMatrix</a>( <span class="keywordtype">int</span> k, <span class="keywordtype">int</span> l );
+<a name="l00030"></a>00030    <span class="keywordtype">void</span> <a class="code" href="classSolvePoseCVX.html#ac1b83848a5b98e008dfc9b7a87b0079c" title="Sets up the optimization with a quadratic objective.">setupQuadraticObjective</a>();
+<a name="l00031"></a>00031    <span class="keywordtype">void</span> <a class="code" href="classSolvePoseCVX.html#a4e1c078bdb3a613349c7136bdb0899b9" title="Sets up the CO(SO(3)) constraint.">setupRConstraint</a>();
+<a name="l00032"></a>00032    <span class="keywordtype">void</span> <a class="code" href="classSolvePoseCVX.html#adba2454a08d9e6115cd075928c1d5518" title="Sets up the linear objective.">setupLinearObjective</a>();
+<a name="l00033"></a>00033    
+<a name="l00035"></a><a class="code" href="classSolvePoseCVX.html#af0c222b2ce7361ff8a54eee918ea1c65">00035</a>    SDPA <a class="code" href="classSolvePoseCVX.html#af0c222b2ce7361ff8a54eee918ea1c65" title="SDPA interface for numerically solving the convex problem.">sdpa</a>;
+<a name="l00036"></a>00036 };
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038 <span class="preprocessor">#endif </span><span class="comment">/* defined(____SolvePoseCVX__) */</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -134,7 +128,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jul 28 2014 10:18:21 for CVX_Pose by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jul 28 2014 12:03:20 for CVX_Pose by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

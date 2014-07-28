@@ -1,11 +1,3 @@
-//
-//  SolvePoseAnalytic.h
-//  
-//
-//  Created by Matanya Horowitz on 7/17/14.
-//
-//
-
 #ifndef ____SolvePoseAnalytic__
 #define ____SolvePoseAnalytic__
 
@@ -13,6 +5,17 @@
 #include "PoseEstimate.h"
 #include <iostream>
 #include <omp.h>
+
+/** Pose estimation using analytic solutions to optimization problems over the 
+convex hull of SO(3). Unfortunately, analytic solutions are only available for 
+the point to point metric and in the absence of outlier rejection.
+
+Parallelization is achieved by splitting the data over a number of cores and
+using ADMM to achieve consensus over the different computation units.
+
+\author Matanya Horowitz
+\date July 28, 2014
+*/
 
 class SolvePoseAnalytic : public PoseEstimate
 {

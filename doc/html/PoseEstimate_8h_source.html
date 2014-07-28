@@ -79,49 +79,55 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Cvx_Pose/src/PoseEstimate.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="PoseEstimate_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">//</span>
-<a name="l00002"></a>00002 <span class="comment">//  PoseEstimate.h</span>
-<a name="l00003"></a>00003 <span class="comment">//  </span>
-<a name="l00004"></a>00004 <span class="comment">//</span>
-<a name="l00005"></a>00005 <span class="comment">//  Created by Matanya Horowitz on 7/17/14.</span>
-<a name="l00006"></a>00006 <span class="comment">//</span>
-<a name="l00007"></a>00007 <span class="comment">//</span>
-<a name="l00008"></a>00008 
-<a name="l00009"></a>00009 <span class="preprocessor">#ifndef ____PoseEstimate__</span>
-<a name="l00010"></a>00010 <span class="preprocessor"></span><span class="preprocessor">#define ____PoseEstimate__</span>
-<a name="l00011"></a>00011 <span class="preprocessor"></span>
-<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="common_8h.html">common.h</a>&quot;</span>
-<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;iostream&gt;</span>
-<a name="l00014"></a>00014 
-<a name="l00015"></a><a class="code" href="classPoseEstimate.html">00015</a> <span class="keyword">class </span><a class="code" href="classPoseEstimate.html">PoseEstimate</a> {
-<a name="l00016"></a>00016 <span class="keyword">public</span>:
-<a name="l00017"></a>00017     <a class="code" href="classPoseEstimate.html#ac3e3718fe27dccb3be0760d6bcdc18c6">PoseEstimate</a>();
-<a name="l00018"></a>00018     <a class="code" href="classPoseEstimate.html#ac024bd041a98d233647f106e6878d986">~PoseEstimate</a>();
-<a name="l00019"></a>00019     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classPoseEstimate.html#a6fdf8eec3cadac69bcf8181c89d82903">estimatePose</a>() =0;
-<a name="l00020"></a>00020     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classPoseEstimate.html#a4c420a20ba20719f7c19b8bbec79b6d9">setModel</a>(pcl::PointCloud&lt;PointT&gt;::Ptr <a class="code" href="classPoseEstimate.html#aca9217cfe0d272f172f65adfc31764f1">model</a>);
-<a name="l00021"></a>00021     <span class="keywordtype">void</span> <a class="code" href="classPoseEstimate.html#ae884275e741789db776be52f373f387f">setObservation</a>(pcl::PointCloud&lt;PointT&gt;::Ptr <a class="code" href="classPoseEstimate.html#a75beb14fe9fd10fc8a80eff84f348c1c">obs</a>);
-<a name="l00022"></a>00022     <span class="keywordtype">void</span> <a class="code" href="classPoseEstimate.html#a9daadf84954e07d295c2286172f01904">permuteData</a>( Eigen::SparseMatrix&lt;float&gt; &amp; P );
-<a name="l00023"></a>00023     <span class="keywordtype">void</span> <a class="code" href="classPoseEstimate.html#af36ed6ccd1839eedff0f51f0bdaa23c7">setInitialPose</a>(Eigen::Matrix3f &amp; rot, Eigen::Vector3f &amp; trans);
-<a name="l00024"></a>00024     <span class="keywordtype">void</span> <a class="code" href="classPoseEstimate.html#aa52680b9860a5a33201dfdd888e34c5a">getPose</a>( Eigen::Matrix3f &amp;rot, Eigen::Vector3f &amp;trans );
-<a name="l00025"></a>00025     <span class="keywordtype">void</span> <a class="code" href="classPoseEstimate.html#a82d9fbf262d32338a9275f9cedee3f6c">setCores</a>( <span class="keywordtype">int</span> num );
-<a name="l00026"></a>00026     <span class="keywordtype">void</span> <a class="code" href="classPoseEstimate.html#a97197a2b7b19b8a975984841feaab1dc">dbg</a>( std::string );
-<a name="l00027"></a>00027     <span class="keywordtype">void</span> <a class="code" href="classPoseEstimate.html#a32bcf3736214b6635f9da6ad6be5f0ce">calculateCentroid</a>( <a class="code" href="common_8h.html#a4ec92c19d079ab17709ca464cfb8e5bd">DMat</a> &amp; data, Eigen::Vector3f &amp; center );
-<a name="l00028"></a>00028     <span class="keywordtype">float</span> <a class="code" href="classPoseEstimate.html#ae195b53478db98ca075a6f0359ea422c">calculateResidual</a>();
-<a name="l00029"></a>00029 <span class="keyword">protected</span>:
-<a name="l00030"></a><a class="code" href="classPoseEstimate.html#a75beb14fe9fd10fc8a80eff84f348c1c">00030</a>     <a class="code" href="common_8h.html#a4ec92c19d079ab17709ca464cfb8e5bd">DMat</a> <a class="code" href="classPoseEstimate.html#aca9217cfe0d272f172f65adfc31764f1">model</a>, <a class="code" href="classPoseEstimate.html#a75beb14fe9fd10fc8a80eff84f348c1c">obs</a>;
-<a name="l00031"></a><a class="code" href="classPoseEstimate.html#ad4827d1aca3b4730d6e8c0cf4e96deca">00031</a>     Eigen::Matrix4f <a class="code" href="classPoseEstimate.html#ad4827d1aca3b4730d6e8c0cf4e96deca">A</a>[3][3];
-<a name="l00032"></a><a class="code" href="classPoseEstimate.html#a45910f753f4c92260252d965af504cc8">00032</a>     Eigen::Matrix3f <a class="code" href="classPoseEstimate.html#a45910f753f4c92260252d965af504cc8">R</a>, <a class="code" href="classPoseEstimate.html#ac6b2c23e4121d00a14d4a8245cad86ab">i_R</a>;
-<a name="l00033"></a><a class="code" href="classPoseEstimate.html#a31a1a39ab75efc08a00ddc8f8f75b60b">00033</a>     Eigen::Vector3f <a class="code" href="classPoseEstimate.html#a31a1a39ab75efc08a00ddc8f8f75b60b">T</a>, <a class="code" href="classPoseEstimate.html#a0fa85e3f7cd2b447df9985519a28c0d7">i_T</a>;
-<a name="l00034"></a><a class="code" href="classPoseEstimate.html#a9b1cbebd4de554e6c0b4607a2a462a92">00034</a>     <span class="keywordtype">int</span> <a class="code" href="classPoseEstimate.html#a9b1cbebd4de554e6c0b4607a2a462a92">cores</a>;
-<a name="l00035"></a><a class="code" href="classPoseEstimate.html#a81f2cf4c423887225557200a6da5744e">00035</a>     <span class="keywordtype">bool</span> <a class="code" href="classPoseEstimate.html#a81f2cf4c423887225557200a6da5744e">debug</a>;
-<a name="l00036"></a><a class="code" href="classPoseEstimate.html#a8bad9dfcf6b8ec9e3ba4f62498594524">00036</a>     <span class="keywordtype">int</span> <a class="code" href="classPoseEstimate.html#a8bad9dfcf6b8ec9e3ba4f62498594524">num_pts</a>;
-<a name="l00037"></a><a class="code" href="classPoseEstimate.html#a3431f3d795bc7e5ec3108c923cf4eb9f">00037</a>     Eigen::Vector3f <a class="code" href="classPoseEstimate.html#acd4fefbc3f3fd794f51a8a338996b2ae">model_center</a>, <a class="code" href="classPoseEstimate.html#a3431f3d795bc7e5ec3108c923cf4eb9f">obs_center</a>;
-<a name="l00038"></a><a class="code" href="classPoseEstimate.html#ae1d0b8586991b50d575afa6b8bae92da">00038</a>     <a class="code" href="structSolverSettings.html">SolverSettings</a> <a class="code" href="classPoseEstimate.html#ae1d0b8586991b50d575afa6b8bae92da">settings</a>;
-<a name="l00039"></a>00039 <span class="keyword">private</span>:
-<a name="l00040"></a>00040     
-<a name="l00041"></a>00041 };
+<a href="PoseEstimate_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef ____PoseEstimate__</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define ____PoseEstimate__</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;<a class="code" href="common_8h.html">common.h</a>&quot;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00006"></a>00006 
+<a name="l00018"></a><a class="code" href="classPoseEstimate.html">00018</a> <span class="keyword">class </span><a class="code" href="classPoseEstimate.html" title="Class for performing pose estimation.">PoseEstimate</a> {
+<a name="l00019"></a>00019 <span class="keyword">public</span>:
+<a name="l00020"></a>00020     <a class="code" href="classPoseEstimate.html#ac3e3718fe27dccb3be0760d6bcdc18c6" title="Constructor for PoseEstimate.">PoseEstimate</a>();
+<a name="l00021"></a>00021     <a class="code" href="classPoseEstimate.html#ac024bd041a98d233647f106e6878d986" title="Destructor has not been implemented.">~PoseEstimate</a>();
+<a name="l00022"></a>00022     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classPoseEstimate.html#a6fdf8eec3cadac69bcf8181c89d82903">estimatePose</a>() =0;
+<a name="l00023"></a>00023     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classPoseEstimate.html#a4c420a20ba20719f7c19b8bbec79b6d9" title="Set the internal model used for pose estimation.">setModel</a>(pcl::PointCloud&lt;PointT&gt;::Ptr <a class="code" href="classPoseEstimate.html#aca9217cfe0d272f172f65adfc31764f1" title="Model data.">model</a>);
+<a name="l00024"></a>00024     <span class="keywordtype">void</span> <a class="code" href="classPoseEstimate.html#ae884275e741789db776be52f373f387f" title="Set the observation to be matched by the pose estimation.">setObservation</a>(pcl::PointCloud&lt;PointT&gt;::Ptr <a class="code" href="classPoseEstimate.html#a75beb14fe9fd10fc8a80eff84f348c1c" title="Observation data.">obs</a>);
+<a name="l00025"></a>00025     <span class="keywordtype">void</span> <a class="code" href="classPoseEstimate.html#a9daadf84954e07d295c2286172f01904" title="Permute the observation model using a permutation matrix.">permuteData</a>( Eigen::SparseMatrix&lt;float&gt; &amp; P );
+<a name="l00026"></a>00026     <span class="keywordtype">void</span> <a class="code" href="classPoseEstimate.html#af36ed6ccd1839eedff0f51f0bdaa23c7" title="Set the initial guess for the pose estimation.">setInitialPose</a>(Eigen::Matrix3f &amp; rot, Eigen::Vector3f &amp; trans);
+<a name="l00027"></a>00027     <span class="keywordtype">void</span> <a class="code" href="classPoseEstimate.html#aa52680b9860a5a33201dfdd888e34c5a" title="Retrive the estimated pose.">getPose</a>( Eigen::Matrix3f &amp;rot, Eigen::Vector3f &amp;trans );
+<a name="l00028"></a>00028     <span class="keywordtype">void</span> <a class="code" href="classPoseEstimate.html#a82d9fbf262d32338a9275f9cedee3f6c">setCores</a>( <span class="keywordtype">int</span> num );
+<a name="l00029"></a>00029     <span class="keywordtype">void</span> <a class="code" href="classPoseEstimate.html#a97197a2b7b19b8a975984841feaab1dc" title="Display debug message if debug flag is active.">dbg</a>( std::string );
+<a name="l00030"></a>00030     <span class="keywordtype">void</span> <a class="code" href="classPoseEstimate.html#a32bcf3736214b6635f9da6ad6be5f0ce" title="Utility to calculate the centroid of point cloud data.">calculateCentroid</a>( <a class="code" href="common_8h.html#a4ec92c19d079ab17709ca464cfb8e5bd">DMat</a> &amp; data, Eigen::Vector3f &amp; center );
+<a name="l00031"></a>00031     <span class="keywordtype">float</span> <a class="code" href="classPoseEstimate.html#ae195b53478db98ca075a6f0359ea422c" title="Calculate the residual using the current rotation and translation R, T.">calculateResidual</a>();
+<a name="l00032"></a>00032 <span class="keyword">protected</span>:
+<a name="l00034"></a><a class="code" href="classPoseEstimate.html#aca9217cfe0d272f172f65adfc31764f1">00034</a>    <a class="code" href="common_8h.html#a4ec92c19d079ab17709ca464cfb8e5bd">DMat</a> <a class="code" href="classPoseEstimate.html#aca9217cfe0d272f172f65adfc31764f1" title="Model data.">model</a>;
+<a name="l00035"></a>00035 
+<a name="l00037"></a><a class="code" href="classPoseEstimate.html#a75beb14fe9fd10fc8a80eff84f348c1c">00037</a>    <a class="code" href="common_8h.html#a4ec92c19d079ab17709ca464cfb8e5bd">DMat</a> <a class="code" href="classPoseEstimate.html#a75beb14fe9fd10fc8a80eff84f348c1c" title="Observation data.">obs</a>;
+<a name="l00038"></a>00038 
+<a name="l00041"></a><a class="code" href="classPoseEstimate.html#ad4827d1aca3b4730d6e8c0cf4e96deca">00041</a>    Eigen::Matrix4f <a class="code" href="classPoseEstimate.html#ad4827d1aca3b4730d6e8c0cf4e96deca" title="Convex hull A_{i,j} matrices.">A</a>[3][3];
 <a name="l00042"></a>00042 
-<a name="l00043"></a>00043 <span class="preprocessor">#endif </span><span class="comment">/* defined(____PoseEstimate__) */</span>
+<a name="l00044"></a><a class="code" href="classPoseEstimate.html#a45910f753f4c92260252d965af504cc8">00044</a>    Eigen::Matrix3f <a class="code" href="classPoseEstimate.html#a45910f753f4c92260252d965af504cc8" title="Current estimate of rotation matrix.">R</a>;
+<a name="l00045"></a>00045 
+<a name="l00047"></a><a class="code" href="classPoseEstimate.html#ac6b2c23e4121d00a14d4a8245cad86ab">00047</a>    Eigen::Matrix3f <a class="code" href="classPoseEstimate.html#ac6b2c23e4121d00a14d4a8245cad86ab" title="Initial estimate of rotation matrix.">i_R</a>;
+<a name="l00048"></a>00048 
+<a name="l00050"></a><a class="code" href="classPoseEstimate.html#a31a1a39ab75efc08a00ddc8f8f75b60b">00050</a>    Eigen::Vector3f <a class="code" href="classPoseEstimate.html#a31a1a39ab75efc08a00ddc8f8f75b60b" title="Current estimate of translation vector.">T</a>;
+<a name="l00051"></a>00051 
+<a name="l00053"></a><a class="code" href="classPoseEstimate.html#a0fa85e3f7cd2b447df9985519a28c0d7">00053</a>    Eigen::Vector3f <a class="code" href="classPoseEstimate.html#a0fa85e3f7cd2b447df9985519a28c0d7" title="Initial estimate of translation vector.">i_T</a>;
+<a name="l00054"></a>00054 
+<a name="l00056"></a><a class="code" href="classPoseEstimate.html#a81f2cf4c423887225557200a6da5744e">00056</a>    <span class="keywordtype">bool</span> <a class="code" href="classPoseEstimate.html#a81f2cf4c423887225557200a6da5744e" title="Whether or not to display debug messages.">debug</a>;
+<a name="l00057"></a>00057 
+<a name="l00059"></a><a class="code" href="classPoseEstimate.html#a8bad9dfcf6b8ec9e3ba4f62498594524">00059</a>    <span class="keywordtype">int</span> <a class="code" href="classPoseEstimate.html#a8bad9dfcf6b8ec9e3ba4f62498594524" title="Number of points in observation and model point clouds.">num_pts</a>;
+<a name="l00060"></a>00060 
+<a name="l00062"></a><a class="code" href="classPoseEstimate.html#acd4fefbc3f3fd794f51a8a338996b2ae">00062</a>    Eigen::Vector3f <a class="code" href="classPoseEstimate.html#acd4fefbc3f3fd794f51a8a338996b2ae" title="Centroid of model.">model_center</a>;
+<a name="l00063"></a>00063 
+<a name="l00065"></a><a class="code" href="classPoseEstimate.html#a3431f3d795bc7e5ec3108c923cf4eb9f">00065</a>    Eigen::Vector3f <a class="code" href="classPoseEstimate.html#a3431f3d795bc7e5ec3108c923cf4eb9f" title="Centroid of observation.">obs_center</a>;
+<a name="l00066"></a>00066 
+<a name="l00068"></a><a class="code" href="classPoseEstimate.html#ae1d0b8586991b50d575afa6b8bae92da">00068</a>    <a class="code" href="structSolverSettings.html">SolverSettings</a> <a class="code" href="classPoseEstimate.html#ae1d0b8586991b50d575afa6b8bae92da" title="Settings used in solving.">settings</a>;
+<a name="l00069"></a>00069 <span class="keyword">private</span>:
+<a name="l00070"></a>00070     
+<a name="l00071"></a>00071 };
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073 <span class="preprocessor">#endif </span><span class="comment">/* defined(____PoseEstimate__) */</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -140,7 +146,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jul 28 2014 10:18:21 for CVX_Pose by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jul 28 2014 12:03:20 for CVX_Pose by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

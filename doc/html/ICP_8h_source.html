@@ -79,54 +79,58 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Cvx_Pose/src/ICP.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="ICP_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">//</span>
-<a name="l00002"></a>00002 <span class="comment">//  ICP.h</span>
-<a name="l00003"></a>00003 <span class="comment">//  </span>
-<a name="l00004"></a>00004 <span class="comment">//</span>
-<a name="l00005"></a>00005 <span class="comment">//  Created by Matanya Horowitz on 7/17/14.</span>
-<a name="l00006"></a>00006 <span class="comment">//</span>
-<a name="l00007"></a>00007 <span class="comment">//</span>
-<a name="l00008"></a>00008 
-<a name="l00009"></a>00009 <span class="preprocessor">#ifndef ____ICP__</span>
-<a name="l00010"></a>00010 <span class="preprocessor"></span><span class="preprocessor">#define ____ICP__</span>
-<a name="l00011"></a>00011 <span class="preprocessor"></span>
-<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="common_8h.html">common.h</a>&quot;</span>
-<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="PoseEstimate_8h.html">PoseEstimate.h</a>&quot;</span>
-<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;<a class="code" href="SolvePoseAnalytic_8h.html">SolvePoseAnalytic.h</a>&quot;</span>
-<a name="l00015"></a>00015 
-<a name="l00016"></a>00016 <span class="preprocessor">#include &lt;iostream&gt;</span>
-<a name="l00017"></a>00017 
-<a name="l00018"></a>00018 <span class="preprocessor">#include &lt;pcl/registration/correspondence_estimation.h&gt;</span>
-<a name="l00019"></a>00019 <span class="preprocessor">#include &lt;pcl/common/transforms.h&gt;</span>
-<a name="l00020"></a>00020 
-<a name="l00021"></a>00021 <span class="preprocessor">#include &lt;boost/shared_ptr.hpp&gt;</span>
-<a name="l00022"></a>00022 
-<a name="l00023"></a><a class="code" href="classICP.html">00023</a> <span class="keyword">class </span><a class="code" href="classICP.html">ICP</a> {
-<a name="l00024"></a>00024 <span class="keyword">public</span>:
-<a name="l00025"></a>00025     <a class="code" href="classICP.html#a6a6f021c394b70387f0163239a74f94b">ICP</a>();
-<a name="l00026"></a>00026     <a class="code" href="classICP.html#a744eea059d43f0794b50d15ed056746a">~ICP</a>();
-<a name="l00027"></a>00027     <span class="keywordtype">void</span> <a class="code" href="classICP.html#a49b0a9fafd601c49f7cdd55edaa0f7a7">setSolver</a>(<a class="code" href="structSolverSettings.html">SolverSettings</a> s);
-<a name="l00028"></a>00028     <span class="keywordtype">void</span> <a class="code" href="classICP.html#a7e02bf0f96bacf61fb7462c852be3c08">setModel</a>( pcl::PointCloud&lt;PointT&gt;::Ptr m );
-<a name="l00029"></a>00029     <span class="keywordtype">void</span> <a class="code" href="classICP.html#a65d3a5293b19ec80f5f569abccd8b395">setObservation</a>( pcl::PointCloud&lt;PointT&gt;::Ptr o );
-<a name="l00030"></a>00030     <span class="keywordtype">void</span> <a class="code" href="classICP.html#a8168f085dc9bf3916ea9b170f4a8b6f3">estPose</a>();
-<a name="l00031"></a>00031     <span class="keywordtype">void</span> <a class="code" href="classICP.html#a1dfd1ad0ea3c83ade91595cc3ecd24f2">singleIteration</a>();
-<a name="l00032"></a>00032     <span class="keywordtype">void</span> <a class="code" href="classICP.html#af9624105149162bf1c80b2e70cbcf135">getPose</a>( Eigen::Matrix3f &amp;rot, Eigen::Vector3f &amp;trans );
-<a name="l00033"></a>00033 <span class="keyword">protected</span>:
-<a name="l00034"></a>00034     <span class="keywordtype">void</span> <a class="code" href="classICP.html#a5e20a89dfd2f5f95a61122d268375b72">dbg</a>( std::string );
-<a name="l00035"></a><a class="code" href="classICP.html#aade0504cb0e1d5abcb2c2add2be606b1">00035</a>     Eigen::SparseMatrix&lt;float&gt; <a class="code" href="classICP.html#aade0504cb0e1d5abcb2c2add2be606b1">permutation</a>;
-<a name="l00036"></a>00036 <span class="keyword">private</span>:
-<a name="l00037"></a><a class="code" href="classICP.html#a7e3065919f63c9bdc0ff0677b5cf56d0">00037</a>     <a class="code" href="structSolverSettings.html">SolverSettings</a> <a class="code" href="classICP.html#a7e3065919f63c9bdc0ff0677b5cf56d0">settings</a>;
-<a name="l00038"></a><a class="code" href="classICP.html#a09c458b7e1daa98c6cc98177003794ce">00038</a>     <a class="code" href="classPoseEstimate.html">PoseEstimate</a> * <a class="code" href="classICP.html#a09c458b7e1daa98c6cc98177003794ce">pose</a>;
-<a name="l00039"></a><a class="code" href="classICP.html#a07164ef6066cf0c9537881871cd56601">00039</a>     Eigen::Matrix3f <a class="code" href="classICP.html#aee085ec283f657cb3980c529d48ba65b">c_R</a>, <a class="code" href="classICP.html#a07164ef6066cf0c9537881871cd56601">i_R</a>; <span class="comment">//current, initial rotation</span>
-<a name="l00040"></a><a class="code" href="classICP.html#a63b486fc85453b0f09c6020e1c6227f4">00040</a>     Eigen::Vector3f <a class="code" href="classICP.html#a55de298290d8e74617fdf19c153d55be">c_T</a>, <a class="code" href="classICP.html#a63b486fc85453b0f09c6020e1c6227f4">i_T</a>; <span class="comment">//translation</span>
-<a name="l00041"></a><a class="code" href="classICP.html#ae224713dd84e34bbef52a011046527af">00041</a>     pcl::PointCloud&lt;PointT&gt; <a class="code" href="classICP.html#ae224713dd84e34bbef52a011046527af">model</a>;
-<a name="l00042"></a><a class="code" href="classICP.html#a92b2b3089759aad730cb92a0976aea1b">00042</a>     pcl::PointCloud&lt;PointT&gt; <a class="code" href="classICP.html#a92b2b3089759aad730cb92a0976aea1b">observation</a>;
-<a name="l00043"></a><a class="code" href="classICP.html#acf6194ebbf168e4a6059945980752849">00043</a>     pcl::registration::CorrespondenceEstimation&lt;PointT, PointT&gt; <a class="code" href="classICP.html#acf6194ebbf168e4a6059945980752849">est</a>;
-<a name="l00044"></a><a class="code" href="classICP.html#a9b8cf5129a0cb5ad3fd05b261d514bb6">00044</a>     <span class="keywordtype">int</span> <a class="code" href="classICP.html#a9b8cf5129a0cb5ad3fd05b261d514bb6">num_pts</a>;
-<a name="l00045"></a><a class="code" href="classICP.html#a6e81d1444353ba66d59cd16d2dc74d7c">00045</a>     <span class="keywordtype">bool</span> <a class="code" href="classICP.html#a6e81d1444353ba66d59cd16d2dc74d7c">debug</a>;
-<a name="l00046"></a>00046     
-<a name="l00047"></a>00047 };
-<a name="l00048"></a>00048 <span class="preprocessor">#endif </span><span class="comment">/* defined(____ICP__) */</span>
+<a href="ICP_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef ____ICP__</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define ____ICP__</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;<a class="code" href="common_8h.html">common.h</a>&quot;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;<a class="code" href="PoseEstimate_8h.html">PoseEstimate.h</a>&quot;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &quot;<a class="code" href="SolvePoseAnalytic_8h.html">SolvePoseAnalytic.h</a>&quot;</span>
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 <span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;pcl/registration/correspondence_estimation.h&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;pcl/common/transforms.h&gt;</span>
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;boost/shared_ptr.hpp&gt;</span>
+<a name="l00014"></a>00014 
+<a name="l00028"></a><a class="code" href="classICP.html">00028</a> <span class="keyword">class </span><a class="code" href="classICP.html" title="Iterative Closest Point.">ICP</a> {
+<a name="l00029"></a>00029 <span class="keyword">public</span>:
+<a name="l00030"></a>00030     <a class="code" href="classICP.html#a6a6f021c394b70387f0163239a74f94b" title="ICP default constructor.">ICP</a>();
+<a name="l00031"></a>00031     <a class="code" href="classICP.html#a744eea059d43f0794b50d15ed056746a" title="ICP destructor.">~ICP</a>();
+<a name="l00032"></a>00032     <span class="keywordtype">void</span> <a class="code" href="classICP.html#a49b0a9fafd601c49f7cdd55edaa0f7a7" title="Set the solver settings.">setSolver</a>(<a class="code" href="structSolverSettings.html">SolverSettings</a> s);
+<a name="l00033"></a>00033     <span class="keywordtype">void</span> <a class="code" href="classICP.html#a7e02bf0f96bacf61fb7462c852be3c08" title="Set the model which ICP will use to estimate pose.">setModel</a>( pcl::PointCloud&lt;PointT&gt;::Ptr m );
+<a name="l00034"></a>00034     <span class="keywordtype">void</span> <a class="code" href="classICP.html#a65d3a5293b19ec80f5f569abccd8b395" title="Set the observation which ICP will try to match with its model.">setObservation</a>( pcl::PointCloud&lt;PointT&gt;::Ptr o );
+<a name="l00035"></a>00035     <span class="keywordtype">void</span> <a class="code" href="classICP.html#a8168f085dc9bf3916ea9b170f4a8b6f3" title="Perform the pose estimation iteration until convergence.">estPose</a>();
+<a name="l00036"></a>00036     <span class="keywordtype">void</span> <a class="code" href="classICP.html#a1dfd1ad0ea3c83ade91595cc3ecd24f2" title="Single iteration of ICP: correspondence then pose estimate.">singleIteration</a>();
+<a name="l00037"></a>00037     <span class="keywordtype">void</span> <a class="code" href="classICP.html#af9624105149162bf1c80b2e70cbcf135" title="Retrieve the estimated pose.">getPose</a>( Eigen::Matrix3f &amp;rot, Eigen::Vector3f &amp;trans );
+<a name="l00038"></a>00038 <span class="keyword">protected</span>:
+<a name="l00039"></a>00039     <span class="keywordtype">void</span> <a class="code" href="classICP.html#a5e20a89dfd2f5f95a61122d268375b72" title="Debug output.">dbg</a>( std::string );
+<a name="l00040"></a><a class="code" href="classICP.html#aade0504cb0e1d5abcb2c2add2be606b1">00040</a>     Eigen::SparseMatrix&lt;float&gt; <a class="code" href="classICP.html#aade0504cb0e1d5abcb2c2add2be606b1">permutation</a>;
+<a name="l00041"></a>00041 <span class="keyword">private</span>:
+<a name="l00043"></a><a class="code" href="classICP.html#a7e3065919f63c9bdc0ff0677b5cf56d0">00043</a>    <a class="code" href="structSolverSettings.html">SolverSettings</a> <a class="code" href="classICP.html#a7e3065919f63c9bdc0ff0677b5cf56d0" title="Stores the ICP settings.">settings</a>;
+<a name="l00044"></a>00044 
+<a name="l00046"></a><a class="code" href="classICP.html#a09c458b7e1daa98c6cc98177003794ce">00046</a>    <a class="code" href="classPoseEstimate.html" title="Class for performing pose estimation.">PoseEstimate</a> * <a class="code" href="classICP.html#a09c458b7e1daa98c6cc98177003794ce" title="Member for performing pose estimation.">pose</a>;
+<a name="l00047"></a>00047 
+<a name="l00049"></a><a class="code" href="classICP.html#aee085ec283f657cb3980c529d48ba65b">00049</a>    Eigen::Matrix3f <a class="code" href="classICP.html#aee085ec283f657cb3980c529d48ba65b" title="Current rotation estimate.">c_R</a>;
+<a name="l00050"></a>00050 
+<a name="l00052"></a><a class="code" href="classICP.html#a07164ef6066cf0c9537881871cd56601">00052</a>    Eigen::Matrix3f <a class="code" href="classICP.html#a07164ef6066cf0c9537881871cd56601" title="Initial rotation estimate supplied by user.">i_R</a>;
+<a name="l00053"></a>00053 
+<a name="l00055"></a><a class="code" href="classICP.html#a55de298290d8e74617fdf19c153d55be">00055</a>    Eigen::Vector3f <a class="code" href="classICP.html#a55de298290d8e74617fdf19c153d55be" title="Current translation estimate.">c_T</a>;
+<a name="l00056"></a>00056    
+<a name="l00058"></a><a class="code" href="classICP.html#a63b486fc85453b0f09c6020e1c6227f4">00058</a>    Eigen::Vector3f <a class="code" href="classICP.html#a63b486fc85453b0f09c6020e1c6227f4" title="Initial translation estimate supplied by user.">i_T</a>;
+<a name="l00059"></a>00059 
+<a name="l00061"></a><a class="code" href="classICP.html#ae224713dd84e34bbef52a011046527af">00061</a>    pcl::PointCloud&lt;PointT&gt; <a class="code" href="classICP.html#ae224713dd84e34bbef52a011046527af" title="Internal model of the object whose pose is to be estimated.">model</a>;
+<a name="l00062"></a>00062 
+<a name="l00064"></a><a class="code" href="classICP.html#a92b2b3089759aad730cb92a0976aea1b">00064</a>    pcl::PointCloud&lt;PointT&gt; <a class="code" href="classICP.html#a92b2b3089759aad730cb92a0976aea1b" title="Internal copy of an object observation.">observation</a>;
+<a name="l00065"></a>00065 
+<a name="l00067"></a><a class="code" href="classICP.html#acf6194ebbf168e4a6059945980752849">00067</a>    pcl::registration::CorrespondenceEstimation&lt;PointT, PointT&gt; <a class="code" href="classICP.html#acf6194ebbf168e4a6059945980752849" title="PCL class for estimating correspondence between model and observation points.">est</a>;
+<a name="l00068"></a>00068    
+<a name="l00070"></a><a class="code" href="classICP.html#a9b8cf5129a0cb5ad3fd05b261d514bb6">00070</a>    <span class="keywordtype">int</span> <a class="code" href="classICP.html#a9b8cf5129a0cb5ad3fd05b261d514bb6" title="Count of number of points in observation and model (which should be equal, for now).">num_pts</a>;
+<a name="l00071"></a>00071 
+<a name="l00073"></a><a class="code" href="classICP.html#a6e81d1444353ba66d59cd16d2dc74d7c">00073</a>    <span class="keywordtype">bool</span> <a class="code" href="classICP.html#a6e81d1444353ba66d59cd16d2dc74d7c" title="Setting for printing (or not) of debug messages.">debug</a>;
+<a name="l00074"></a>00074     
+<a name="l00075"></a>00075 };
+<a name="l00076"></a>00076 <span class="preprocessor">#endif </span><span class="comment">/* defined(____ICP__) */</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -145,7 +149,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jul 28 2014 10:18:21 for CVX_Pose by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jul 28 2014 12:03:20 for CVX_Pose by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

@@ -1,25 +1,22 @@
-//
-//  SolvePoseAnalytic.cpp
-//  
-//
 //  Created by Matanya Horowitz on 7/17/14.
-//
-//
 
 #include "SolvePoseAnalytic.h"
 #include <iostream>
 
+/** Constructor, sets default parameters. */
 SolvePoseAnalytic::SolvePoseAnalytic() : PoseEstimate()
 { 
     this->decomp_method = 0;
     this->cores = 1;
 }
 
+/** Destructor, currently not implemented. [Todo]: Memory leaks are possible. */
 SolvePoseAnalytic::~SolvePoseAnalytic()
 {
     //PoseEstimate::~PoseEstimate();
 }
 
+/** Implementation of the analytic pose estimation algorithm. */
 void SolvePoseAnalytic::estimatePose()
 {
     dbg("estimate pose");
@@ -37,6 +34,10 @@ void SolvePoseAnalytic::estimatePose()
     }
 }
 
+/** Analytic solution to pose estimation when only a single computational unit is
+active. 
+
+\sa multiSolvers() */
 void SolvePoseAnalytic::singleSolver()
 {
     //Need to move over by the centroid
@@ -62,6 +63,11 @@ void SolvePoseAnalytic::singleSolver()
     std::cout << "R: \n" << R << "\n";
 }
 
+/** Transformation from 4D representation of SO(3) convex hull to element in SO(3).
+@param[in] z Object in lifted co[SO(3)] representation.
+@param[out] r Element in co(SO)
+*/
+
 void SolvePoseAnalytic::z2so( Eigen::Matrix4f & z, Eigen::Matrix3f & r )
 {
     for (int i=0; i<3; i++) {
@@ -71,6 +77,10 @@ void SolvePoseAnalytic::z2so( Eigen::Matrix4f & z, Eigen::Matrix3f & r )
     }
 }
 
+/** Pose estimation with multiple computation units. OpenMP allows for estimation to
+be done over subsets of the data. At each iteration the local estimates are combined
+via an ADMM update over relaxation parameters. See "A Convex Approach to Consensus on SO(n)" by Matni and Horowitz for details.
+*/
 void SolvePoseAnalytic::multiSolvers()
 {
    int max_iter = 100;
@@ -142,7 +152,16 @@ void SolvePoseAnalytic::multiSolvers()
    }
 }
 
-//Todo: Make inline
+/** Single local ADMM pose estimation step.
+
+[Todo] Make inline for speed.
+
+@param[in]  dadj The adjoint of the local data matrix
+@param[out] Zn The local Z optimization variable
+@param[in]  Y The local dual price variable
+@param[in]  Z0 Centralized fusion variable
+@param[in]  ainv The inverse of the ADMM gradient variable.
+*/
 void SolvePoseAnalytic::ADMMIter(Eigen::Matrix4f & dadj, Eigen::Matrix4f & Zn, Eigen::Matrix4f & Y, Eigen::Matrix4f & Z0 ,float ainv) {
     Eigen::Matrix4f Q = ainv * (dadj - Y) + Z0;
     Eigen::EigenSolver<Eigen::Matrix4f> eig(Q);
@@ -152,7 +171,9 @@ void SolvePoseAnalytic::ADMMIter(Eigen::Matrix4f & dadj, Eigen::Matrix4f & Zn, E
     Zn = eigVecs * eigVals.asDiagonal() * eigVecs.transpose();
 }
 
-//Todo: Make inline
+/** Projection onto the free spectrahedra.
+@param[in,out] v Vector to be projected. Overwritten with the result.
+*/
 void SolvePoseAnalytic::projFreeSpectra(Eigen::Vector4f & v)
 {
    Eigen::Vector4f s = v;
@@ -178,10 +199,16 @@ void SolvePoseAnalytic::projFreeSpectra(Eigen::Vector4f & v)
    v.cwiseMax(s.setZero());
 }
 
+/** In the future, dual ascent may be implemented as an alternative to ADMM.
+*/
 void SolvePoseAnalytic::DualIter() {
    //Dual ascent would go here.   
 }
 
+/** Calculate the adjoint of the mapping between SO(3) and its four dimensional lift.
+@param[in] D Data matrix to be adjointed.
+@param[out] Dadj The adjoint of the data matrix.
+*/
 void SolvePoseAnalytic::adjoint( Eigen::Matrix3f & D, Eigen::Matrix4f & Dadj )
 {
     Dadj.setZero();

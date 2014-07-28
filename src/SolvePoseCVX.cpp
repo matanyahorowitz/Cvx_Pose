@@ -1,11 +1,4 @@
-//
-//
-//  SolvePoseCVX.cpp
-//  
-//
 //  Created by Matanya Horowitz on 7/17/14.
-//
-//
 
 #include "SolvePoseCVX.h"
 
@@ -13,17 +6,21 @@
 #include <cstdio>
 #include <cstdlib>
 
+/** Constructor, which sets default solution parameters */
 SolvePoseCVX::SolvePoseCVX() : PoseEstimate()
 {
    this->decomp_method = 0;
    this->cores = 1;
 }
 
+/** Destructor, which isn't currently implemented. [Todo] There may be memory leaks. */
 SolvePoseCVX::~SolvePoseCVX()
 {
     //PoseEstimate::~PoseEstimate();
 }
 
+/** Initialize the convex solver and parameters. The presence of outlier rejection requires different initialization (there are many more optimization variables).
+*/
 void SolvePoseCVX::initializeSolver()
 {
 
@@ -59,6 +56,7 @@ void SolvePoseCVX::initializeSolver()
    }
 }
 
+/** Sets up the optimization with a quadratic objective. This is necessary when there is an L1 penalty or the point to plane metric is used. Note that the quadratic objective does not guarantee the solution will be an element of SO(3). */
 void SolvePoseCVX::setupQuadraticObjective()
 {
    int R[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
@@ -144,6 +142,8 @@ void SolvePoseCVX::setupQuadraticObjective()
    sdpa.inputCVec(13, 1); //gamma
 }
 
+/** Sets up the CO(SO(3)) constraint.
+*/
 void SolvePoseCVX::setupRConstraint()
 {
    //\sum{i,j =1...3} A_ij X_ij \preceq I_4
@@ -159,6 +159,10 @@ void SolvePoseCVX::setupRConstraint()
    sdpa.inputElement( 0, 1, 4, 4, 1 );
 }
 
+/** Utility function to encode the A_{i,j} constraints.
+
+\sa setupRConstraint()
+*/
 void SolvePoseCVX::initSDPAConsMatrix( int k, int l )
 {
    for( int i=0; i<4; i++ )
@@ -167,6 +171,10 @@ void SolvePoseCVX::initSDPAConsMatrix( int k, int l )
             sdpa.inputElement( 1 + k*3 + l, 1, i, j, -A[i][j](k,l) );
 }
 
+/** Sets up the linear objective. Note that this objective produces solutions
+guaranteed to be elements of SO(3), but does not allow for the point to plane
+metric or outlier rejection to be incorporated.
+*/
 void SolvePoseCVX::setupLinearObjective()
 {
    Eigen::Matrix3f data = obs*model.transpose();
@@ -181,6 +189,10 @@ void SolvePoseCVX::setupLinearObjective()
    sdpa.inputCVec(9, data(2,2));
 }
 
+/** Solve the SDP with only a single computation element.
+
+[Todo] Initial guesses are currently ignored (no warm start).
+*/
 void SolvePoseCVX::singleSolver()
 {
      //Todo: Setup initial guess
@@ -197,6 +209,7 @@ void SolvePoseCVX::singleSolver()
    }
 }
 
+/** Performs the pose estimation using an SDP */
 void SolvePoseCVX::estimatePose()
 {
    this->initializeSolver();
@@ -209,10 +222,12 @@ void SolvePoseCVX::estimatePose()
       this->multiSolvers();
 }
 
+/** Unimplemented [Todo] parallelization of the SDP using ADMM and OpenMP. */
 void SolvePoseCVX::multiSolvers()
 {
 }
 
+/** Set the decomposition. I don't remember what this is for [Todo]. */
 void SolvePoseCVX::setDecomposition( int method )
 {
    this->decomp_method = method;

@@ -1,16 +1,19 @@
-//
-//  PoseEstimate.h
-//  
-//
-//  Created by Matanya Horowitz on 7/17/14.
-//
-//
-
 #ifndef ____PoseEstimate__
 #define ____PoseEstimate__
 
 #include "common.h"
 #include <iostream>
+
+/** Class for performing pose estimation.
+ * 
+ * Abstract class for the different implementations of pose estimation. The class manages
+ * the storage and manipulation of the data, such as when the data is permuted, and
+ * calculates error measurements. Details of the actual pose estimation are handled
+ * by subclasses.
+ * 
+ * \author Matanya Horowitz
+ * \date July 28, 2014
+*/
 
 class PoseEstimate {
 public:
@@ -27,15 +30,42 @@ public:
     void calculateCentroid( DMat & data, Eigen::Vector3f & center );
     float calculateResidual();
 protected:
-    DMat model, obs;
-    Eigen::Matrix4f A[3][3];
-    Eigen::Matrix3f R, i_R;
-    Eigen::Vector3f T, i_T;
-    int cores;
-    bool debug;
-    int num_pts;
-    Eigen::Vector3f model_center, obs_center;
-    SolverSettings settings;
+   /** Model data */
+   DMat model;
+
+   /** Observation data */
+   DMat obs;
+
+   /** Convex hull A_{i,j} matrices. Necessary for the parameterization of the
+   convex hull. See http://arxiv.org/pdf/1403.4914.pdf for details. */
+   Eigen::Matrix4f A[3][3];
+
+   /** Current estimate of rotation matrix. */
+   Eigen::Matrix3f R;
+
+   /** Initial estimate of rotation matrix. */
+   Eigen::Matrix3f i_R;
+
+   /** Current estimate of translation vector. */
+   Eigen::Vector3f T;
+
+   /** Initial estimate of translation vector. */
+   Eigen::Vector3f i_T;
+
+   /** Whether or not to display debug messages. */
+   bool debug;
+
+   /** Number of points in observation and model point clouds. */
+   int num_pts;
+
+   /** Centroid of model */
+   Eigen::Vector3f model_center;
+
+   /** Centroid of observation */
+   Eigen::Vector3f obs_center;
+
+   /** Settings used in solving. Shared with ICP. */
+   SolverSettings settings;
 private:
     
 };

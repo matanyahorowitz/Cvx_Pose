@@ -86,6 +86,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <!-- doxytag: class="SolvePoseCVX" --><!-- doxytag: inherits="PoseEstimate" -->
+<p>Pose estimation using the convex hull of SO(3) via a semidefinite program.  
+ <a href="classSolvePoseCVX.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="SolvePoseCVX_8h_source.html">SolvePoseCVX.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SolvePoseCVX:</div>
@@ -93,7 +96,7 @@ Inheritance diagram for SolvePoseCVX:</div>
  <div class="center">
   <img src="classSolvePoseCVX.png" usemap="#SolvePoseCVX_map" alt=""/>
   <map id="SolvePoseCVX_map" name="SolvePoseCVX_map">
-<area href="classPoseEstimate.html" alt="PoseEstimate" shape="rect" coords="0,0,99,24"/>
+<area href="classPoseEstimate.html" title="Class for performing pose estimation." alt="PoseEstimate" shape="rect" coords="0,0,99,24"/>
 </map>
  </div></div>
 
@@ -102,24 +105,41 @@ Inheritance diagram for SolvePoseCVX:</div>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolvePoseCVX.html#a482baaffc4162260c7e565b1fa623007">SolvePoseCVX</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, which sets default solution parameters.  <a href="#a482baaffc4162260c7e565b1fa623007"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolvePoseCVX.html#a00a0ef0e4c0c55bde6d63c03c496082d">~SolvePoseCVX</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor, which isn't currently implemented.  <a href="#a00a0ef0e4c0c55bde6d63c03c496082d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolvePoseCVX.html#a081c857ff6c1c9e6597d41fb08bb6f16">estimatePose</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs the pose estimation using an SDP.  <a href="#a081c857ff6c1c9e6597d41fb08bb6f16"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolvePoseCVX.html#a413870a9249a7f3b2ceb0ba52f68cb5f">setDecomposition</a> (int method)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the decomposition.  <a href="#a413870a9249a7f3b2ceb0ba52f68cb5f"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolvePoseCVX.html#ac6c5c12f31943c02eac2b4e3afe95cb5">singleSolver</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the SDP with only a single computation element.  <a href="#ac6c5c12f31943c02eac2b4e3afe95cb5"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolvePoseCVX.html#aa15afe19bca14542c1466f4582a8408a">multiSolvers</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unimplemented [Todo] parallelization of the SDP using ADMM and OpenMP.  <a href="#aa15afe19bca14542c1466f4582a8408a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolvePoseCVX.html#af71375a8ebc356e5794249ae0c1243d6">initializeSolver</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the convex solver and parameters.  <a href="#af71375a8ebc356e5794249ae0c1243d6"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolvePoseCVX.html#aadfc695ad82f44103e7e51c037ddb232">initSDPAConsMatrix</a> (int k, int l)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility function to encode the A_{i,j} constraints.  <a href="#aadfc695ad82f44103e7e51c037ddb232"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolvePoseCVX.html#ac1b83848a5b98e008dfc9b7a87b0079c">setupQuadraticObjective</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the optimization with a quadratic objective.  <a href="#ac1b83848a5b98e008dfc9b7a87b0079c"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolvePoseCVX.html#a4e1c078bdb3a613349c7136bdb0899b9">setupRConstraint</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the CO(SO(3)) constraint.  <a href="#a4e1c078bdb3a613349c7136bdb0899b9"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolvePoseCVX.html#adba2454a08d9e6115cd075928c1d5518">setupLinearObjective</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the linear objective.  <a href="#adba2454a08d9e6115cd075928c1d5518"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolvePoseCVX.html#a6d4be163f9b06fc013c99bbacceece14">decomp_method</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">SDPA&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolvePoseCVX.html#af0c222b2ce7361ff8a54eee918ea1c65">sdpa</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">SDPA interface for numerically solving the convex problem.  <a href="#af0c222b2ce7361ff8a54eee918ea1c65"></a><br/></td></tr>
 </table>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Pose estimation using the convex hull of SO(3) via a semidefinite program. </p>
+<p>The semidefinite formulation allows us to include the point to plane metric as well as outlier rejection using a LASSO penalty. Currently, the publicly available SDPA package is used as our semidefinite solver.</p>
+<dl class="author"><dt><b>Author:</b></dt><dd>Matanya Horowitz </dd></dl>
+<dl class="date"><dt><b>Date:</b></dt><dd>July 28 2014 </dd></dl>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a482baaffc4162260c7e565b1fa623007"></a><!-- doxytag: member="SolvePoseCVX::SolvePoseCVX" ref="a482baaffc4162260c7e565b1fa623007" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -133,6 +153,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Constructor, which sets default solution parameters. </p>
 
 </div>
 </div>
@@ -149,6 +171,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Destructor, which isn't currently implemented. </p>
+<p>[Todo] There may be memory leaks. </p>
 
 </div>
 </div>
@@ -167,6 +192,8 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Performs the pose estimation using an SDP. </p>
+
 <p>Implements <a class="el" href="classPoseEstimate.html#a6fdf8eec3cadac69bcf8181c89d82903">PoseEstimate</a>.</p>
 
 </div>
@@ -184,6 +211,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Initialize the convex solver and parameters. </p>
+<p>The presence of outlier rejection requires different initialization (there are many more optimization variables). </p>
 
 </div>
 </div>
@@ -212,6 +242,9 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Utility function to encode the A_{i,j} constraints. </p>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="classSolvePoseCVX.html#a4e1c078bdb3a613349c7136bdb0899b9" title="Sets up the CO(SO(3)) constraint.">setupRConstraint()</a> </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="aa15afe19bca14542c1466f4582a8408a"></a><!-- doxytag: member="SolvePoseCVX::multiSolvers" ref="aa15afe19bca14542c1466f4582a8408a" args="()" -->
@@ -227,6 +260,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Unimplemented [Todo] parallelization of the SDP using ADMM and OpenMP. </p>
 
 </div>
 </div>
@@ -245,6 +280,9 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Set the decomposition. </p>
+<p>I don't remember what this is for [Todo]. </p>
+
 </div>
 </div>
 <a class="anchor" id="adba2454a08d9e6115cd075928c1d5518"></a><!-- doxytag: member="SolvePoseCVX::setupLinearObjective" ref="adba2454a08d9e6115cd075928c1d5518" args="()" -->
@@ -260,6 +298,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Sets up the linear objective. </p>
+<p>Note that this objective produces solutions guaranteed to be elements of SO(3), but does not allow for the point to plane metric or outlier rejection to be incorporated. </p>
 
 </div>
 </div>
@@ -277,6 +318,9 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Sets up the optimization with a quadratic objective. </p>
+<p>This is necessary when there is an L1 penalty or the point to plane metric is used. Note that the quadratic objective does not guarantee the solution will be an element of SO(3). </p>
+
 </div>
 </div>
 <a class="anchor" id="a4e1c078bdb3a613349c7136bdb0899b9"></a><!-- doxytag: member="SolvePoseCVX::setupRConstraint" ref="a4e1c078bdb3a613349c7136bdb0899b9" args="()" -->
@@ -293,6 +337,8 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Sets up the CO(SO(3)) constraint. </p>
+
 </div>
 </div>
 <a class="anchor" id="ac6c5c12f31943c02eac2b4e3afe95cb5"></a><!-- doxytag: member="SolvePoseCVX::singleSolver" ref="ac6c5c12f31943c02eac2b4e3afe95cb5" args="()" -->
@@ -308,6 +354,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Solve the SDP with only a single computation element. </p>
+<p>[Todo] Initial guesses are currently ignored (no warm start). </p>
 
 </div>
 </div>
@@ -336,6 +385,8 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>SDPA interface for numerically solving the convex problem. </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -360,7 +411,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jul 28 2014 10:18:21 for CVX_Pose by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jul 28 2014 12:03:21 for CVX_Pose by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

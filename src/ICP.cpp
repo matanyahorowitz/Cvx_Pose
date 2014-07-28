@@ -1,12 +1,7 @@
-//
-//  ICP.cpp
-//  
-//
-//  Created by Matanya Horowitz on 7/17/14.
-//
-//
-
 #include "ICP.h"
+
+/** ICP default constructor. Initializes pose and translation estimate to identity and the origin
+*/
 
 ICP::ICP()
 {
@@ -17,17 +12,25 @@ ICP::ICP()
     
 }
 
+/** ICP destructor. [Todo] Currently, this is unimplemented and may be leaking memory.
+*/
 ICP::~ICP()
 {
     //dbg( "Destructing ICP" );
     //delete pose;
 }
 
+/** Set the solver settings.
+@param[in] s Complete specification of problem settings.
+*/
 void ICP::setSolver(SolverSettings s)
 {
     this->settings = s;
 }
 
+/** Set the model which ICP will use to estimate pose.
+@param[in] m PCL pointer to the model.
+*/
 void ICP::setModel( pcl::PointCloud<PointT>::Ptr m )
 {
     this->num_pts = m->size();
@@ -46,11 +49,21 @@ void ICP::setModel( pcl::PointCloud<PointT>::Ptr m )
     pose->setModel( m );
 }
 
+/** Set the observation which ICP will try to match with its model.
+*/
 void ICP::setObservation( pcl::PointCloud<PointT>::Ptr o )
 {
     this->observation = *o;
     this->pose->setObservation( o );
 }
+
+/** Perform the pose estimation iteration until convergence. 
+
+[Todo] In the future, a coarse alignment will first be performed with a down sampled model, or using depth features.
+
+[Todo] In the future, there will be an option to begin with multiple pose initial conditions
+
+*/
 
 void ICP::estPose()
 {
@@ -75,18 +88,27 @@ void ICP::estPose()
     }
 }
 
+/** Retrieve the estimated pose.
+@param[out] rot The rotation matrix
+@param[out] trans The translation vector
+*/
 void ICP::getPose( Eigen::Matrix3f &rot, Eigen::Vector3f &trans )
 {
     rot = this->c_R;
     trans = this->c_T;
 }
 
+/** Debug output. Very rough for now, simply prints or not depending on the debug flag.
+@param[in] msg The debug message
+*/
 void ICP::dbg( std::string msg )
 {
     if( debug )
         std::cout << msg << "\n";
 }
 
+/** Single iteration of ICP: correspondence then pose estimate.
+*/
 void ICP::singleIteration()
 {
     dbg("Beginning iteration");

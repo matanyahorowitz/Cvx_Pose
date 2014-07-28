@@ -86,6 +86,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <!-- doxytag: class="SolvePoseAnalytic" --><!-- doxytag: inherits="PoseEstimate" -->
+<p>Pose estimation using analytic solutions to optimization problems over the convex hull of SO(3).  
+ <a href="classSolvePoseAnalytic.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="SolvePoseAnalytic_8h_source.html">SolvePoseAnalytic.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SolvePoseAnalytic:</div>
@@ -93,7 +96,7 @@ Inheritance diagram for SolvePoseAnalytic:</div>
  <div class="center">
   <img src="classSolvePoseAnalytic.png" usemap="#SolvePoseAnalytic_map" alt=""/>
   <map id="SolvePoseAnalytic_map" name="SolvePoseAnalytic_map">
-<area href="classPoseEstimate.html" alt="PoseEstimate" shape="rect" coords="0,0,118,24"/>
+<area href="classPoseEstimate.html" title="Class for performing pose estimation." alt="PoseEstimate" shape="rect" coords="0,0,118,24"/>
 </map>
  </div></div>
 
@@ -102,23 +105,39 @@ Inheritance diagram for SolvePoseAnalytic:</div>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolvePoseAnalytic.html#a46909a99ed0f06e70aa4b9d999c6356b">SolvePoseAnalytic</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, sets default parameters.  <a href="#a46909a99ed0f06e70aa4b9d999c6356b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolvePoseAnalytic.html#a0bce3ad52a52f23cd14eabd7de12d832">~SolvePoseAnalytic</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor, currently not implemented.  <a href="#a0bce3ad52a52f23cd14eabd7de12d832"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolvePoseAnalytic.html#a0a3fd0af007d4a945c03f49f820badcf">estimatePose</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation of the analytic pose estimation algorithm.  <a href="#a0a3fd0af007d4a945c03f49f820badcf"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolvePoseAnalytic.html#aff3d9a1a6c15b4076d8fc560fd18176c">setDecomposition</a> (int method)</td></tr>
 <tr><td colspan="2"><h2><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolvePoseAnalytic.html#a1bd5ff12daa4146f5ce418391cb03c7c">singleSolver</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Analytic solution to pose estimation when only a single computational unit is active.  <a href="#a1bd5ff12daa4146f5ce418391cb03c7c"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolvePoseAnalytic.html#aea9b5c0833af7633f80b8879b26b4c99">multiSolvers</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Pose estimation with multiple computation units.  <a href="#aea9b5c0833af7633f80b8879b26b4c99"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolvePoseAnalytic.html#afdb3d837111ffdfb4fe5821dc6b6165b">ADMMIter</a> (Eigen::Matrix4f &amp;dadj, Eigen::Matrix4f &amp;Zn, Eigen::Matrix4f &amp;Y, Eigen::Matrix4f &amp;Z0, float ainv)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Single local ADMM pose estimation step.  <a href="#afdb3d837111ffdfb4fe5821dc6b6165b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolvePoseAnalytic.html#a477b3c908bc27e07c80ec117a6cfd8d9">DualIter</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">In the future, dual ascent may be implemented as an alternative to ADMM.  <a href="#a477b3c908bc27e07c80ec117a6cfd8d9"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolvePoseAnalytic.html#a51160b660f01b388d8e535b00f54336e">adjoint</a> (Eigen::Matrix3f &amp;D, Eigen::Matrix4f &amp;Dadj)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the adjoint of the mapping between SO(3) and its four dimensional lift.  <a href="#a51160b660f01b388d8e535b00f54336e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolvePoseAnalytic.html#a5c756fab3a0a31c6f6c02d0a9a0cf62a">z2so</a> (Eigen::Matrix4f &amp;z, Eigen::Matrix3f &amp;r)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Transformation from 4D representation of SO(3) convex hull to element in SO(3).  <a href="#a5c756fab3a0a31c6f6c02d0a9a0cf62a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolvePoseAnalytic.html#addd843afaa4ce7e35826f100d46e3699">projFreeSpectra</a> (Eigen::Vector4f &amp;v)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Projection onto the free spectrahedra.  <a href="#addd843afaa4ce7e35826f100d46e3699"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolvePoseAnalytic.html#ae2c640a9416555bb83e8ffbc39e48a0c">decomp_method</a></td></tr>
 </table>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Pose estimation using analytic solutions to optimization problems over the convex hull of SO(3). </p>
+<p>Unfortunately, analytic solutions are only available for the point to point metric and in the absence of outlier rejection.</p>
+<p>Parallelization is achieved by splitting the data over a number of cores and using ADMM to achieve consensus over the different computation units.</p>
+<dl class="author"><dt><b>Author:</b></dt><dd>Matanya Horowitz </dd></dl>
+<dl class="date"><dt><b>Date:</b></dt><dd>July 28, 2014 </dd></dl>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a46909a99ed0f06e70aa4b9d999c6356b"></a><!-- doxytag: member="SolvePoseAnalytic::SolvePoseAnalytic" ref="a46909a99ed0f06e70aa4b9d999c6356b" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -132,6 +151,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Constructor, sets default parameters. </p>
 
 </div>
 </div>
@@ -148,6 +169,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Destructor, currently not implemented. </p>
+<p>[Todo]: Memory leaks are possible. </p>
 
 </div>
 </div>
@@ -176,6 +200,15 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Calculate the adjoint of the mapping between SO(3) and its four dimensional lift. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">D</td><td>Data matrix to be adjointed. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">Dadj</td><td>The adjoint of the data matrix. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -222,6 +255,19 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Single local ADMM pose estimation step. </p>
+<p>[Todo] Make inline for speed.</p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dadj</td><td>The adjoint of the local data matrix </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">Zn</td><td>The local Z optimization variable </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Y</td><td>The local dual price variable </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Z0</td><td>Centralized fusion variable </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ainv</td><td>The inverse of the ADMM gradient variable. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a477b3c908bc27e07c80ec117a6cfd8d9"></a><!-- doxytag: member="SolvePoseAnalytic::DualIter" ref="a477b3c908bc27e07c80ec117a6cfd8d9" args="()" -->
@@ -238,6 +284,8 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>In the future, dual ascent may be implemented as an alternative to ADMM. </p>
+
 </div>
 </div>
 <a class="anchor" id="a0a3fd0af007d4a945c03f49f820badcf"></a><!-- doxytag: member="SolvePoseAnalytic::estimatePose" ref="a0a3fd0af007d4a945c03f49f820badcf" args="()" -->
@@ -253,6 +301,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Implementation of the analytic pose estimation algorithm. </p>
 
 <p>Implements <a class="el" href="classPoseEstimate.html#a6fdf8eec3cadac69bcf8181c89d82903">PoseEstimate</a>.</p>
 
@@ -272,6 +322,9 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Pose estimation with multiple computation units. </p>
+<p>OpenMP allows for estimation to be done over subsets of the data. At each iteration the local estimates are combined via an ADMM update over relaxation parameters. See "A Convex Approach to Consensus on SO(n)" by Matni and Horowitz for details. </p>
+
 </div>
 </div>
 <a class="anchor" id="addd843afaa4ce7e35826f100d46e3699"></a><!-- doxytag: member="SolvePoseAnalytic::projFreeSpectra" ref="addd843afaa4ce7e35826f100d46e3699" args="(Eigen::Vector4f &amp;v)" -->
@@ -288,6 +341,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Projection onto the free spectrahedra. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">v</td><td>Vector to be projected. Overwritten with the result. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -322,6 +383,9 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Analytic solution to pose estimation when only a single computational unit is active. </p>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="classSolvePoseAnalytic.html#aea9b5c0833af7633f80b8879b26b4c99" title="Pose estimation with multiple computation units.">multiSolvers()</a> </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a5c756fab3a0a31c6f6c02d0a9a0cf62a"></a><!-- doxytag: member="SolvePoseAnalytic::z2so" ref="a5c756fab3a0a31c6f6c02d0a9a0cf62a" args="(Eigen::Matrix4f &amp;z, Eigen::Matrix3f &amp;r)" -->
@@ -348,6 +412,15 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Transformation from 4D representation of SO(3) convex hull to element in SO(3). </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">z</td><td>Object in lifted co[SO(3)] representation. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">r</td><td>Element in co(SO) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -387,7 +460,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jul 28 2014 10:18:21 for CVX_Pose by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jul 28 2014 12:03:21 for CVX_Pose by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

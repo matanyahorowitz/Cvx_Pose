@@ -3,6 +3,11 @@
 }
 
 
+\-Pose estimation using the convex hull of \-S\-O(3) via a semidefinite program.  
+
+
+
+
 {\ttfamily \#include $<$\-Solve\-Pose\-C\-V\-X.\-h$>$}
 
 \-Inheritance diagram for \-Solve\-Pose\-C\-V\-X\-:\begin{figure}[H]
@@ -15,37 +20,50 @@
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classSolvePoseCVX_a482baaffc4162260c7e565b1fa623007}{\-Solve\-Pose\-C\-V\-X} ()
-\item 
+\begin{DoxyCompactList}\small\item\em \-Constructor, which sets default solution parameters. \end{DoxyCompactList}\item 
 \hyperlink{classSolvePoseCVX_a00a0ef0e4c0c55bde6d63c03c496082d}{$\sim$\-Solve\-Pose\-C\-V\-X} ()
-\item 
+\begin{DoxyCompactList}\small\item\em \-Destructor, which isn't currently implemented. \end{DoxyCompactList}\item 
 void \hyperlink{classSolvePoseCVX_a081c857ff6c1c9e6597d41fb08bb6f16}{estimate\-Pose} ()
-\item 
+\begin{DoxyCompactList}\small\item\em \-Performs the pose estimation using an \-S\-D\-P. \end{DoxyCompactList}\item 
 void \hyperlink{classSolvePoseCVX_a413870a9249a7f3b2ceb0ba52f68cb5f}{set\-Decomposition} (int method)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \-Set the decomposition. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{\-Private \-Member \-Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{classSolvePoseCVX_ac6c5c12f31943c02eac2b4e3afe95cb5}{single\-Solver} ()
-\item 
+\begin{DoxyCompactList}\small\item\em \-Solve the \-S\-D\-P with only a single computation element. \end{DoxyCompactList}\item 
 void \hyperlink{classSolvePoseCVX_aa15afe19bca14542c1466f4582a8408a}{multi\-Solvers} ()
-\item 
+\begin{DoxyCompactList}\small\item\em \-Unimplemented \mbox{[}\-Todo\mbox{]} parallelization of the \-S\-D\-P using \-A\-D\-M\-M and \-Open\-M\-P. \end{DoxyCompactList}\item 
 void \hyperlink{classSolvePoseCVX_af71375a8ebc356e5794249ae0c1243d6}{initialize\-Solver} ()
-\item 
+\begin{DoxyCompactList}\small\item\em \-Initialize the convex solver and parameters. \end{DoxyCompactList}\item 
 void \hyperlink{classSolvePoseCVX_aadfc695ad82f44103e7e51c037ddb232}{init\-S\-D\-P\-A\-Cons\-Matrix} (int k, int l)
-\item 
+\begin{DoxyCompactList}\small\item\em \-Utility function to encode the \-A\-\_\-\{i,j\} constraints. \end{DoxyCompactList}\item 
 void \hyperlink{classSolvePoseCVX_ac1b83848a5b98e008dfc9b7a87b0079c}{setup\-Quadratic\-Objective} ()
-\item 
+\begin{DoxyCompactList}\small\item\em \-Sets up the optimization with a quadratic objective. \end{DoxyCompactList}\item 
 void \hyperlink{classSolvePoseCVX_a4e1c078bdb3a613349c7136bdb0899b9}{setup\-R\-Constraint} ()
-\item 
+\begin{DoxyCompactList}\small\item\em \-Sets up the \-C\-O(\-S\-O(3)) constraint. \end{DoxyCompactList}\item 
 void \hyperlink{classSolvePoseCVX_adba2454a08d9e6115cd075928c1d5518}{setup\-Linear\-Objective} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \-Sets up the linear objective. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{\-Private \-Attributes}
 \begin{DoxyCompactItemize}
 \item 
 int \hyperlink{classSolvePoseCVX_a6d4be163f9b06fc013c99bbacceece14}{decomp\-\_\-method}
 \item 
 \-S\-D\-P\-A \hyperlink{classSolvePoseCVX_af0c222b2ce7361ff8a54eee918ea1c65}{sdpa}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \-S\-D\-P\-A interface for numerically solving the convex problem. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Pose estimation using the convex hull of \-S\-O(3) via a semidefinite program. 
+
+\-The semidefinite formulation allows us to include the point to plane metric as well as outlier rejection using a \-L\-A\-S\-S\-O penalty. \-Currently, the publicly available \-S\-D\-P\-A package is used as our semidefinite solver.
+
+\begin{DoxyAuthor}{\-Author}
+\-Matanya \-Horowitz 
+\end{DoxyAuthor}
+\begin{DoxyDate}{\-Date}
+\-July 28 2014 
+\end{DoxyDate}
 
 
 \subsection{\-Constructor \& \-Destructor \-Documentation}
@@ -56,6 +74,10 @@ int \hyperlink{classSolvePoseCVX_a6d4be163f9b06fc013c99bbacceece14}{decomp\-\_\-
 {}
 \end{DoxyParamCaption}
 )}}\label{classSolvePoseCVX_a482baaffc4162260c7e565b1fa623007}
+
+
+\-Constructor, which sets default solution parameters. 
+
 \hypertarget{classSolvePoseCVX_a00a0ef0e4c0c55bde6d63c03c496082d}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!$\sim$\-Solve\-Pose\-C\-V\-X@{$\sim$\-Solve\-Pose\-C\-V\-X}}
 \index{$\sim$\-Solve\-Pose\-C\-V\-X@{$\sim$\-Solve\-Pose\-C\-V\-X}!SolvePoseCVX@{\-Solve\-Pose\-C\-V\-X}}
 \subsubsection[{$\sim$\-Solve\-Pose\-C\-V\-X}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Solve\-Pose\-C\-V\-X\-::$\sim$\-Solve\-Pose\-C\-V\-X} (
@@ -64,6 +86,10 @@ int \hyperlink{classSolvePoseCVX_a6d4be163f9b06fc013c99bbacceece14}{decomp\-\_\-
 \end{DoxyParamCaption}
 )}}\label{classSolvePoseCVX_a00a0ef0e4c0c55bde6d63c03c496082d}
 
+
+\-Destructor, which isn't currently implemented. 
+
+\mbox{[}\-Todo\mbox{]} \-There may be memory leaks. 
 
 \subsection{\-Member \-Function \-Documentation}
 \hypertarget{classSolvePoseCVX_a081c857ff6c1c9e6597d41fb08bb6f16}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!estimate\-Pose@{estimate\-Pose}}
@@ -75,6 +101,10 @@ int \hyperlink{classSolvePoseCVX_a6d4be163f9b06fc013c99bbacceece14}{decomp\-\_\-
 )\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classSolvePoseCVX_a081c857ff6c1c9e6597d41fb08bb6f16}
 
 
+\-Performs the pose estimation using an \-S\-D\-P. 
+
+
+
 \-Implements \hyperlink{classPoseEstimate_a6fdf8eec3cadac69bcf8181c89d82903}{\-Pose\-Estimate}.
 
 \hypertarget{classSolvePoseCVX_af71375a8ebc356e5794249ae0c1243d6}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!initialize\-Solver@{initialize\-Solver}}
@@ -84,7 +114,11 @@ int \hyperlink{classSolvePoseCVX_a6d4be163f9b06fc013c99bbacceece14}{decomp\-\_\-
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classSolvePoseCVX_af71375a8ebc356e5794249ae0c1243d6}
-\hypertarget{classSolvePoseCVX_aadfc695ad82f44103e7e51c037ddb232}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!init\-S\-D\-P\-A\-Cons\-Matrix@{init\-S\-D\-P\-A\-Cons\-Matrix}}
+
+
+\-Initialize the convex solver and parameters. 
+
+\-The presence of outlier rejection requires different initialization (there are many more optimization variables). \hypertarget{classSolvePoseCVX_aadfc695ad82f44103e7e51c037ddb232}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!init\-S\-D\-P\-A\-Cons\-Matrix@{init\-S\-D\-P\-A\-Cons\-Matrix}}
 \index{init\-S\-D\-P\-A\-Cons\-Matrix@{init\-S\-D\-P\-A\-Cons\-Matrix}!SolvePoseCVX@{\-Solve\-Pose\-C\-V\-X}}
 \subsubsection[{init\-S\-D\-P\-A\-Cons\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Solve\-Pose\-C\-V\-X\-::init\-S\-D\-P\-A\-Cons\-Matrix} (
 \begin{DoxyParamCaption}
@@ -92,6 +126,13 @@ int \hyperlink{classSolvePoseCVX_a6d4be163f9b06fc013c99bbacceece14}{decomp\-\_\-
 \item[{int}]{l}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classSolvePoseCVX_aadfc695ad82f44103e7e51c037ddb232}
+
+
+\-Utility function to encode the \-A\-\_\-\{i,j\} constraints. 
+
+\begin{DoxySeeAlso}{\-See also}
+\hyperlink{classSolvePoseCVX_a4e1c078bdb3a613349c7136bdb0899b9}{setup\-R\-Constraint()} 
+\end{DoxySeeAlso}
 \hypertarget{classSolvePoseCVX_aa15afe19bca14542c1466f4582a8408a}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!multi\-Solvers@{multi\-Solvers}}
 \index{multi\-Solvers@{multi\-Solvers}!SolvePoseCVX@{\-Solve\-Pose\-C\-V\-X}}
 \subsubsection[{multi\-Solvers}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Solve\-Pose\-C\-V\-X\-::multi\-Solvers} (
@@ -99,6 +140,10 @@ int \hyperlink{classSolvePoseCVX_a6d4be163f9b06fc013c99bbacceece14}{decomp\-\_\-
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classSolvePoseCVX_aa15afe19bca14542c1466f4582a8408a}
+
+
+\-Unimplemented \mbox{[}\-Todo\mbox{]} parallelization of the \-S\-D\-P using \-A\-D\-M\-M and \-Open\-M\-P. 
+
 \hypertarget{classSolvePoseCVX_a413870a9249a7f3b2ceb0ba52f68cb5f}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!set\-Decomposition@{set\-Decomposition}}
 \index{set\-Decomposition@{set\-Decomposition}!SolvePoseCVX@{\-Solve\-Pose\-C\-V\-X}}
 \subsubsection[{set\-Decomposition}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Solve\-Pose\-C\-V\-X\-::set\-Decomposition} (
@@ -106,27 +151,43 @@ int \hyperlink{classSolvePoseCVX_a6d4be163f9b06fc013c99bbacceece14}{decomp\-\_\-
 \item[{int}]{method}
 \end{DoxyParamCaption}
 )}}\label{classSolvePoseCVX_a413870a9249a7f3b2ceb0ba52f68cb5f}
-\hypertarget{classSolvePoseCVX_adba2454a08d9e6115cd075928c1d5518}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!setup\-Linear\-Objective@{setup\-Linear\-Objective}}
+
+
+\-Set the decomposition. 
+
+\-I don't remember what this is for \mbox{[}\-Todo\mbox{]}. \hypertarget{classSolvePoseCVX_adba2454a08d9e6115cd075928c1d5518}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!setup\-Linear\-Objective@{setup\-Linear\-Objective}}
 \index{setup\-Linear\-Objective@{setup\-Linear\-Objective}!SolvePoseCVX@{\-Solve\-Pose\-C\-V\-X}}
 \subsubsection[{setup\-Linear\-Objective}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Solve\-Pose\-C\-V\-X\-::setup\-Linear\-Objective} (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classSolvePoseCVX_adba2454a08d9e6115cd075928c1d5518}
-\hypertarget{classSolvePoseCVX_ac1b83848a5b98e008dfc9b7a87b0079c}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!setup\-Quadratic\-Objective@{setup\-Quadratic\-Objective}}
+
+
+\-Sets up the linear objective. 
+
+\-Note that this objective produces solutions guaranteed to be elements of \-S\-O(3), but does not allow for the point to plane metric or outlier rejection to be incorporated. \hypertarget{classSolvePoseCVX_ac1b83848a5b98e008dfc9b7a87b0079c}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!setup\-Quadratic\-Objective@{setup\-Quadratic\-Objective}}
 \index{setup\-Quadratic\-Objective@{setup\-Quadratic\-Objective}!SolvePoseCVX@{\-Solve\-Pose\-C\-V\-X}}
 \subsubsection[{setup\-Quadratic\-Objective}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Solve\-Pose\-C\-V\-X\-::setup\-Quadratic\-Objective} (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classSolvePoseCVX_ac1b83848a5b98e008dfc9b7a87b0079c}
-\hypertarget{classSolvePoseCVX_a4e1c078bdb3a613349c7136bdb0899b9}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!setup\-R\-Constraint@{setup\-R\-Constraint}}
+
+
+\-Sets up the optimization with a quadratic objective. 
+
+\-This is necessary when there is an \-L1 penalty or the point to plane metric is used. \-Note that the quadratic objective does not guarantee the solution will be an element of \-S\-O(3). \hypertarget{classSolvePoseCVX_a4e1c078bdb3a613349c7136bdb0899b9}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!setup\-R\-Constraint@{setup\-R\-Constraint}}
 \index{setup\-R\-Constraint@{setup\-R\-Constraint}!SolvePoseCVX@{\-Solve\-Pose\-C\-V\-X}}
 \subsubsection[{setup\-R\-Constraint}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Solve\-Pose\-C\-V\-X\-::setup\-R\-Constraint} (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classSolvePoseCVX_a4e1c078bdb3a613349c7136bdb0899b9}
+
+
+\-Sets up the \-C\-O(\-S\-O(3)) constraint. 
+
 \hypertarget{classSolvePoseCVX_ac6c5c12f31943c02eac2b4e3afe95cb5}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!single\-Solver@{single\-Solver}}
 \index{single\-Solver@{single\-Solver}!SolvePoseCVX@{\-Solve\-Pose\-C\-V\-X}}
 \subsubsection[{single\-Solver}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Solve\-Pose\-C\-V\-X\-::single\-Solver} (
@@ -136,6 +197,10 @@ int \hyperlink{classSolvePoseCVX_a6d4be163f9b06fc013c99bbacceece14}{decomp\-\_\-
 )\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classSolvePoseCVX_ac6c5c12f31943c02eac2b4e3afe95cb5}
 
 
+\-Solve the \-S\-D\-P with only a single computation element. 
+
+\mbox{[}\-Todo\mbox{]} \-Initial guesses are currently ignored (no warm start). 
+
 \subsection{\-Member \-Data \-Documentation}
 \hypertarget{classSolvePoseCVX_a6d4be163f9b06fc013c99bbacceece14}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!decomp\-\_\-method@{decomp\-\_\-method}}
 \index{decomp\-\_\-method@{decomp\-\_\-method}!SolvePoseCVX@{\-Solve\-Pose\-C\-V\-X}}
@@ -143,6 +208,10 @@ int \hyperlink{classSolvePoseCVX_a6d4be163f9b06fc013c99bbacceece14}{decomp\-\_\-
 \hypertarget{classSolvePoseCVX_af0c222b2ce7361ff8a54eee918ea1c65}{\index{\-Solve\-Pose\-C\-V\-X@{\-Solve\-Pose\-C\-V\-X}!sdpa@{sdpa}}
 \index{sdpa@{sdpa}!SolvePoseCVX@{\-Solve\-Pose\-C\-V\-X}}
 \subsubsection[{sdpa}]{\setlength{\rightskip}{0pt plus 5cm}\-S\-D\-P\-A {\bf \-Solve\-Pose\-C\-V\-X\-::sdpa}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classSolvePoseCVX_af0c222b2ce7361ff8a54eee918ea1c65}
+
+
+\-S\-D\-P\-A interface for numerically solving the convex problem. 
+
 
 
 \-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
