@@ -5,6 +5,8 @@
 
 % Suppose we solving a pose estimation problem, where we split the point
 % correspondences into N sets for semi-independent processors. 
+addpath( '../parallel' );
+addpath( '../' );
 
 %% Settings
 
