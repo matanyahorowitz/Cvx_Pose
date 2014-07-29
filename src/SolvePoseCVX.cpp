@@ -9,8 +9,6 @@
 /** Constructor, which sets default solution parameters */
 SolvePoseCVX::SolvePoseCVX() : PoseEstimate()
 {
-   this->decomp_method = 0;
-   this->cores = 1;
 }
 
 /** Destructor, which isn't currently implemented. [Todo] There may be memory leaks. */
@@ -20,20 +18,22 @@ SolvePoseCVX::~SolvePoseCVX()
 }
 
 void SolvePoseCVX::setModel( pcl::PointCloud<PointT>::Ptr model ) {
-   PoseEstimate::setModel( model )
+   PoseEstimate::setModel( model );
    
    if( settings.metric == 2 )
    {
-      pcl::NormalEstimationOMP<PointT, pcl::Normal> ne;
+      //pcl::NormalEstimationOMP<PointT, pcl::Normal> ne;
+      pcl::NormalEstimation<PointT, pcl::Normal> ne;
+
       ne.setInputCloud( model );
-      pcl::search::KDTree<PointT>::Ptr tree (new pcl::search::KdTree<PointT> () );
+      pcl::search::KdTree<PointT>::Ptr tree (new pcl::search::KdTree<PointT> () );
       ne.setSearchMethod( tree );
 
-      pcl::PointCloud<pcl::Normal>::Pt cloud_normals(new pcl::PointCloud<pcl::Normal>);
+      pcl::PointCloud<pcl::Normal>::Ptr cloud_normals(new pcl::PointCloud<pcl::Normal>);
 
       //set vertex neighborhood size
       ne.setRadiusSearch(0.03); //3cm
-      n3.compute(*cloud_normals);
+      ne.compute(*cloud_normals);
 
       model_normals = cloud_normals->getMatrixXfMap( 3, 4, 0 );
    }
@@ -105,12 +105,13 @@ void SolvePoseCVX::setupPointToPlane()
 
    for( int i=1; i<num_pts+1; i++ )
    {
+      Eigen::Vector3f n = model_normals.col(i);
       //Identity on second block along diagonal
       sdpa.inputElement( 0, 2, i, i, 1 );
 
       //Observation offset
-      sdpa.inputElement( 0, 2, i, num_pts+1, y_n );
-      sdpa.inputElement( 0, 2, num_pts+1, i, y_n );
+      sdpa.inputElement( 0, 2, i, num_pts+1, obs.col(i).transpose()*n );
+      sdpa.inputElement( 0, 2, num_pts+1, i, obs.col(i).transpose()*n );
       
       //Rotation of model
       for( int j=0; j<3; j++ )
@@ -328,7 +329,7 @@ void SolvePoseCVX::estimatePose()
 
    T = obs_center - model_center;
 
-   if( this->cores == 1 )
+   if( settings.cores == 1 )
       this->singleSolver();
    else
       this->multiSolvers();

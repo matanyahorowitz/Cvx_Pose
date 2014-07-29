@@ -16,6 +16,7 @@ target_link_libraries(ICP
 	${PCL_SAMPLE_CONSENSUS_LIBRARIES}
 	${PCL_SURFACE_LIBRARIES}
 	${PCL_REGISTRATION_LIBRARIES}
+   ${PCL_SEARCH_LIBRARIES}
 )
 
 # add_library(PoseEstimate ...

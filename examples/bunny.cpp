@@ -1,10 +1,8 @@
-//
-//  bunny.cpp
-//  
-//
-//  Created by Matanya Horowitz on 7/18/14.
-//
-//
+/** Example pose estimation problem for the Stanford Bunny. Settings allow for the testing of all pose estimation techniques.
+
+\author Matanya Horowitz
+\date July 18 2013
+*/
 
 #include "../src/common.h"
 #include "../src/ICP.h"
@@ -14,18 +12,35 @@
 #include <sstream>
 
 
-int main() {
-    std::cout << "Bunny pose estimation example.\n";
-    std::cout << "Initializing ICP\n";
-    ICP icp;
-    
+int main(int argc, char * argv[]) {
+    std::cout << "Bunny pose estimation example. Option -h for help.\n";
     SolverSettings settings;
+    
     settings.tolerance = .001;
     settings.metric = 0;
     settings.outlierRejection = false;
-    settings.parallelSolvers = 1;
-    
-    std::cout << "Initializing settings\n";
+    settings.cores = 1;
+
+    for( int i=1; i<argc; i++ )
+    {
+       if( strcmp(argv[i], "-h") == 0 )
+       {
+          std::cout << "options:\n" <<
+                        "\t-o Outlier rejection. 0 yes, 1 no\n" <<
+                        "\t-m Metric. 0 Point to point analytic, 1 Point to point CVX, 2 point to plane CVX\n" <<
+                        "\t-p Parallel units. \n";
+          return -1;
+       } else if (strcmp(argv[i], "-o")) {
+          settings.outlierRejection = atoi(argv[i+1]);
+       } else if (strcmp(argv[i], "-m")) {
+          settings.metric = atoi(argv[i+1]);
+       } else if (strcmp(argv[i], "-p")) {
+          settings.cores = atoi(argv[i+1]);
+       }
+    }
+    std::cout << "Initializing ICP\n";
+    ICP icp;
+
     icp.setSolver( settings );
     
     //Import model and observation...

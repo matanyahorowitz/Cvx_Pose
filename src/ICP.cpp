@@ -114,7 +114,6 @@ void ICP::singleIteration()
     dbg("Beginning iteration");
     //First, transform according to current pose estimate
     Eigen::Matrix4f transform = Eigen::Matrix4f::Identity();
-    //pcl::PointCloud<PointT> aligned, permuted;
     pcl::PointCloud<PointT> aligned;
     
     transform.block<3,3>(0,0) = c_R;
@@ -148,14 +147,9 @@ void ICP::singleIteration()
     //Todo: This permutation may be backwards
     Eigen::SparseMatrix<float> newP = (permutation.transpose()) * (P);
     dbg("yum");
-    //pose->permuteData( newP );
+    pose->permuteData( newP );
     dbg("blarg");
     permutation = P;
-    
-    //dbg("Permute ICP model");
-    //pcl::transformPointCloud( observation, permuted, P );//Redo so we can get rid of this extra operation
-    //dbg("blabla");
-    //observation = permuted;
     
     dbg("Doing pose estimate");
     pose->estimatePose();

@@ -7,7 +7,6 @@
 SolvePoseAnalytic::SolvePoseAnalytic() : PoseEstimate()
 { 
     this->decomp_method = 0;
-    this->cores = 1;
 }
 
 /** Destructor, currently not implemented. [Todo]: Memory leaks are possible. */
@@ -26,7 +25,7 @@ void SolvePoseAnalytic::estimatePose()
 
     //The problem is now an estimation over SO(3)
     
-    if( this->cores == 1 )
+    if( settings.cores == 1 )
     {
         this->singleSolver();
     } else {
