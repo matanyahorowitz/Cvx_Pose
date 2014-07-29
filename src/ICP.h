@@ -29,7 +29,7 @@ class ICP {
 public:
     ICP();
     ~ICP();
-    void setSolver(SolverSettings s);
+    void setSolver(SolverSettings & s);
     void setModel( pcl::PointCloud<PointT>::Ptr m );
     void setObservation( pcl::PointCloud<PointT>::Ptr o );
     void estPose();
@@ -58,10 +58,10 @@ private:
    Eigen::Vector3f i_T;
 
    /** Internal model of the object whose pose is to be estimated. */
-   pcl::PointCloud<PointT> model;
+   pcl::PointCloud<PointT>::Ptr model;
 
    /** Internal copy of an object observation. */
-   pcl::PointCloud<PointT> observation;
+   pcl::PointCloud<PointT>::Ptr observation;
 
    /** PCL class for estimating correspondence between model and observation points. */
    pcl::registration::CorrespondenceEstimation<PointT, PointT> est;

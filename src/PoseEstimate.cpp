@@ -55,6 +55,10 @@ PoseEstimate::~PoseEstimate()
     
 }
 
+void PoseEstimate::setSettings(SolverSettings & set)
+{
+   settings = set;
+}
 /** Display debug message if debug flag is active.
 @param[in] msg The message to be displayed.
 */

@@ -29,6 +29,7 @@ public:
     void dbg( std::string );
     void calculateCentroid( DMat & data, Eigen::Vector3f & center );
     float calculateResidual();
+    void setSettings( SolverSettings & set );
 protected:
    /** Model data */
    DMat model;

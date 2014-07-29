@@ -2,6 +2,9 @@
 cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
 project(CVX_CV)
 find_package(PCL 1.3 REQUIRED)
+
+set(CMAKE_BUILD_TYPE Debug)
+
 include_directories(${PCL_INCLUDE_DIRS})
 link_directories(${PCL_LIBRARY_DIRS})
 add_definitions(${PCL_DEFINITIONS})
@@ -23,4 +26,4 @@ add_subdirectory(src)
 add_subdirectory(examples)
 
 # add_definitions(“-w”)
-set(CMAKE_CXX_FLAGS “${CMAKE_CXX_FLAGS} -w”)
+#set(CMAKE_CXX_FLAGS “${CMAKE_CXX_FLAGS} -w”)

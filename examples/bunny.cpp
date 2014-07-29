@@ -65,8 +65,8 @@ int main(int argc, char * argv[]) {
     std::cout << "Reading in point cloud data\n";
     int line_num = 0;
     while( true ) {
-        if( line_num % 10 == 0 )
-            std::cout << "Reading in line " << line_num << "\n";
+        //if( line_num % 10 == 0 )
+        //    std::cout << "Reading in line " << line_num << "\n";
         
         std::getline(fin, input);
         if( !fin ) { //end of line?
@@ -104,7 +104,9 @@ int main(int argc, char * argv[]) {
     Eigen::Affine3f corruption = Eigen::Affine3f::Identity();
     corruption.translation() << .1, .2, .3;
     corruption.rotate(Eigen::AngleAxisf(.2,Eigen::Vector3f::UnitZ()));
-    
+   
+    std::cout << "Corruption:\n" << corruption.matrix() << "\n";
+     
     std::cout << "Creating observation\n";
     pcl::PointCloud<PointT>::Ptr obs_cloud(new pcl::PointCloud<PointT>);
     pcl::transformPointCloud(*model_cloud,*obs_cloud,corruption);
