@@ -39,8 +39,6 @@ active.
 \sa multiSolvers() */
 void SolvePoseAnalytic::singleSolver()
 {
-    //Need to move over by the centroid
-    
     Eigen::Matrix3f data = obs*model.transpose();
     std::cout << "data matrix:\n" << data << "\n";
     Eigen::Matrix4f data_adj;

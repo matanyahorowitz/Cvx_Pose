@@ -81,7 +81,7 @@ void ICP::estPose()
         singleIteration();
         error = pose->calculateResidual();
         count++;
-        std::cout << "Iteration " << count << " residual: " << error << "\n";
+        std::cout << "-----------Iteration " << count << " residual: " << error << "--------\n";
         
         if( count > 20 )
             break;
@@ -121,7 +121,7 @@ void ICP::singleIteration()
     
     dbg("Transforming according to current guess");
     
-    pcl::transformPointCloud( *observation, *aligned, transform );
+    pcl::transformPointCloud( *model, *aligned, transform );
     
     dbg("Performing correspondence");
     
@@ -135,19 +135,28 @@ void ICP::singleIteration()
     Eigen::SparseMatrix<float> P(num_pts, num_pts);
     for( pcl::Correspondences::iterator it = cor.begin(); it != cor.end(); ++it)
     {
-        P.insert(it->index_query, it->index_match) = 1;
+        //P.insert(it->index_query, it->index_match) = 1;
+        P.insert(it->index_match, it->index_query) = 1;
     }
     
     dbg("Performing permutation");
     //Permute the solver's model. For now, also permute the ICP model
     //Todo: This permutation may be backwards
     Eigen::SparseMatrix<float> newP = (permutation.transpose()) * (P);
-    //pose->permuteData( newP );
+    pose->permuteData( newP );
     permutation = P;
     
     dbg("Doing pose estimate");
     pose->estimatePose();
-    
+   
     dbg("Extracting estimate");
-    pose->getPose(c_R, c_T);
+    Eigen::Matrix3f n_R;
+    Eigen::Vector3f n_T;
+    pose->getPose(n_R, n_T);
+
+    c_R = n_R * c_R;
+    c_T = c_T + n_T;
+
+    std::cout << "Current rotation: \n" << c_R << "\n";
+    std::cout << "Current translation: \n" << c_T << "\n";
 }
