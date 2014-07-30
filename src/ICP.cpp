@@ -7,7 +7,6 @@ ICP::ICP()
 {
     i_R = Eigen::Matrix3f::Identity();
     i_T << 0,0,0;
-    pose = new SolvePoseAnalytic();
     debug = true;
     
 }
@@ -26,6 +25,13 @@ ICP::~ICP()
 void ICP::setSolver(SolverSettings & s)
 {
     this->settings = s;
+    if( s.metric == 0 )
+    {
+      pose = new SolvePoseAnalytic();
+    } else {
+      pose = new SolvePoseCVX();
+    }
+
     pose->setSettings(s);
 }
 
@@ -143,7 +149,7 @@ void ICP::singleIteration()
     //Permute the solver's model. For now, also permute the ICP model
     //Todo: This permutation may be backwards
     Eigen::SparseMatrix<float> newP = (permutation.transpose()) * (P);
-    pose->permuteData( newP );
+    //pose->permuteData( newP );
     permutation = P;
     
     dbg("Doing pose estimate");
@@ -154,9 +160,10 @@ void ICP::singleIteration()
     Eigen::Vector3f n_T;
     pose->getPose(n_R, n_T);
 
-    c_R = n_R * c_R;
-    c_T = c_T + n_T;
-
+    //c_R = n_R * c_R;
+    //c_T = c_T + n_T;
+   c_R = n_R;
+   c_T = n_T;
     std::cout << "Current rotation: \n" << c_R << "\n";
     std::cout << "Current translation: \n" << c_T << "\n";
 }

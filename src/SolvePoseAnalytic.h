@@ -24,6 +24,7 @@ public:
     ~SolvePoseAnalytic();
     void estimatePose();
     void setDecomposition( int method ); //0 ADMM, 1 dual decomposition
+    void setup();
 private:
     void singleSolver();
     void multiSolvers();

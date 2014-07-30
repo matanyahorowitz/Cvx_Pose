@@ -10,43 +10,107 @@ PoseEstimate::PoseEstimate()
     debug = true;
     num_pts = 0;
 
-    A[0][0] <<   1, 0, 0, 0,
+A[0][0] << 1, 0, 0, 0,
+           0, 1, 0, 0,
+           0, 0, -1, 0,
+           0, 0, 0, -1;
+
+A[0][1] << 0, 0, 0, -1,
+           0, 0, 1, 0,
+           0, 1, 0, 0,
+           -1,0, 0, 0;
+
+A[0][2] << 0, 0, 1, 0,
+           0, 0, 0, 1,
+           1, 0, 0, 0,
+           0, 1, 0, 0;
+
+A[1][0] << 0, 0, 0, 1,
+           0, 0, 1, 0,
+           0, 1, 0, 0,
+           1, 0, 0, 0;
+
+A[1][1] << 1, 0, 0, 0,
+           0, -1, 0, 0,
+           0, 0, 1, 0,
+           0, 0, 0,-1;
+
+A[1][2] << 0, -1, 0, 0,
+           -1, 0, 0, 0,
+           0, 0, 0, 1,
+           0, 0, 1, 0;
+
+A[2][0] << 0, 0, -1, 0,
+           0, 0, 0, 1,
+           -1, 0, 0, 0,
+           0, 1, 0, 0;
+
+A[2][1] << 0, 1, 0, 0,
+           1, 0, 0, 0,
+           0, 0, 0, 1,
+           0, 0, 1, 0;
+
+A[2][2] << 1, 0, 0, 0,
+           0, -1, 0, 0,
+           0, 0, -1, 0,
+           0, 0, 0, 1;
+
+/*    A[0][0] <<   1, 0, 0, 0,
                  0,-1, 0, 0,
                  0, 0,-1, 0,
                  0, 0, 0, 1;
+
     A[0][1] <<   0, 0,-1, 0,
                  0, 0, 0,-1,
                 -1, 0, 0, 0,
                  0,-1, 0, 0;
+
     A[0][2] <<   0,-1, 0, 0,
                 -1, 0, 0, 0,
                  0, 0, 0, 1,
                  0, 0, 1, 0;
+
     A[1][0] <<   0, 0, 1, 0,
                  0, 0, 0,-1,
                  1, 0, 0, 0,
                  0,-1, 0, 0;
+
     A[1][1] <<   1, 0, 0, 0,
                  0, 1, 0, 0,
                  0, 0,-1, 0,
                  0, 0, 0,-1;
+
     A[1][2] <<   0, 0, 0,-1,
                  0, 0,-1, 0,
                  0,-1, 0, 0,
                 -1, 0, 0, 0;
+
     A[2][0] <<   0, 1, 0, 0,
                  1, 0, 0, 0,
                  0, 0, 0, 1,
                  0, 0, 1, 0;
+//From Parrilo paper
+    A[2][1] <<   0, 0, 0, -1,
+                 0, 0,1, 0,
+                 0,1, 0, 0,
+                 -1, 0, 0, 0;
+
+    A[2][2] <<   -1, 0, 0, 0,
+                 0,1, 0, 0,
+                 0, 0, -1, 0,
+                 0, 0, 0,1;
+
+//Original from Matlab script
     A[2][1] <<   0, 0, 0, 1,
                  0, 0,-1, 0,
                  0,-1, 0, 0,
                  1, 0, 0, 0;
+
     A[2][2] <<   1, 0, 0, 0,
                  0,-1, 0, 0,
                  0, 0, 1, 0,
                  0, 0, 0,-1;
- 
+ */
 }
 
 /** Destructor has not been implemented. There are possible memory leaks. */
@@ -153,13 +217,14 @@ void PoseEstimate::getPose( Eigen::Matrix3f &rot, Eigen::Vector3f &trans )
 */
 float PoseEstimate::calculateResidual()
 {
-    Eigen::MatrixXf move_center(3,num_pts), model_center(3,num_pts);
-    for( int i=0; i<num_pts; i++ )
-    {
-        move_center.col(i) = this->T;
-    }
+    //Eigen::MatrixXf move_center(3,num_pts), model_center(3,num_pts);
+    //for( int i=0; i<num_pts; i++ )
+    //{
+    //    move_center.col(i) = this->T;
+    //}
     
-    Eigen::MatrixXf residual = (this->R * this->model)  - this->obs;
+    Eigen::MatrixXf residual = (this->R * this->model) - this->obs;
+    std::cout << "residual R \n" << this->R << "\n";
     return residual.squaredNorm();
 }
 

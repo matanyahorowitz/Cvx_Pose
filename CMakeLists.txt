@@ -1,13 +1,19 @@
 # CMake root
 cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
 project(CVX_CV)
-find_package(PCL 1.3 REQUIRED)
-
 set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
+find_package(PCL 1.3 REQUIRED)
 include_directories(${PCL_INCLUDE_DIRS})
 link_directories(${PCL_LIBRARY_DIRS})
 add_definitions(${PCL_DEFINITIONS})
+
+find_package(BLAS REQUIRED)
+
+find_package(SDPA REQUIRED)
+include_directories(${SDPA_INCLUDE_DIRS})
+set(LIBS ${LIBS} ${SDPA_LIBRARIES})
 
 find_package(OpenMP)
 if (OPENMP_FOUND)
@@ -24,6 +30,8 @@ endif()
 
 add_subdirectory(src)
 add_subdirectory(examples)
+
+#link_directories(/usr/lib/atlas-base/atlas)
 
 # add_definitions(“-w”)
 #set(CMAKE_CXX_FLAGS “${CMAKE_CXX_FLAGS} -w”)

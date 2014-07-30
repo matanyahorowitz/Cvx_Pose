@@ -25,6 +25,8 @@ public:
     void estimatePose();
     void setDecomposition( int method ); //0 ADMM
     void setModel(pcl::PointCloud<PointT>::Ptr model);
+    void setSettings( SolverSettings & set );
+    void setup();
 private:
    void singleSolver();
    void multiSolvers();

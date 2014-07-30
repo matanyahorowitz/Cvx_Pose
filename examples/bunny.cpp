@@ -30,11 +30,12 @@ int main(int argc, char * argv[]) {
                         "\t-m Metric. 0 Point to point analytic, 1 Point to point CVX, 2 point to plane CVX\n" <<
                         "\t-p Parallel units. \n";
           return -1;
-       } else if (strcmp(argv[i], "-o")) {
+       } else if (strcmp(argv[i], "-o") == 0) {
           settings.outlierRejection = atoi(argv[i+1]);
-       } else if (strcmp(argv[i], "-m")) {
+       } else if (strcmp(argv[i], "-m") == 0) {
           settings.metric = atoi(argv[i+1]);
-       } else if (strcmp(argv[i], "-p")) {
+          std::cout << "Setting metric to " << settings.metric << "\n";
+       } else if (strcmp(argv[i], "-p") == 0) {
           settings.cores = atoi(argv[i+1]);
        }
     }

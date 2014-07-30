@@ -4,7 +4,7 @@
 #include "common.h"
 #include "PoseEstimate.h"
 #include "SolvePoseAnalytic.h"
-
+#include "SolvePoseCVX.h"
 #include <iostream>
 
 #include <pcl/registration/correspondence_estimation.h>

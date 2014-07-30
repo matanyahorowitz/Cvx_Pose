@@ -33,6 +33,9 @@ void SolvePoseAnalytic::estimatePose()
     }
 }
 
+void SolvePoseAnalytic::setup() {
+}
+
 /** Analytic solution to pose estimation when only a single computational unit is
 active. 
 

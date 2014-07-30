@@ -39,6 +39,16 @@ void SolvePoseCVX::setModel( pcl::PointCloud<PointT>::Ptr model ) {
    }
 }
 
+/** Overwrites PoseEstimate function to add solver initialization 
+@param[in] set The desired solver settings. 
+**/
+void SolvePoseCVX::setSettings( SolverSettings & set ) {
+   PoseEstimate::setSettings( set );
+}
+
+void SolvePoseCVX::setup() {
+   initializeSolver();
+}
 /** Initialize the convex solver and parameters. The presence of outlier rejection requires different initialization (there are many more optimization variables).
 */
 void SolvePoseCVX::initializeSolver()
@@ -53,6 +63,7 @@ void SolvePoseCVX::initializeSolver()
    {
       if( settings.outlierRejection )
       {
+         dbg( "Settings: Point to plane with outlier rejection" );
          sdpa.inputConstraintNumber( 2*num_pts + 13 );
          sdpa.inputBlockNumber( 3 );
          sdpa.inputBlockSize( 1, 4 );
@@ -62,6 +73,7 @@ void SolvePoseCVX::initializeSolver()
       } 
       else 
       {
+         dbg( "Settings: Point to plane w/out outlier rejection" );
          sdpa.inputConstraintNumber( 13 );
          sdpa.inputBlockNumber( 2 );
          sdpa.inputBlockSize( 1, 4 );
@@ -69,12 +81,14 @@ void SolvePoseCVX::initializeSolver()
          sdpa.inputBlockType( 1, SDPA::SDP );
          sdpa.inputBlockType( 2, SDPA::SDP );
       }
+      sdpa.initializeUpperTriangleSpace();
       setupRConstraint();
       setupPointToPlane();
 
    }
    else if( settings.outlierRejection )
    {
+      dbg( "Settings: Point to point w outlier rejection" );
       sdpa.inputConstraintNumber(num_pts*6 + 13);
       sdpa.inputBlockNumber(3);
       sdpa.inputBlockSize(1,4);
@@ -89,18 +103,26 @@ void SolvePoseCVX::initializeSolver()
    }
    else
    {
-      sdpa.inputConstraintNumber(3);
+      dbg( "Settings: Point to point w/out outlier rejection" );
+      sdpa.inputConstraintNumber(9);
       sdpa.inputBlockNumber(1);
       sdpa.inputBlockSize(1,4);
       sdpa.inputBlockType(1,SDPA::SDP);
       sdpa.initializeUpperTriangleSpace();
-      setupRConstraint();
       setupLinearObjective();
+      setupRConstraint();
    }
+
+   dbg( "Beginning SDPA initialization" );
+   sdpa.initializeUpperTriangle();
+   sdpa.initializeSolve();
+
+   dbg( "SDPA initialization complete" );
 }
 
 void SolvePoseCVX::setupPointToPlane()
 {
+   dbg ("Setting up point to plane metric" );
    int R[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
 
    for( int i=1; i<num_pts+1; i++ )
@@ -172,6 +194,7 @@ void SolvePoseCVX::setupPointToPlane()
 /** Sets up the optimization with a quadratic objective. This is necessary when there is an L1 penalty or the point to plane metric is used. Note that the quadratic objective does not guarantee the solution will be an element of SO(3). */
 void SolvePoseCVX::setupQuadraticObjective()
 {
+   dbg( "Setting up quadratic objective" );
    int R[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
    
    //First block setup by setupRConstraint()   
@@ -259,17 +282,21 @@ void SolvePoseCVX::setupQuadraticObjective()
 */
 void SolvePoseCVX::setupRConstraint()
 {
+   dbg( "Setting R SDP constraint" );
    //\sum{i,j =1...3} A_ij X_ij \preceq I_4
    //F_{i,j} = -A_ij X_ij
    for( int k=0; k<3; k++ )
       for( int l=0; l<3; l++ )
          initSDPAConsMatrix(k,l);
 
+   dbg( "Done with R" );
    //Set F_0 = Id
-   sdpa.inputElement( 0, 1, 1, 1, 1 );
-   sdpa.inputElement( 0, 1, 2, 2, 1 );
-   sdpa.inputElement( 0, 1, 3, 3, 1 );
-   sdpa.inputElement( 0, 1, 4, 4, 1 );
+   sdpa.inputElement( 0, 1, 1, 1, -1.f );
+   sdpa.inputElement( 0, 1, 2, 2, -1.f );
+   sdpa.inputElement( 0, 1, 3, 3, -1.f );
+   sdpa.inputElement( 0, 1, 4, 4, -1.f );
+
+   dbg( "done with R constant piece" );
 }
 
 /** Utility function to encode the A_{i,j} constraints.
@@ -278,10 +305,15 @@ void SolvePoseCVX::setupRConstraint()
 */
 void SolvePoseCVX::initSDPAConsMatrix( int k, int l )
 {
+   dbg( "Setting up piece of R constraint" );
    for( int i=0; i<4; i++ )
+   {
       for( int j=0; j<4; j++ )
-         if( A[i][j](k,l) != 0 )
-            sdpa.inputElement( 1 + k*3 + l, 1, i, j, -A[i][j](k,l) );
+      {   
+         //if( A[k][l](i,j) != 0 )
+            sdpa.inputElement(1 + k*3 + l, 1, 1+i, 1+j, A[k][l](i,j) );
+      }
+   }
 }
 
 /** Sets up the linear objective. Note that this objective produces solutions
@@ -290,7 +322,10 @@ metric or outlier rejection to be incorporated.
 */
 void SolvePoseCVX::setupLinearObjective()
 {
-   Eigen::Matrix3f data = obs*model.transpose();
+   dbg( "Setting linear objective" );
+   Eigen::Matrix3f data = -obs*model.transpose();
+
+   std::cout << "Data matrix is: \n" << data << "\n";
    sdpa.inputCVec(1, data(0,0));
    sdpa.inputCVec(2, data(1,0));
    sdpa.inputCVec(3, data(2,0));  
@@ -309,15 +344,15 @@ void SolvePoseCVX::setupLinearObjective()
 void SolvePoseCVX::singleSolver()
 {
      //Todo: Setup initial guess
-  
+  dbg( "Executing CVX solve" );
    sdpa.solve();
-   
+  dbg( "SDP computation complete"); 
    double* solution = sdpa.getResultXVec();
    for( int i=0; i<3; i++ )
    {
       for( int j=0; j<3; j++ )
       {
-         R(i,j) = solution[i*3 + j];
+         R(i,j) = solution[j*3 + i];
       }
    }
 }
@@ -325,19 +360,23 @@ void SolvePoseCVX::singleSolver()
 /** Performs the pose estimation using an SDP */
 void SolvePoseCVX::estimatePose()
 {
+   dbg( "Beginning pose estimation process" );
    this->initializeSolver();
 
    T = obs_center - model_center;
-
+   std::cout << "calculated T: \n" << T << "\n";
    if( settings.cores == 1 )
       this->singleSolver();
    else
       this->multiSolvers();
+
+   std::cout << "Calculated R: \n" << R << "\n";
 }
 
 /** Unimplemented [Todo] parallelization of the SDP using ADMM and OpenMP. */
 void SolvePoseCVX::multiSolvers()
 {
+   dbg( "Error: In multisolvers, which is unimplemented" );
 }
 
 /** Set the decomposition. I don't remember what this is for [Todo]. */

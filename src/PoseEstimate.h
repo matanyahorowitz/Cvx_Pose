@@ -20,6 +20,7 @@ public:
     PoseEstimate();
     ~PoseEstimate();
     virtual void estimatePose() =0;
+    virtual void setup() = 0;
     virtual void setModel(pcl::PointCloud<PointT>::Ptr model);
     void setObservation(pcl::PointCloud<PointT>::Ptr obs);
     void permuteData( Eigen::SparseMatrix<float> & P );
@@ -29,7 +30,8 @@ public:
     void dbg( std::string );
     void calculateCentroid( DMat & data, Eigen::Vector3f & center );
     float calculateResidual();
-    void setSettings( SolverSettings & set );
+    virtual void setSettings( SolverSettings & set );
+   
 protected:
    /** Model data */
    DMat model;
