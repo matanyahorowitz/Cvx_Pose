@@ -88,7 +88,7 @@ for k=1:iter
 %     p_proc = [p_proc; ones(1,length(p_proc))];
 %     
     tic;
-    [SE3, res] = EstPose3D(q_proc,p_proc);
+    [SE3, res] = EstPose3DL1(q_proc,p_proc,lambda);
     TI(k+1) = toc;
     
     R = SE3(1:3, 1:3);

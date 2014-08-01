@@ -6,7 +6,7 @@ addpath( '../' );
 %% Read in the bunny file
 
 % Read coordinates of the vertices
-fid = fopen('./bunny/bunny_vertices.txt','r');
+fid = fopen('./bunny_vertices.txt','r');
 vertex_matrix = fscanf(fid,'%f %f %f %*f %*f',[3,inf]);
 fclose(fid);
 
