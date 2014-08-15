@@ -49,7 +49,8 @@ void SolvePoseCVX::setSettings( SolverSettings & set ) {
 void SolvePoseCVX::setup() {
    initializeSolver();
 }
-/** Initialize the convex solver and parameters. The presence of outlier rejection requires different initialization (there are many more optimization variables).
+/** Initialize the convex solver and parameters. The presence of outlier rejection 
+    requires different initialization (there are many more optimization variables).
 */
 void SolvePoseCVX::initializeSolver()
 {
@@ -67,6 +68,9 @@ void SolvePoseCVX::initializeSolver()
          sdpa.inputConstraintNumber( 2*num_pts + 13 );
          sdpa.inputBlockNumber( 3 );
          sdpa.inputBlockSize( 1, 4 );
+         sdpa.inputBlockSize( 2, num_pts + 1 );
+         sdpa.inputBlockSize( 3, -2*num_pts );
+          
          sdpa.inputBlockType( 1, SDPA::SDP );
          sdpa.inputBlockType( 2, SDPA::SDP );
          sdpa.inputBlockType( 3, SDPA::LP );
@@ -125,7 +129,7 @@ void SolvePoseCVX::setupPointToPlane()
    dbg ("Setting up point to plane metric" );
    int R[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
 
-   for( int i=1; i<num_pts+1; i++ )
+   for( int i=0; i<num_pts; i++ )
    {
       Eigen::Vector3f n = model_normals.col(i);
       //Identity on second block along diagonal

@@ -4,12 +4,13 @@
 
 addpath( '../../' );
 addpath( '../../icp_standard/' );
+addpath( '../../../examples/data/bunny/');
 %% Read in the bunny file
 
 % Read coordinates of the vertices
-model = import_bunny_ply('data/bun000.ply',25,40256+24);
+model = import_bunny_ply('bun000.ply',25,40256+24);
 
-obs = import_bunny_ply('data/bun045.ply',25,40097+24);
+obs = import_bunny_ply('bun045.ply',25,40097+24);
 
 model = model';
 obs = obs';
