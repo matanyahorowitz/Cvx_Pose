@@ -1,4 +1,4 @@
-function [SE,residual] = EstPoseP2Plane(obs, model, normals, lambda)
+function [Rs,Ts,residual] = EstPoseP2Plane(obs, model, normals, weights)
 % Matanya Horowitz, Nikolai Matni
 % 10/21/2013
 %
@@ -30,7 +30,6 @@ cvx_solver sdpt3
 
 variable R(3,3);
 variable t(3,1);
-variable z(1,n);
 
 cons_matrix = [1+R(1,1)+R(2,2)+R(3,3),      R(3,2)-R(2,3),             R(1,3)-R(3,1),             R(2,1)-R(1,2);
                         R(3,2)-R(2,3),      1+R(1,1)-R(2,2)-R(3,3),    R(2,1)+R(1,2),             R(1,3)+R(3,1);
@@ -39,18 +38,20 @@ cons_matrix = [1+R(1,1)+R(2,2)+R(3,3),      R(3,2)-R(2,3),             R(1,3)-R(
 
 objective = 0;                    
 for i=1:n
-    objective = objective + ((t+R*model(:,i))*normals(:,i) + z(i))^2;
+    objective = objective + (( ( R*model(:,i) ) - ( obs(:,i) + t ) )'*normals(:,i) )^2;
 end
-
-objective = objective + lambda*norm(z,1);
 
 minimize(objective);
 subject to
-cons_matrix > 0;
+cons_matrix >= 0;
 cvx_end
 
 residual = double(objective);
-r_sol = double(R);
-t_sol = double(t);
-SE = [ r_sol,   t_sol;
-     [0 0 0], [1]];
+r = double(R);
+Ts = double(t);
+
+display( 'det(R)' );
+det(r)
+
+[u,s,v] = svd(r);
+Rs = u*v';

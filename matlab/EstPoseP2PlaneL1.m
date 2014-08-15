@@ -1,4 +1,4 @@
-function [Rs,Ts,residual] = EstPose3DL1(obs, model, weights, lambda)
+function [Rs,Ts,residual] = EstPoseP2Plane(obs, model, normals, weights, lambda)
 % Matanya Horowitz, Nikolai Matni
 % 10/21/2013
 %
@@ -7,8 +7,8 @@ function [Rs,Ts,residual] = EstPose3DL1(obs, model, weights, lambda)
 % model points are assumed to be of the same length.
 %
 %Inputs:
-% obs - An 4xn list of observed points
-% model - An 4xn list of corresponding points on the model
+% obs - An 3xn list of observed points
+% model - An 3xn list of corresponding points on the model
 % lambda - An L1 penalty. This feature is disabled if lambda=0
 %
 %Outputs:
@@ -25,30 +25,21 @@ if n ~= m
 end
 
 % Setup SDP
-cvx_begin sdp quiet
+cvx_begin sdp
 cvx_solver sdpt3
 
 variable R(3,3);
-variable T(3,1);
-variable z(3,n);
-
-
-%X = [model; ones(1,n)];
-%Y = [obs; ones(1,n)];
-%Z = [z; zeros(1,n)];
+variable t(3,1);
+variable z(1,n);
 
 cons_matrix = [1+R(1,1)+R(2,2)+R(3,3),      R(3,2)-R(2,3),             R(1,3)-R(3,1),             R(2,1)-R(1,2);
                         R(3,2)-R(2,3),      1+R(1,1)-R(2,2)-R(3,3),    R(2,1)+R(1,2),             R(1,3)+R(3,1);
                         R(1,3)-R(3,1),      R(2,1)+R(1,2),             1-R(1,1)+R(2,2)-R(3,3),    R(3,2)+R(2,3);
                         R(2,1)-R(1,2),      R(1,3)+R(3,1),             R(3,2)+R(2,3),             1-R(1,1)-R(2,2)+R(3,3)];
 
-%s = [R,   T;
-%    [0 0 0], [1]];
-
-%objective = norm((Y-s*X) - Z,'fro') + lambda*norm(Z,1);
-objective = 0;
+objective = 0;                    
 for i=1:n
-    objective = objective + norm( (R*model(:,i)) - (obs(:,i) + T) + z(:,i), 2 );
+    objective = objective + (( ( R*model(:,i) ) - ( obs(:,i) + t ) )'*normals(:,i) + z(i))^2;
 end
 
 objective = objective + lambda*norm(z,1);
@@ -60,13 +51,10 @@ cvx_end
 
 residual = double(objective);
 r = double(R);
-t = double(T);
+Ts = double(t);
 
-disp('Det(R)');
+display( 'det(R)' );
 det(r)
 
 [u,s,v] = svd(r);
-r = u*v';
-
-Rs = r;
-Ts = t;
+Rs = u*v';

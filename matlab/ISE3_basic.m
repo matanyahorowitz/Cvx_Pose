@@ -22,7 +22,7 @@ function [TR, TT, ER, TI] = ISE3(obs,model,lambda)
 
 %%
 
-iter = 5;
+iter = 10;
 matching = 'kDtree';
 minimize = 'point';
 
@@ -88,11 +88,8 @@ for k=1:iter
 %     p_proc = [p_proc; ones(1,length(p_proc))];
 %     
     tic;
-    [SE3, res] = EstPose3DL1(q_proc,p_proc,lambda);
+    [R,T, res] = EstPose3DL1(q_proc,p_proc,lambda);
     TI(k+1) = toc;
-    
-    R = SE3(1:3, 1:3);
-    T = SE3(1:3, 4);
     
     % Add to the total transformation
     TR(:,:,k+1) = R*TR(:,:,k);

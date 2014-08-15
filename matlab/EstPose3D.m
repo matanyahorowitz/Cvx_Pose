@@ -1,4 +1,4 @@
-function [SE3,residual] = EstPose3D(obs, model)
+function [R,T,residual] = EstPose3D(obs, model, weights)
 % Matanya Horowitz, Nikolai Matni
 % 10/21/2013
 %
@@ -58,6 +58,6 @@ cons_matrix > 0;
 cvx_end
 
 residual = 2*double(objective)  + Y'*Y + X'*X;
-rot = double(R);
 
-SE3 = [rot, trans; [0 0 0], [1]];
+R = double(R);
+T = trans;
