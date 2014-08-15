@@ -14,8 +14,6 @@ n = size(vertex_matrix,2);
 
 subsample = 5; %Pick out only one out of every (subsample) vertices
 
-vertex_matrix = [vertex_matrix; ones(1,n)];
-
 %% Synthesize data
 
 %Euler angles
@@ -25,81 +23,66 @@ R_y = [cos(th_y) 0 sin(th_y); 0 1 0; -sin(th_y) 0 cos(th_y)];
 R_z = [cos(th_z) -sin(th_z) 0; sin(th_z) cos(th_z) 0; 0 0 1];
 
 R_true = R_x*R_y*R_z;
-T_true = [.1 .2 .3]';
-S_true = [R_true, T_true; [0 0 0], [1]];
 
 sdev = .0;
 
-corrupted_data = S_true*vertex_matrix + [sdev*randn(3,n); zeros(1,n)];
+corrupted_data = R_true*vertex_matrix + sdev*randn(3,n);
 
 %% Sub-sample
 nn = floor(n/subsample);
-sub_model = zeros(4,nn);
-sub_corrupt = zeros(4,nn);
+model = zeros(3,nn);
+obs = zeros(3,nn);
 count = 1;
 for i=1:n
     if mod(i,subsample) == 0
-        sub_model(:,count) = vertex_matrix(:,i);
-        sub_corrupt(:,count) = corrupted_data(:,i);
+        model(:,count) = vertex_matrix(:,i);
+        obs(:,count) = corrupted_data(:,i);
         count = count + 1;
     end
 end
+nn = count-1;
+
+%% Compute centroid
+centroid_obs = mean(obs')';
+centroid_model = mean(model')';
+
+trans = centroid_obs - centroid_model;
+obs = obs - repmat(centroid_obs,1,nn);
+model = model - repmat(centroid_model,1,nn);
 
 %% Setup SDP
-cons = [];
+cvx_begin sdp
+cvx_solver sdpt3
 
-R = sdpvar(3,3);
-T = sdpvar(3,1);
-s = [R,T;[0 0 0], [1]];
-
-p = eye(4);
+variable R(3,3);
 
 cons_matrix = [1+R(1,1)+R(2,2)+R(3,3),      R(3,2)-R(2,3),             R(1,3)-R(3,1),             R(2,1)-R(1,2);
                         R(3,2)-R(2,3),      1+R(1,1)-R(2,2)-R(3,3),    R(2,1)+R(1,2),             R(1,3)+R(3,1);
                         R(1,3)-R(3,1),      R(2,1)+R(1,2),             1-R(1,1)+R(2,2)-R(3,3),    R(3,2)+R(2,3);
                         R(2,1)-R(1,2),      R(1,3)+R(3,1),             R(3,2)+R(2,3),             1-R(1,1)-R(2,2)+R(3,3)];
-                    
-cons = [cons, cons_matrix >= 0];
 
-%% Setup features
+%% Setup features and objective
+objective = norm(obs - R*model,'fro');
 
-X = sub_model(:);
-Y = sub_corrupt(:);
-
-S = kron(eye(nn),s);
-P = kron(eye(nn),p);
-
-%This is for the standard error
-error = (Y - P*S*X)'*(Y - P*S*X);
-
-%This is for P orthogonal, producing linear objective
-%error = -(Y)'*(P*S*X);
+minimize(objective);
+subject to
+cons_matrix > 0;
+cvx_end
 
 %% Perform optimization
-
-ops = sdpsettings('solver', 'sdpt3');
-solvesdp(cons, error, ops);
-
-disp('SDP Complete');
-residual = double(error)
 
 disp('Determinant of SO(3) element');
 determinant = det(double(R))
 
 %% Visualize result
 
-S_sol = double(s);
-sol_model = S_sol*vertex_matrix;
-
-sol_pts = sol_model(1:3,:) - repmat( S_sol(1:3,4), 1, n );
-obs_pts = corrupted_data(1:3,:) - repmat( S_sol(1:3,4), 1, n );
-
-cor_pts = sub_corrupt(1:3,:) - repmat( S_sol(1:3,4), 1, nn );
+R_sol = double(R);
+sol_model = R_sol*model;
 
 % patch('Vertices',obs_pts','Faces',face_matrix,'FaceColor','cyan')
-scatter3(obs_pts(1,:),obs_pts(2,:),obs_pts(3,:));
+scatter3(sol_model(1,:),sol_model(2,:),sol_model(3,:));
 hold on;
-scatter3(sol_pts(1,:),sol_pts(2,:),sol_pts(3,:),'r*');
+scatter3(obs(1,:),obs(2,:),obs(3,:),'r*');
 hold off;
 
 %% test bunny visualization

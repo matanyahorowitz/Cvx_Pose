@@ -20,14 +20,11 @@ obs = subsample_pc(obs,30);
 n = size(model,2);
 
 %% Perform optimization
-%[SE3, residual] = EstPose3DL1( obs, model, 1 );
-[TR, TT, ER, TI] = ISE3(obs,model,100);
+[R,T, residual] = EstPose3DL1( obs, model, 0, 1000 );
+%[TR, TT, ER, TI] = ISE3(obs,model,100);
 % [TR, TT, ER, TI] = icp(obs,model,'Matching', 'kDtree');
 
 %% Visualize result
-%match = SE3(1:3,1:3)*model + repmat(SE3(1:3,4),1,n);
-R = TR(:,:,end);
-T = TT(:,:,end);
 match = R*model + repmat(T,1,n);
 
 figure;
