@@ -26,9 +26,11 @@ int main(int argc, char * argv[]) {
        if( strcmp(argv[i], "-h") == 0 )
        {
           std::cout << "options:\n" <<
-                        "\t-o Outlier rejection. 0 yes, 1 no\n" <<
-                        "\t-m Metric. 0 Point to point analytic, 1 Point to point CVX, 2 point to plane CVX\n" <<
-                        "\t-p Parallel units. \n";
+              "\t-o Outlier rejection. 0 yes, 1 no\n" <<
+	      "\t-m Metric. 0 Point to point analytic, " <<
+	      "1 Point to point CVX, 2 point to plane CVX\n" <<
+              "\t-p Parallel units. \n";
+	  
           return -1;
        } else if (strcmp(argv[i], "-o") == 0) {
           settings.outlierRejection = atoi(argv[i+1]);

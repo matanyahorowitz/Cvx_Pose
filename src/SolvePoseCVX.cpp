@@ -57,6 +57,7 @@ void SolvePoseCVX::initializeSolver()
    SDPA::printSDPAVersion(stdout);
    sdpa.setParameterType(SDPA::PARAMETER_DEFAULT);
    sdpa.printParameters(stdout);
+   sdpa.setDisplay(stdout);
    
    //This is in the SDPA "standard (not dual-standard)" form
 
@@ -90,9 +91,9 @@ void SolvePoseCVX::initializeSolver()
       setupPointToPlane();
 
    }
-   else if( settings.outlierRejection )
+   else if( settings.outlierRejection == 0)
    {
-      dbg( "Settings: Point to point w outlier rejection" );
+      dbg( "Settings: Point to point w/ outlier rejection" );
       sdpa.inputConstraintNumber(num_pts*6 + 13);
       sdpa.inputBlockNumber(3);
       sdpa.inputBlockSize(1,4);
@@ -113,8 +114,8 @@ void SolvePoseCVX::initializeSolver()
       sdpa.inputBlockSize(1,4);
       sdpa.inputBlockType(1,SDPA::SDP);
       sdpa.initializeUpperTriangleSpace();
-      setupLinearObjective();
       setupRConstraint();
+      setupLinearObjective();
    }
 
    dbg( "Beginning SDPA initialization" );
@@ -205,9 +206,9 @@ void SolvePoseCVX::setupQuadraticObjective()
 
    for( int i=0; i<num_pts; i++ )
    {
-      int xi = i*3;
-      int yi = i*3 + 1;
-      int zi = i*3 + 2;
+      int xi = i*3 + 1;
+      int yi = i*3 + 2;
+      int zi = i*3 + 3;
    
       //Second block
    
@@ -228,8 +229,8 @@ void SolvePoseCVX::setupQuadraticObjective()
       //Rotation of model on second block
       for( int j=0; j<3; j++ ) {
          for( int k=0; k<3; k++ ) {
-            sdpa.inputElement( R[j][k], 2, i*3 + k, 3*num_pts+1, -model(k,i) );
-            sdpa.inputElement( R[j][k], 2, 3*num_pts+1, i*3 + k, -model(k,i) );
+            sdpa.inputElement( R[j][k], 2, i*3 + k + 1, 3*num_pts+1, -model(k,i) );
+            sdpa.inputElement( R[j][k], 2, 3*num_pts+1, i*3 + k + 1, -model(k,i) );
          }
       }
 
@@ -251,14 +252,14 @@ void SolvePoseCVX::setupQuadraticObjective()
       
       for( int j=0; j<3; j++ )
       {
-         sdpa.inputElement( zp+j, 2, i*3 + j, 3*num_pts+1, -1 );
-         sdpa.inputElement( zm+j, 2, i*3 + j, 3*num_pts+1, 1 );
+         sdpa.inputElement( zp+j, 2, i*3 + j + 1, 3*num_pts+1, -1 );
+         sdpa.inputElement( zm+j, 2, i*3 + j + 1, 3*num_pts+1, 1 );
          
-         sdpa.inputElement( zp+j, 2, 3*num_pts+1, i*3 + j, -1 );
-         sdpa.inputElement( zm+j, 2, 3*num_pts+1, i*3 + j, 1 );
+         sdpa.inputElement( zp+j, 2, 3*num_pts+1, i*3 + j + 1, -1 );
+         sdpa.inputElement( zm+j, 2, 3*num_pts+1, i*3 + j + 1, 1 );
       }
 
-      int zcp = -1 + 4 + 3*num_pts + 1;
+      int zcp = 3*i + 1;
       int zcm = zcp + 3*num_pts;
 
       //Third block
