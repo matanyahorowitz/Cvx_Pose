@@ -89,7 +89,7 @@ void ICP::estPose()
         count++;
         std::cout << "-----------Iteration " << count << " residual: " << error << "--------\n";
         
-        if( count > 20 )
+        if( count > 10 )
             break;
     }
 }

@@ -130,35 +130,35 @@ void SolvePoseCVX::setupPointToPlane()
    dbg ("Setting up point to plane metric" );
    int R[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
 
-   for( int i=0; i<num_pts; i++ )
+   for( int i=1; i<num_pts+1; i++ )
    {
-      Eigen::Vector3f n = model_normals.col(i);
+      Eigen::Vector3f n = model_normals.col(i-1);
       //Identity on second block along diagonal
-      sdpa.inputElement( 0, 2, i, i, 1 );
+      sdpa.inputElement( 0, 2, i, i, -1 );
 
       //Observation offset
-      sdpa.inputElement( 0, 2, i, num_pts+1, obs.col(i).transpose()*n );
-      sdpa.inputElement( 0, 2, num_pts+1, i, obs.col(i).transpose()*n );
-      
+      sdpa.inputElement( 0, 2, i, num_pts+1, obs.col(i-1).transpose()*n );
+      sdpa.inputElement( 0, 2, num_pts+1, i, obs.col(i-1).transpose()*n );
+
       //Rotation of model
       for( int j=0; j<3; j++ )
       {
          for( int k=0; k<3; k++ )
          {
-            sdpa.inputElement( R[j][k], 2, i, num_pts+1, n(j) * model(k,i) );
-            sdpa.inputElement( R[j][k], 2, num_pts+1, i, n(j) * model(k,i) );
+            sdpa.inputElement( R[j][k], 2, i, num_pts+1, n(j) * model(k,i-1) );
+            sdpa.inputElement( R[j][k], 2, num_pts+1, i, n(j) * model(k,i-1) );
          }
       }
 
       //Translation of model
-      int T[3] = {10, 11, 12};
-      sdpa.inputElement( T[0], 2, i, num_pts+1, n(0) );
-      sdpa.inputElement( T[1], 2, i, num_pts+1, n(1) );
-      sdpa.inputElement( T[2], 2, i, num_pts+1, n(2) );
+      int T1 = 10, T2 = 11, T3 = 12;
+      sdpa.inputElement( T1, 2, i, num_pts+1, n(0) );
+      sdpa.inputElement( T2, 2, i, num_pts+1, n(1) );
+      sdpa.inputElement( T3, 2, i, num_pts+1, n(2) );
 
-      sdpa.inputElement( T[0], 2, num_pts+1, i, n(0) );
-      sdpa.inputElement( T[1], 2, num_pts+1, i, n(1) );
-      sdpa.inputElement( T[2], 2, num_pts+1, i, n(2) );
+      sdpa.inputElement( T1, 2, num_pts+1, i, n(0) );
+      sdpa.inputElement( T2, 2, num_pts+1, i, n(1) );
+      sdpa.inputElement( T3, 2, num_pts+1, i, n(2) );
 
       //Outlier relaxation
       if( settings.outlierRejection )
@@ -173,14 +173,15 @@ void SolvePoseCVX::setupPointToPlane()
          sdpa.inputElement( zn, 2, num_pts+1, i, -1 );
 
          //Penalize outliers in objective
-         sdpa.inputCVec( zp, 1 );
-         sdpa.inputCVec( zn, 1 );
+         sdpa.inputCVec( zp, 1000 );
+         sdpa.inputCVec( zn, 1000 );
 
          //Outlier slack variable constraints (absolute value)
          //Third block
          sdpa.inputElement( zp, 3, i, i, 1 );
          sdpa.inputElement( zn, 3, i+num_pts, i+num_pts, 1 );
       }
+
    }
 
    //Setup objective slack factor
@@ -189,7 +190,7 @@ void SolvePoseCVX::setupPointToPlane()
 
 
    //Set objective weighting vs the L1 penalty (which has weight one)
-   float objWeight = 1.0f*num_pts;
+   float objWeight = 1.0f;
 
    sdpa.inputCVec(13, objWeight); //gamma
    
@@ -213,9 +214,9 @@ void SolvePoseCVX::setupQuadraticObjective()
       //Second block
    
       //Identity on second block in F_0
-      sdpa.inputElement( 0, 2, xi, xi, 1 );
-      sdpa.inputElement( 0, 2, yi, yi, 1 );
-      sdpa.inputElement( 0, 2, zi, zi, 1 );
+      sdpa.inputElement( 0, 2, xi, xi, -1 );
+      sdpa.inputElement( 0, 2, yi, yi, -1 );
+      sdpa.inputElement( 0, 2, zi, zi, -1 );
 
       //Observation offset on second block in F_0
       sdpa.inputElement( 0, 2, xi, 3*num_pts+1, obs(0,i) );
@@ -229,8 +230,8 @@ void SolvePoseCVX::setupQuadraticObjective()
       //Rotation of model on second block
       for( int j=0; j<3; j++ ) {
          for( int k=0; k<3; k++ ) {
-            sdpa.inputElement( R[j][k], 2, i*3 + k + 1, 3*num_pts+1, -model(k,i) );
-            sdpa.inputElement( R[j][k], 2, 3*num_pts+1, i*3 + k + 1, -model(k,i) );
+            sdpa.inputElement( R[j][k], 2, i*3 + j + 1, 3*num_pts+1, model(k,i) );
+            sdpa.inputElement( R[j][k], 2, 3*num_pts+1, i*3 + j + 1, model(k,i) );
          }
       }
 
@@ -252,11 +253,11 @@ void SolvePoseCVX::setupQuadraticObjective()
       
       for( int j=0; j<3; j++ )
       {
-         sdpa.inputElement( zp+j, 2, i*3 + j + 1, 3*num_pts+1, -1 );
-         sdpa.inputElement( zm+j, 2, i*3 + j + 1, 3*num_pts+1, 1 );
+	  sdpa.inputElement( zp+j, 2, i*3 + j + 1, 3*num_pts+1, 1 );
+	  sdpa.inputElement( zm+j, 2, i*3 + j + 1, 3*num_pts+1, -1 );
          
-         sdpa.inputElement( zp+j, 2, 3*num_pts+1, i*3 + j + 1, -1 );
-         sdpa.inputElement( zm+j, 2, 3*num_pts+1, i*3 + j + 1, 1 );
+         sdpa.inputElement( zp+j, 2, 3*num_pts+1, i*3 + j + 1, 1 );
+         sdpa.inputElement( zm+j, 2, 3*num_pts+1, i*3 + j + 1, -1 );
       }
 
       int zcp = 3*i + 1;
@@ -265,20 +266,20 @@ void SolvePoseCVX::setupQuadraticObjective()
       //Third block
       for( int j=0; j<3; j++ )
       {
-         sdpa.inputElement( zp+j, 3, zcp + j, zcp + j, 1 );
-         sdpa.inputElement( zm+j, 3, zcm + j, zcm + j, 1 );
+	  sdpa.inputElement( zp+j, 3, zcp + j, zcp + j, 1 );
+	  sdpa.inputElement( zm+j, 3, zcm + j, zcm + j, 1 );
       }
 
       //L1 penalty in objective
       for( int j=0; j<3; j++ )
       {
-         sdpa.inputCVec( zp+j, 1 );
-         sdpa.inputCVec( zm+j, 1 );
+	  sdpa.inputCVec( zp+j, 1000 );
+	  sdpa.inputCVec( zm+j, 1000 );
       }
    }
 
    //Set objective weighting vs the L1 penalty (which has weight one)
-   float objWeight = 1.0f*num_pts;
+   float objWeight = 1.0f;
 
    sdpa.inputCVec(13, objWeight); //gamma
 }
@@ -360,6 +361,15 @@ void SolvePoseCVX::singleSolver()
          R(i,j) = solution[j*3 + i];
       }
    }
+
+   if( !(settings.outlierRejection == 1 && settings.metric == 1 ) )
+   {
+       T(0) = solution[9];
+       T(1) = solution[10];
+       T(2) = solution[11];
+   } else {
+       T = obs_center - model_center;
+   }
 }
 
 /** Performs the pose estimation using an SDP */
@@ -368,14 +378,14 @@ void SolvePoseCVX::estimatePose()
    dbg( "Beginning pose estimation process" );
    this->initializeSolver();
 
-   T = obs_center - model_center;
-   std::cout << "calculated T: \n" << T << "\n";
    if( settings.cores == 1 )
       this->singleSolver();
    else
       this->multiSolvers();
 
    std::cout << "Calculated R: \n" << R << "\n";
+   std::cout << "calculated T: \n" << T << "\n";
+
 }
 
 /** Unimplemented [Todo] parallelization of the SDP using ADMM and OpenMP. */

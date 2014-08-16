@@ -68,14 +68,17 @@ int main(int argc, char * argv[]) {
     std::cout << "Reading in point cloud data\n";
     int line_num = 0;
     while( true ) {
-        //if( line_num % 10 == 0 )
-        //    std::cout << "Reading in line " << line_num << "\n";
-        
+	
         std::getline(fin, input);
         if( !fin ) { //end of line?
             std::cout << "End of file reached.\n";
             break;
         }
+
+	if( line_num % 10 != 0 ) {
+	    line_num++;
+	    continue;
+	}
         
         std::istringstream buffer(input);
         buffer >> x >> y >> z >> ia >> ib;
