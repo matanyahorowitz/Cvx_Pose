@@ -8,17 +8,17 @@ function [TR, TT, ER, t] = ISE3(q,p,varargin)
 %
 % The original code is also available in /icp_standard/
 %
-% [TR, TT] = icp(q,p)   returns the rotation matrix TR and translation
+% [TR, TT] = ISE3(q,p)   returns the rotation matrix TR and translation
 % vector TT that minimizes the distances from (TR * p + TT) to q.
 % p is a 3xm matrix and q is a 3xn matrix.
 %
-% [TR, TT] = icp(q,p,k)   forces the algorithm to make k iterations
+% [TR, TT] = ISE3(q,p,k)   forces the algorithm to make k iterations
 % exactly. The default is 10 iterations.
 %
-% [TR, TT, ER] = icp(q,p,k)   also returns the RMS of errors for k
+% [TR, TT, ER] = ISE3(q,p,k)   also returns the RMS of errors for k
 % iterations in a (k+1)x1 vector. ER(0) is the initial error.
 %
-% [TR, TT, ER, t] = icp(q,p,k)   also returns the calculation times per
+% [TR, TT, ER, t] = ISE3(q,p,k)   also returns the calculation times per
 % iteration in a (k+1)x1 vector. t(0) is the time consumed for preprocessing.
 %
 % Additional settings may be provided in a parameter list:
@@ -258,7 +258,7 @@ for k=1:arg.iter
     % Add to the total transformation
     TR(:,:,k+1) = R*TR(:,:,k);
     %TT(:,:,k+1) = R*TT(:,:,k)+T;
-    TT(:,:,k+1) = TT(:,:,k)+T;
+    TT(:,:,k+1) = R*TT(:,:,k)-T;
 
     % Apply last transformation
     %pt = TR(:,:,k+1) * p + repmat(TT(:,:,k+1), 1, Np);
